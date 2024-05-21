@@ -1,0 +1,8 @@
+The goal is to get all the redis hash value out 
+it shouuld be done every 30 mins 
+take all values and store in json file 
+have a mechnis to push value in redis set again in case for recovery for one time 
+
+
+-- Design 
+    -- 
