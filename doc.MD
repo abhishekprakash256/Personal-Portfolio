@@ -236,15 +236,11 @@ server {
 
 
 
-
-
-
-
-
-
-
-
-
+### The branch structure for GIT 
+- The main branch is for production
+- The testing branch to test a new feature
+- The dev branch to develope any new feature
+- new feature branch can be made for any specific developemnet
 
 
 
