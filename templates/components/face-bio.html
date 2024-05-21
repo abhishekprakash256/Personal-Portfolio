@@ -1,0 +1,50 @@
+
+
+<style>
+
+  .box-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 8; /* Number of lines to show */
+      -webkit-box-orient: vertical;
+  }
+</style>
+      <!-- the container is the start of the container  that has boxes inside it -->
+    
+    
+      <div class="row flex-column flex-md-row p-3">
+          <!-- the row starts the row and flex-column used as the making the column up and down then flex-md-row used for the break point-->
+    
+        <div class="col">
+
+          <img src="../static/images/profile/profile-pic.jpg" class="img-fluid rounded-circle mt-3 mb-3 shadow" alt="...">
+          <!--- the image fuid makes the image small, the rounded - circle makes the images rounded -->
+
+          {% include 'reusable/social-media.html' %}
+    
+        </div>
+        <!-- the first column for the image -->
+        <div class="col bg-light text-center rounded mt-2">
+          <!--- the second column -->
+    
+          <div class = "row" >
+    
+            <div class ="col text-center p-3">
+            <h1 class="heading-responsive-font bio-font"> {{ welcome_text }}</h1>
+            </div>
+          </div>
+    
+          <h1 class="bio-responisve-font mb-2 mt-0 bio-desc font-color-class" >{{ bio_text }}</h1>
+          
+          {% set more_link = "about" %}
+          {% include 'reusable/more.html' %}
+        </div>
+    
+        <!------------------the border is for the color -------------------->
+    
+      </div>
+    
+      <!------------the mid row to cotain the heading ------------->
+    
+    

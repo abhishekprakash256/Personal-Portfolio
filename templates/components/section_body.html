@@ -1,0 +1,129 @@
+
+<body class="background-color-body">
+    <div class="container main-container-color shadow-lg">
+      <!-- the container is the start of the container  that has boxes inside it -->
+     
+    {% set title = title %}
+    {% include 'reusable/card-heading.html' %}
+    
+    <!--------------set the card structure ------>
+    
+    
+  <div class="row flex-column flex-md-row mt-2">
+    <!-- the row starts the row and flex-column used as the making the column up and down then flex-md-row used for the break point-->
+
+    {% set card_one_text = card_one_texts[0] %}
+    {%set image_url_card_one = image_urls_card_one[0] %}
+    {%set card_first_url = card_first_urls[0] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+    {% set card_one_text = card_one_texts[1] %}
+    {%set image_url_card_one = image_urls_card_one[1] %}
+    {%set card_first_url = card_first_urls[1] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+
+    {% set card_one_text = card_one_texts[2] %}
+    {%set image_url_card_one = image_urls_card_one[2] %}
+    {%set card_first_url = card_first_urls[2] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+  <!------------------the border is for the color -------------------->
+
+</div>
+
+    
+  
+  
+    <!--------------set the card structure ------>
+    
+  <div class="row flex-column flex-md-row mt-2">
+    <!-- the row starts the row and flex-column used as the making the column up and down then flex-md-row used for the break point-->
+
+    {% set card_one_text = card_one_texts[3] %}
+    {%set image_url_card_one = image_urls_card_one[3] %}
+    {%set card_first_url = card_first_urls[3] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+
+    {% set card_one_text = card_one_texts[4] %}
+    {%set image_url_card_one = image_urls_card_one[4] %}
+    {%set card_first_url = card_first_urls[4] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+
+    {% set card_one_text = card_one_texts[5] %}
+    {%set image_url_card_one = image_urls_card_one[5] %}
+    {%set card_first_url = card_first_urls[5] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+  <!------------------the border is for the color -------------------->
+
+</div>
+
+    
+    <!--------------------The end of one card  ---------------->
+
+    
+    <!--------------set the card structure ------>
+   
+  <div class="row flex-column flex-md-row mt-2">
+    <!-- the row starts the row and flex-column used as the making the column up and down then flex-md-row used for the break point-->
+
+    {% set card_one_text = card_one_texts[6] %}
+    {%set image_url_card_one = image_urls_card_one[6] %}
+    {%set card_first_url = card_first_urls[6] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+
+    {% set card_one_text = card_one_texts[7] %}
+    {%set image_url_card_one = image_urls_card_one[7] %}
+    {%set card_first_url = card_first_urls[7] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+
+    {% set card_one_text = card_one_texts[8] %}
+    {%set image_url_card_one = image_urls_card_one[8] %}
+    {%set card_first_url = card_first_urls[8] %}
+
+    {% if card_one_text and image_url_card_one %}
+    {% include 'reusable/card.html' %}
+    {% endif %}
+
+  <!------------------the border is for the color -------------------->
+
+</div>
+
+    
+    <!--------------------The end of one card  ---------------->
+    {% include 'reusable/more.html' %}
+    
+    
+    
+    </div>
+    
+    </body>

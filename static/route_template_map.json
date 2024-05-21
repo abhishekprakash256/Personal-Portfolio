@@ -1,0 +1,14 @@
+{
+    "patching-unpatching": {
+        "template_path": "projects/patching-unpatching/patching-unpatching.html",
+        "article_data": {"article_name": "patching-unpatching"}
+    },
+    "federated-learning": {
+        "template_path": "projects/federated-learning/federated-learning.html",
+        "article_data": {"article_name": "federated-learning"}
+    },
+    "neural-transfer": {
+        "template_path": "projects/neural-transfer/neural-transfer.html",
+        "article_data": {"article_name": "neural-transfer"}
+    }
+}

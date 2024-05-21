@@ -1,0 +1,26 @@
+The front end design 
+
+Folder and file design -- 
+    - static
+        - projects
+            - tiny_url
+                - tiny_url.html
+
+                - tiny_url_body.html
+
+resuable components --
+
+
+nav-bar, input field, button 
+
+end-point in db -- 
+
+    - demo/tiny-url
+
+Api design -- 
+    - post api to get the data to back end 
+    - 
+
+
+
+

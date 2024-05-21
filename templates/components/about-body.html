@@ -1,0 +1,162 @@
+
+<body class="background-color-body">
+    <div class="container main-container-color shadow-lg">
+      <!-- the container is the start of the container  that has boxes inside it -->
+    
+    
+    
+     
+    {% set title = "About Me" %}
+    {% include 'reusable/card-heading.html' %}
+  
+    <!---------------------the image passed -------------->
+    {% set image_src = "../static/images/profile/profile-pic.jpg" %}
+    {% include 'components/about-pic.html' %}
+    
+    {% include 'reusable/social-media.html' %}
+
+    <!---------------the article ------------>
+    {% set article_para = "With a solid year of industry experience, I have developed expertise in various programming languages, with a strong emphasis on Python. My skill set extends to encompass Machine Learning, automation, and the design of tools for live production systems. I am well-versed in popular machine learning and deep learning frameworks such as PyTorch, TensorFlow, and scikit-learn.
+    In addition to my comprehensive computer science background, which includes a master's degree in computer science, I possess an in-depth understanding of data structures and algorithms. My professional journey has been marked by active involvement in a wide range of software projects, spanning from the development of small-scale tools to the orchestration of large-scale production systems. I take pride in my ability to ensure the robustness and efficiency of solutions, which is supported by my proficiency in unit testing and data visualization.
+    Furthermore, I have augmented my skill set with a specialization in Machine Learning Operations (MLOps). My knowledge in this domain extends to the management of CI/CD pipelines, guaranteeing the seamless integration and deployment of machine learning models. I am also well-versed in the use of automation tools like Ansible and Terraform, which has enabled me to streamline and automate MLOps processes. This optimization enhances the overall efficiency and reliability of machine learning workflows." %}
+    
+    {% include 'reusable/article-desc.html' %}
+
+    {% set title = "Skills" %}
+    {% include 'reusable/card-heading.html' %}
+
+    {% set title = "Python | C++ | JavaScript | Shell Scripting" %}
+    {% set title_two = "ML | Deep Learning | Data Cleaning | TensorFlow| Pytorch| Scikit-learn" %}
+    {% set title_three = "AWS | CI/CD | Ansible | Kubernetes | Version-control| Git" %}
+    {% set title_four = "Front-end| Sql/No Sql db | Agile Methodology | Automation | Testing " %}
+    {% include 'components/skills-heading.html' %}
+
+    {% set title = "Experience" %}
+    {% include 'reusable/card-heading.html' %}
+
+    
+
+    {% set heading_one = "ProPlaygrounds" %}
+    {% set heading_two = "SDE" %}
+    {% set desc_one = "Implemented a Machine Learning product recommendation system, based on the most sold products in recent months.utilizing Popularity-Based Recommendation and Content-Based Filtering algorithms." %}
+    {% set desc_two = "Achieved a notable 20% increase in user engagement, a 15% improvement in click-through rates, and a 10% increase in conversion rates" %}
+    {% set desc_three = "Implemented a robust sorting system utilizing plugins to enhance product filtering capabilities on the website" %}
+    {% set desc_four = "Executed comprehensive testing procedures for the website, employing GitLab CI/CD, Selenium, Ansible and Python to validate the efficiency of the filtering process and optimize the customer checkout experience." %}
+    {% include 'components/experience-list-one.html' %}
+
+
+    {% set heading_one = "Cognitive Geo Interpretation Inc " %}
+    {% set heading_two = "SDE (Intern)" %}
+    {% set desc_one = "Development, design, and ongoing maintenance of a robust GitLab CI/CD pipeline, enabling seamless infrastructure
+    development for standalone machines on AWS. Employed Ansible for efficient provisioning processes. This pipeline has
+    been instrumental in production, facilitating developer machine deployments.
+    " %}
+    {% set desc_two = "Elevated software quality through comprehensive end-to-end testing initiatives, driving an increase in test coverage from
+    65% to an impressive 75%. Leveraged Pytest, unit testing, and coverage analysis to achieve these results" %}
+    
+    {% include 'components/experience-list-two.html' %}
+
+
+    
+
+    {% set heading_one = "Florida State University" %}
+    {% set heading_two = "Research Assistant" %}
+    {% set desc_one = "Achieved a prediction accuracy of around 90% by Implementing Fed-Avg algorithm for Federated learning on MNIST
+    data set with six learning workers using Pytorch.
+    " %}
+    {% set desc_two = "Achieved 30% faster task off-loading by developing Double deep - Q learning model in Pytorch for Reinforcement
+    Learning task, on edge devices.
+    " %}
+    {% set desc_three = "Increase time efficiency by 60 % by developing automation scripts to collect and process data from Zigbee and Wi-Fi
+    devices." %}
+    {% include 'components/experience-list-three.html' %}
+
+    
+
+    {% set heading_one = "Florida State University" %}
+    {% set heading_two = "Voluntary Research Assistant" %}
+    {% set desc_one = "Accomplished the development of a website backend prototype, for seamless CRUD operations on an SQLite database
+    using Python. Crafted and populated the database with a substantial dataset comprising 2000 entries..
+    " %}
+    {% set desc_two = "Tested code quality by leveraging Pytest and Unit Testing methodologies. Achieved an impressive 85% code coverage
+    across the project, showcasing a meticulous approach to software development" %}
+
+    {% include 'components/experience-list-four.html' %}
+  
+    
+{% set title = "Projects" %}
+{% include 'reusable/card-heading.html' %}
+
+<!--------------set the card structure ------>
+{% set card_one_text = "Patching and Unpatching are a set of tools that are used for image processing. The patching .." %}
+<!--------- ------set card text------- ------->
+{%set image_url_card_one = "..\\static\\images\\projects\\patching-unpatching\\patching.png" %}
+{%set card_first_url = "/projects/patching-unpatching" %}
+
+{% set card_two_text = "Federated Learning is paradigm that covers the decentralized learning of the model on the .." %}
+{%set image_url_card_two = "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png" %}
+{%set card_two_url = "/projects/federated-learning" %}
+
+{% set card_three_text = "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask ... " %}
+{%set image_url_card_three = "..\\static\\images\\projects\\tiny-url\\www.png" %}
+{%set card_third_url = "/projects/tiny-url" %}
+
+{% include 'reusable/cards-display.html' %}
+
+{% set more_link = "/project" %}
+{% include 'reusable/more.html' %}
+
+<!--------------------The end of one card  ---------------->
+
+
+  {% set title = "Tech" %}
+  {% include 'reusable/card-heading.html' %}
+ 
+  
+    <!--------------set the card structure ------>
+    {% set card_one_text = "System design a multidisciplinary field that encompasses various aspects of designing ...." %}
+    {% set card_first_url = "/tech/system-design" %}
+    {%set image_url_card_one = "..\\static\\images\\tech\\system-design.png" %}
+    
+    {% set card_two_text = "Dynamic programming is a programming paradigm that can be used in problems which can .." %}
+    {%set image_url_card_two = "..\\static\\images\\tech\\dynamic-programming.jpg" %}
+    {% set card_two_url = "/tech/dynamic-programming" %}
+    
+    {% set card_three_text = "Image processing is a technique used by machines to understand data in a flat block of arrays, which can" %}
+    {%set image_url_card_three = "..\\static\\images\\tech\\image-processing.jpg" %}
+    {% set card_third_url = "/tech/image-processing" %}
+    
+    {% include 'reusable/cards-display.html' %}
+    
+    <!--------------------The end of one card  ---------------->
+    {% set more_link = "/tech" %}
+    {% include 'reusable/more.html' %}
+
+  
+
+    {% set title = "Life" %}
+    {% include 'reusable/card-heading.html' %}
+   
+    
+      <!--------------set the card structure ------>
+      {% set card_one_text = "Some quick example text to build on the card title and make up the bulk of the card's content" %}
+      <!--------- ------set card text------- ------->
+      {%set image_url_card_one = "../static/images/misc/cards.jpg" %}
+      
+      {% set card_two_text = "Some quick example text to build on the card title and make up the bulk of the card's content" %}
+      {%set image_url_card_two = "../static/images/misc/cards.jpg" %}
+      
+      {% set card_three_text = "Some quick example text to build on the card title and make up the bulk of the card's content" %}
+      {%set image_url_card_three = "../static/images/misc/cards.jpg" %}
+      
+      {% include 'reusable/cards-display.html' %}
+      
+      <!--------------------The end of one card  ---------------->
+      {% set more_link = "/life" %}
+      {% include 'reusable/more.html' %}
+
+      {% include 'reusable/resume.html' %}
+    
+    </div>
+    
+    </body>

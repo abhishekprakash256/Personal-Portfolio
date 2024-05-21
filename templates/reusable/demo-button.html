@@ -1,0 +1,48 @@
+<div class="row p-3">
+    <style>
+        /* Custom button color */
+        .button-custom-color {
+            background-color: #19A7CE;
+            border-color: #19A7CE;
+            color: #ffffff;
+        }
+
+        .button-custom-color:hover {
+            background-color: #0D87B0;
+            border-color: #0D87B0;
+            color: #fefefe; /* Font color on hover */
+        }
+
+        .submit-error-message {
+    color:#FA7070;
+
+  }
+
+    </style>
+    
+    <div id="demoForm" class="col text-center background-color-body rounded p-2">
+        <a id="demoButton" class="btn button-custom-color" href="{{ button_link }}" role="button" target="_blank">Demo</a>
+    </div>
+</div>
+
+<div id="successMessageDemo" class="col text-center background-color-body rounded p-2 submit-error-message bio-font" style="display: none;">
+    The Demo is not ready yet!
+</div>
+
+<script>
+    document.getElementById("demoButton").addEventListener("click", function(event) {
+        // Check if href attribute is set to "#"
+        if (this.getAttribute("href") === "#") {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Simulate form submission process
+            // Here, you can implement your logic to actually submit the form data
+
+            // Display success message
+            document.getElementById("successMessageDemo").style.display = "block";
+
+            // Disable the link after submission
+            this.classList.add("disabled");
+        }
+    });
+</script>

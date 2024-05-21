@@ -1,0 +1,140 @@
+
+/* styles.css */
+.height-full {
+  /* CSS properties and values */
+  height: 100vh;
+}
+
+.height-half {
+  height: 60vh;
+}
+
+/* Custom CSS */
+.custom-font {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Custom CSS */
+.arial-font {
+  /*font-family: Arial, sans-serif; */
+  font-family: Verdana, sans-serif;
+}
+
+
+
+.footer-pos {
+  position: absolute;
+  bottom: 0;
+  width: 100%          /* Footer height */
+}
+
+
+.background-color-body {
+  background-color: #ffffff; /* Replace #ff0000 with the color of your choice */
+}
+
+
+.footer-header-color {
+  background-color: #e9ecef;
+}
+
+
+.main-container-color {
+  background-color: #19A7CE;
+}
+
+.font-color-class {
+  color: #146C94; /* Replace #0000ff with the color of your choice */
+}
+
+.heading-responsive-font {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.bio-responisve-font {
+  font-size: clamp(1.5rem, 2vw, 4rem);
+
+
+}
+
+
+.bio-font {
+  font-family: 'Helvetica';
+  font-weight: 100;
+}
+
+.bio-desc
+{
+  font-family:Arial;
+  font-weight: 600;
+
+
+}
+
+
+.skills-responsive-font {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+
+.icon-color {
+  color:black;
+}
+
+.leetcode-icon
+{
+  margin-top: 0;
+}
+
+.hover-effect-leetcode:hover {
+  content: url(../static/images/icons/leetcode-color.svg); /* Change the image source on hover */
+}
+
+.hover-effect-kaggle:hover {
+  content: url(../static/images/icons/kaggle-color.svg); /* Change the image source on hover */
+}
+
+.hover-effect-github:hover {
+  content: url(../static/images/icons/github-color.svg); /* Change the image source on hover */
+}
+
+.hover-effect-linkedin:hover {
+  content: url(../static/images/icons/linkedin-color.svg); /* Change the image source on hover */
+}
+
+.hover-effect-gitlab:hover {
+  content: url(../static/images/icons/gitlab-color.svg); /* Change the image source on hover */
+}
+
+.social-media{
+  height: 40px;
+}
+
+.hover-download:hover {
+   /* Change the image source on hover */
+   text-decoration: none;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+.bounce:hover {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}

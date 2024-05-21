@@ -1,0 +1,119 @@
+<!-- Bootstrap CSS -->
+<!-- Custom CSS -->
+<style>
+  .submit-success-message {
+    color: #557C55;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .submit-error-message {
+    color:#FA7070;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Custom button color */
+  .button-custom-color {
+    background-color: #19A7CE;
+    border-color: #19A7CE;
+    color:#ffffff
+  }
+
+  .button-custom-color:hover {
+    background-color: #0D87B0;
+    border-color: #0D87B0;
+    color: #fefefe; /* Font color on hover */
+  }
+</style>
+
+<!------------------the contact me box ----------------->
+<div id="contact" class="row footer-header-color">
+  <div class="col text-center">
+    <h1 class="bio-font font-color-class heading-responsive-font mt-3">Contact Me</h1>
+  </div>
+</div>
+
+<!----------------- the contact box ----------->
+<div class="row footer-header-color flex-column flex-md-row">
+  <div class="col"></div>
+  <div class="col text-center"> <!-- Add text-center class here -->
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" name="message" id="message" rows="5" placeholder="Enter your message"></textarea>
+      </div>
+      <div id="successMessageSubmit" class="submit-success-message" style="display: none;">Message sent successfully!</div>
+      <div id="errorMessage" class="submit-error-message bio-font" style="display: none;">Please fill all fields</div>
+      <button type="submit" class="btn button-custom-color bio-font" id="submitButton">Submit</button>
+    </form>
+  </div>
+  <div class="col"></div>
+</div>
+
+<!----- the footer -->
+<div class="container-fluid footer-header-color">
+  <!----------------------------------->
+  <div class="row">
+    <div class="col text-center mt-2">
+      © 2024 Copyright:
+      <a class="text-dark" href="https://meabhi.me/">meabhi.me</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+
+<!-- Custom JavaScript -->
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    
+    // Check if any field is empty
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    if (name === "" || email === "" || message === "") {
+      // Display error message
+      document.getElementById("errorMessage").style.display = "block";
+      return; // Exit the function if any field is empty
+    }
+
+    // Send the form data to the Flask backend using AJAX
+    var formData = new FormData(this);
+    fetch('/submit_form', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      if (data.success) {
+        // Display success message
+        document.getElementById("successMessageSubmit").style.display = "block";
+        // Clear form fields
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+      } else {
+        // Display error message
+        document.getElementById("errorMessage").style.display = "block";
+      }
+    })
+    .catch(error => {
+      // Handle error if needed
+      console.error('Error:', error);
+    });
+  });
+</script>

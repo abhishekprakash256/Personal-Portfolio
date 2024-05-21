@@ -1,0 +1,30 @@
+the tiny url maker 
+
+working --- 
+
+reqs -- 
+
+database - 
+    - redis for databse can be used 
+    - mongodb (a seperate db and a collection inside it)
+    - a hashing algorithm to make the url hash 
+        - no collision should be there 
+
+Front end - 
+    - a url maker (input field ) 
+    - give url (copy url)
+
+
+backend - 
+    - take the url convert to hash 
+    - and map the hash to url 
+    - use the function to map the hash to url 
+
+for hashing of the values we pre create the hash and store in the redis list and take it store it in redis set
+like 10 of them one of them pops out we store them in them mapper redis hash then generate again 
+the set dataset will tale care of the collision problem and pre generation keeps the enough time for collision handling 
+
+
+
+
+make the front end to feed the value in database 

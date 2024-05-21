@@ -1,0 +1,221 @@
+[
+    {
+        "article_name": "patching-unpatching",
+        "aticle_data": [
+            
+            {"title": "Patching Unpatching Open Source tool", "image_src": "..\\static\\images\\projects\\patching-unpatching\\patching.png", "article_para": "", "markdown_data": ""},
+            {"title": "Project Description", "image_src": "", "article_para": "", "markdown_data": ""},
+            {"title": "", "image_src": "", "article_para": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.", "markdown_data": ""},
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "### Patching Tool"},
+            {"title": "", "image_src": "", "article_para": "Patching is the initial step in the image processing pipeline, responsible for dividing the input image into smaller, manageable sections called patches. These patches are typically square-shaped and can vary in size based on user-defined parameters such as patch size and padding.", "markdown_data": ""},
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "**Key Features:**\n1. **Segmentation:** The patching tool effectively segments the input image, breaking it down into discrete patches. This segmentation enables localized analysis and processing, facilitating tasks such as feature extraction and object detection.\n2. **Padding Options:** To ensure consistency and accuracy during patch extraction, the patching tool offers padding options such as reflective padding. This padding technique extends the borders of the image by replicating pixel values, thereby maintaining continuity across patch boundaries.\n3. **Support for Multiple Image Types:** Whether dealing with grayscale (single-channel) or color (three-channel) images, the patching tool accommodates diverse image types. This flexibility extends its utility across various applications, from medical imaging to satellite imagery analysis.\n4. **Parameter Customization:** Users have the flexibility to customize parameters such as patch size and padding width to suit specific requirements. Fine-tuning these parameters enables optimization for different image characteristics and processing objectives."},
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "### Unpatching Tool"},
+            {"title": "", "image_src": "..\\static\\images\\projects\\patching-unpatching\\unpatching.png", "article_para": "", "markdown_data": ""},
+            {"title": "", "image_src": "", "article_para": "Following patching, the Unpatching tool plays a crucial role in reconstructing the original or modified image from the segmented patches. It operates in conjunction with Patching, leveraging the extracted patch information to generate a cohesive image representation.", "markdown_data": ""},
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "**Key Features:** \n1. **Reconstruction:** The primary function of the Unpatching tool is to reconstruct the original image from the segmented patches. By combining these patches in a systematic manner, it restores the spatial integrity and continuity of the image.\n2. **Scalability:** The Unpatching tool offers scalability, allowing for both image enlargement and reduction. This capability is particularly useful in applications requiring image upscaling or downscaling while preserving visual fidelity.\n3. **Parameter Consistency:** To ensure consistency with the patching process, the Unpatching tool maintains compatibility with parameters such as patch size and padding width. This consistency facilitates seamless integration into the overall image processing workflow.\n4. **Enhanced Flexibility:** Beyond basic reconstruction, the Unpatching tool supports advanced functionalities such as blown upscale. This feature enables the user to specify the degree of enlargement or scaling applied to the reconstructed image, enhancing flexibility and control."},
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "### Integration and Workflow"},
+            {"title": "", "image_src": "", "article_para": "The seamless integration of Patching and Unpatching forms a comprehensive image processing workflow. Following patch extraction, the resulting patches can undergo various analyses or modifications before being fed into the Unpatching tool for reconstruction. This integrated approach streamlines the processing pipeline, offering efficiency, flexibility, and robustness.", "markdown_data": ""},
+            {"title": "", "image_src": "", "article_para": "In summary, Patching and Unpatching represent indispensable components of modern image processing frameworks. Their ability to segment, analyze, and reconstruct images empowers researchers, engineers, and practitioners across diverse domains, driving innovation and advancement in computer vision and image analysis.", "markdown_data": ""}
+    
+            
+    
+        ],
+
+        "card_one_text": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter",
+        "image_url_card_one": "..\\static\\images\\projects\\tiny-url\\www.png",
+        "card_one_url": "/projects/tiny-url",
+    
+        "card_two_text": "Federated Learning is a decentralized learning paradigm where models are trained on various devices, and their parameters are combined to create a global model. Initially introduced by Google",
+        "image_url_card_two": "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
+        "card_two_url": "/projects/federated-learning",
+    
+        "card_three_text": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the",
+        "image_url_card_three": "..\\static\\images\\projects\\academic-website\\main_page.png",
+        "card_three_url": "/projects/academic-website",
+
+        "first_social_media_url" : "https://github.com/abhishekprakash256/Patching-Unpatching-Tool",
+        
+        "second_social_media_url" : "",
+        "button_link":"#",
+        "more_link":"/project"
+    
+         }
+
+         ,
+
+         {
+            "article_name": "tiny-url",
+            "aticle_data": [
+                
+                {"title": "Tiny Url Generator", "image_src": "..\\static\\images\\projects\\tiny-url\\www.png", "article_para": "", "markdown_data": ""},
+                {"title": "Project Description", "image_src": "", "article_para": "", "markdown_data": ""},
+                {"title": "", "image_src": "", "article_para": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter, more manageable links. The backend leverages Redis for efficient data storage and retrieval, ensuring quick access and collision-free management of shortened URLs.", "markdown_data": ""},
+                {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Key Features \n1. **URL Shortening**: Users can input long URLs and receive a shortened version that redirects to the original link. \n2. **Custom Aliases**: Option to create custom aliases for the shortened URLs, enhancing readability and memorability. \n3. **High Performance**: Utilizes Redis for storing and fetching URLs, ensuring rapid response times and scalability."},
+                {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Technical Details \n- **Flask Server**: The web application is built using the Flask framework, providing a lightweight and flexible environment for handling HTTP requests and responses.\n- **Redis Integration**: Redis is used as the primary database, chosen for its speed and efficiency in handling large volumes of read/write operations.\n- **Redis Hash**: Used to avoid collisions by ensuring unique shortened URLs and storing mappings of short URLs to their original counterparts.\n- **Redis Sets**: Pre-generated short URLs are stored in a Redis set for faster allocation and retrieval.\n- **Redirect Functionality**: The application redirects users from the shortened URL to the original URL seamlessly."},
+                {"title": "", "image_src": "..\\static\\images\\projects\\tiny-url\\tiny-url-system-design.png", "article_para": "", "markdown_data": ""},
+                {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Implementation\n1. **Adding Data**: A Redis helper function is used to add new URL mappings. It checks for collisions using Redis hash and ensures each short URL is unique.\n2. **Fetching Data**: For retrieving the original URL, the application fetches the corresponding value from the Redis hash, utilizing the pre-generated values from the Redis set for efficient data access.\n3. **Collision Avoidance**: By using Redis hash, the application effectively manages and prevents URL collisions, maintaining the integrity of the service."},
+                {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Benefits\n- **Speed**: The use of Redis ensures quick read/write operations, making the URL shortening and redirection process almost instantaneous.\n- **Scalability**: The application is designed to handle a large number of URL mappings, making it suitable for high-traffic environments.\n- **Reliability**: The collision avoidance mechanisms and pre-generated URL values ensure consistent performance and reliability."},
+                {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Motivation \nInspired by the system design principles of existing URL shortening services, this project was undertaken to create a custom solution tailored to specific needs. The choice of Redis as the database and the overall system architecture significantly improved the efficiency and reliability of URL shortening, making the service dependable for both personal and broader use cases."},
+                {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Conclusion \nThe Tiny-URL Generator project showcases the integration of Flask and Redis to build a robust, high-performance URL shortening service. With its emphasis on speed, scalability, and ease of use, this application serves as a reliable tool for managing and sharing URLs efficiently."}
+        
+                
+        
+            ],
+            "card_one_text": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches",
+            "image_url_card_one": "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+            "card_one_url": "/projects/patching-unpatching",
+        
+            "card_two_text": "Federated Learning is a decentralized learning paradigm where models are trained on various devices, and their parameters are combined to create a global model. Initially introduced by Google",
+            "image_url_card_two": "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
+            "card_two_url": "/projects/federated-learning",
+        
+            "card_three_text": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the",
+            "image_url_card_three": "..\\static\\images\\projects\\academic-website\\main_page.png",
+            "card_three_url": "/projects/academic-website",
+
+
+            "first_social_media_url" : "https://github.com/abhishekprakash256/Flask/tree/main/testing/test17/redis_fun",
+            
+            "second_social_media_url" : "",
+            "button_link":"/demo/tiny-url",
+            "more_link":"/project"
+        
+             }
+        ,
+        {
+            "article_name": "federated-learning",
+            "aticle_data": [
+    
+            {"title": "Federated Learning", "image_src": "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png", "article_para": "Federated Learning is a decentralized learning paradigm where models are trained on various devices, and their parameters are combined to create a global model. Initially introduced by Google in 2017, it allows for effective model training without transferring sensitive data from devices.", "markdown_data": ""},
+    
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "## Federated Average Algorithm\nThe Federated Average Algorithm is a key component of Federated Learning, facilitating the aggregation of locally trained model parameters from multiple devices or workers into a global model. Here's a more detailed explanation of how the Federated Average Algorithm works:\n### 1. Initialization:\n- Initially, a global model with its parameters is defined. This model is typically a neural network architecture tailored for the specific task at hand (e.g., image classification, natural language processing).\n- Each participating device or worker initializes its local model with the same parameters as the global model.\n### 2. Local Model Training:\n- Each device or worker trains its local model using its own local dataset. This training process is typically performed using standard optimization techniques such as stochastic gradient descent (SGD) or its variants.\n- During training, the local model parameters are updated based on the gradients computed from the local dataset.\n### 3. Model Parameter Aggregation:\n- Once local training is complete, the updated parameters of each local model are communicated back to the central server or aggregator (often referred to as the federated server).\n- The federated server collects the parameters from all participating devices.\n### 4. Federated Averaging:\n- The federated server performs aggregation, usually through simple averaging, to compute a new set of global model parameters.\n- This aggregation process combines the parameters from all participating devices to generate a more robust and generalized global model.\n### 5. Distribution of Global Model:\n- The updated global model parameters are then distributed back to all participating devices.\n- This updated global model serves as the basis for the next round of local model training.\n### Iterative Process:\n- The entire process repeats iteratively over multiple rounds.\n- With each round, the global model tends to improve as it incorporates insights from diverse data sources and learns from different device-specific patterns.\n### Advantages of Federated Average Algorithm:\n- **Privacy Preservation**: Since raw data remains on the local devices and only model parameters are exchanged, federated learning preserves user privacy and data security.\n- **Decentralization**: Federated learning enables distributed model training across devices, reducing the need for centralized data storage and processing.\n- **Scalability**: It can scale to a large number of devices, making it suitable for applications with massive user bases.\n### Challenges and Considerations:\n- **Communication Overhead**: Communication between devices and the central server introduces latency and bandwidth constraints.\n- **Heterogeneity**: Devices may have varying computational capabilities, network conditions, and data distributions, necessitating techniques to handle heterogeneity.\n- **Model Drift**: As devices update the global model based on their local data, there is a risk of model drift, where the global model may diverge from the optimal solution due to variations in local datasets.\n- **Security Concerns**: Federated learning introduces new security risks, such as model poisoning attacks and privacy breaches, which need to be addressed through robust security measures.\nOverall, the Federated Average Algorithm forms the backbone of Federated Learning, enabling collaborative model training across distributed devices while preserving privacy and scalability."},
+    
+    
+            {"title": "", "image_src": "", "article_para": "", "markdown_data": "### The Experiment - \nIn this program I have implement 6 workers (virtual devices) that take the MNIST data and train on 10000 data points one each. The Global model is made using the Fed-Avg Algo that is used for the aggregation of the parameters. \n ### Algo description - \n1. Since the parameters of the main model and parameters of all local models in  the nodes are randomly initialized, all these parameters will be  different from each other. For this reason, the main model sends its  parameters to the nodes before the training of local models in the nodes begins.\n2. Nodes start to train their local models over their own data by using these parameters.\n3. Each node updates its parameters while training its own model. After the  training process is completed, each node sends its parameters to the  main model.\n4. The main model takes the average of these parameters and sets them as its  new weight parameters and passes them back to the nodes for the next  iteration."},
+    
+            {"title": "Model Training", "image_src": "..\\static\\images\\projects\\federated-learning\\train.png", "article_para": "", "markdown_data": "### Results \n- Graph to showing accuracy of the 6 worker models in test set."},
+    
+            {"title": "", "image_src": "..\\static\\images\\projects\\federated-learning\\results.png", "article_para": "", "markdown_data": ""}
+    
+            
+    
+            ],
+
+            "card_one_text": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches",
+            "image_url_card_one": "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+            "card_one_url": "/projects/patching-unpatching",
+        
+            "card_two_text": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter",
+            "image_url_card_two": "..\\static\\images\\projects\\tiny-url\\www.png",
+            "card_two_url": "/projects/tiny-url",
+        
+            "card_three_text": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the",
+            "image_url_card_three": "..\\static\\images\\projects\\academic-website\\main_page.png",
+            "card_three_url": "/projects/academic-website",
+
+
+            "first_social_media_url" : "https://github.com/abhishekprakash256/Federated-Avearge-On-MNIST",
+        
+            "second_social_media_url" : "",
+            "button_link":"#",
+            "more_link":"/project"
+        
+        
+        
+        },
+        
+        {
+            "article_name": "neural-transfer",
+            "aticle_data": [
+           
+            {"title": "Neural Style Transfer", 
+            "image_src": "..\\static\\images\\projects\\neural-transfer\\image_1.png",
+            "article_para": "The neural style transfer is implemented as per paper that came in 2015 title A Neural Algorithm of Artistic Style. The paper talks about combing the two images to create a new style image by using the style and feature transfer technique from both the images and tries to minimize the loss of the generated Gaussian image by using the custom loss function that can be tweaked by using the hyper-parameter alpha and beta. The implementation is done using pytorch.", 
+            "markdown_data": "## Neural Style Transfer\nNeural Style Transfer (NST) is a fascinating deep learning technique that merges the artistic style of one image with the content of another, creating a visually appealing synthesis. It was introduced by Gatys et al. in their 2015 paper titled A Neural Algorithm of Artistic Style. The core idea behind NST is to utilize convolutional neural networks (CNNs) to separate and manipulate the content and style of images independently.\n### Key Components of Neural Style Transfer:\n#### Content Image:\n- The content image is the base image whose content (e.g., objects, structures) you want to retain in the final stylized image. It serves as the foundation for the overall layout and composition.\n#### Style Image:\n- The style image is the image from which you want to extract the artistic style, including textures, colors, and patterns. The goal is to imbue the content image with the stylistic features of the style image.\n#### Neural Network Features:\n- NST typically utilizes a pre-trained convolutional neural network, often VGG-19 or VGG-16, which has been trained on a large dataset for image classification tasks. These networks have learned to extract hierarchical features at different levels of abstraction.\n#### Feature Extraction:\n- Features from the content image and style image are extracted by passing them through the layers of the neural network. Different layers capture different levels of detail and abstraction. Lower layers tend to capture simple features like edges and textures, while higher layers capture more complex features like object shapes and arrangements.\n#### Gram Matrix:\n- To capture style information from the extracted features, the Gram matrix is computed. The Gram matrix represents the correlation between different feature maps in a given layer. It encodes information about texture, patterns, and colors without considering spatial information.\n#### Loss Function:\n- NST employs a loss function that balances two components: the content loss and the style loss.\n- **Content Loss**: Measures the difference between the content features of the generated image and the content image. It ensures that the generated image maintains the content of the original image.\n- **Style Loss**: Compares the Gram matrices of the style features extracted from the generated image and the style image. It ensures that the generated image captures the style of the style image."},
+    
+            {"title": "", 
+            "image_src": "..\\static\\images\\projects\\neural-transfer\\image_3.png", 
+            "article_para": "", 
+            "markdown_data": "#### Optimization:\n- The goal of NST is to minimize the overall loss, which is a combination of content loss and style loss, by adjusting the pixel values of the generated image iteratively. This optimization process is typically performed using gradient descent or its variants.\n### Process of Neural Style Transfer:\n1. **Initialization**: Initialize the generated image with random pixel values or with the content image.\n2. **Feature Extraction**: Pass the content image, style image, and generated image through the neural network to extract their features at multiple layers.\n3. **Compute Loss**: Calculate the content loss between the features of the generated image and the content image, as well as the style loss between the features of the generated image and the style image.\n4. **Total Loss**: Combine the content loss and style loss using hyperparameters (alpha and beta) to get the total loss.\n5. **Optimization**: Use gradient descent to minimize the total loss by updating the pixel values of the generated image.\n6. **Iteration**: Repeat steps 2-5 iteratively until the generated image converges to a visually pleasing stylized image.\n### Applications of Neural Style Transfer:\n- **Artistic Rendering**: Create visually appealing artwork by combining the content of one image with the style of another. \n- **Image Editing**: Apply artistic styles to photographs or images to achieve a unique look and feel.\n- **Video Stylization**: Extend NST to videos, allowing for dynamic style transfer in video sequences.\n- **Texture Synthesis**: Generate novel textures by using the style of one image and applying it to random noise.\n Neural Style Transfer offers a powerful tool for artists, designers, and researchers to explore the intersection of art and artificial intelligence, enabling the creation of visually stunning images with rich artistic styles."},
+
+            {"title": "Result", "image_src": "..\\static\\images\\projects\\neural-transfer\\transfer-image.jpg", "article_para": "", "markdown_data": ""}
+    
+    
+    
+    
+    
+            ],
+    
+            "card_one_text": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches",
+            "image_url_card_one": "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+            "card_one_url": "/projects/patching-unpatching",
+        
+            "card_two_text": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter",
+            "image_url_card_two": "..\\static\\images\\projects\\tiny-url\\www.png",
+            "card_two_url": "/projects/tiny-url",
+        
+            "card_three_text": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the",
+            "image_url_card_three": "..\\static\\images\\projects\\academic-website\\main_page.png",
+            "card_three_url": "/projects/academic-website",
+
+
+            "first_social_media_url" : "https://github.com/abhishekprakash256/Neural-Style-Transfer/tree/main",
+        
+            "second_social_media_url" : "",
+            "button_link":"#",
+            "more_link":"/project"
+        },
+
+
+        {
+            "article_name": "academic-website",
+            "aticle_data": [
+           
+            {"title": "Academic Website", 
+            "image_src": "..\\static\\images\\projects\\academic-website\\main_page.png",
+            "article_para": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the different aspects from main page to contact page. Google Maps API is used to display the map. CSS flex boxes are also used for more size responsive optmizatrions.", 
+            "markdown_data": "## Overview\n- Conceptualized and developed a static academic website aimed at showcasing professional profile and works effectively.\n- Leveraged industry-standard technologies including HTML, CSS, and Media Query to ensure seamless responsiveness across a wide range of devices such as mobile phones, tablets, and various screen sizes.\n- Employed best practices in web development to create a user-friendly and visually appealing interface that captivates the audience and effectively communicates the intended message."},
+    
+            {"title": "", 
+            "image_src": "..\\static\\images\\projects\\academic-website\\third_page.png", 
+            "article_para": "", 
+            "markdown_data": "## Website Structure and Navigation\n- Structured the website into 8 distinct pages, meticulously designed to provide comprehensive coverage of different aspects.\n- Each page is strategically crafted to offer a unique perspective, ranging from the main landing page that introduces the individual or organization, to dedicated sections highlighting portfolio, projects, achievements, testimonials, blog, and contact information.\n- Implemented intuitive navigation features to facilitate seamless exploration and navigation between different sections, ensuring an optimal user experience."},
+
+            {"title": "", "image_src": "..\\static\\images\\projects\\academic-website\\second_page.png", "article_para": "", "markdown_data": "## Integration of Google Maps API\n- Integrated Google Maps API to provide a dynamic and interactive mapping solution, enhancing the website's functionality and user engagement.\n- Leveraged the power of Google Maps to display the geographical location or address prominently, enabling visitors to easily locate the individual or organization's physical presence."},
+
+            {"title": "", "image_src": "..\\static\\images\\projects\\academic-website\\contact_page.png", "article_para": "", "markdown_data": "## Responsive Design Techniques\n- Implemented advanced CSS flex boxes to optimize layout and presentation across various screen sizes and resolutions.\n- Ensured that the website's design dynamically adapts to different viewing environments, maintaining consistency and usability irrespective of the device being used."},
+
+            {"title": "", "image_src": "..\\static\\images\\projects\\academic-website\\main_phone.png", "article_para": "", "markdown_data": ""},
+            {"title": "", "image_src": "..\\static\\images\\projects\\academic-website\\second_phone.png", "article_para": "", "markdown_data": ""},
+            {"title": "", "image_src": "..\\static\\images\\projects\\academic-website\\contact_phone.png", "article_para": "", "markdown_data": ""}
+    
+    
+    
+    
+    
+            ],
+    
+            "card_one_text": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches",
+            "image_url_card_one": "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+            "card_one_url": "/projects/patching-unpatching",
+        
+            "card_two_text": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter",
+            "image_url_card_two": "..\\static\\images\\projects\\tiny-url\\www.png",
+            "card_two_url": "/projects/tiny-url",
+        
+            "card_three_text": "Federated Learning is a decentralized learning paradigm where models are trained on various devices, and their parameters are combined to create a global model. Initially introduced by Google",
+            "image_url_card_three": "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
+            "card_three_url": "/projects/federated-learning",
+
+
+
+            "first_social_media_url" : "https://github.com/abhishekprakash256/Academic-Website/tree/main",
+        
+            "second_social_media_url" : "",
+            "button_link":"/demo/academic-website",
+            "more_link":"/project"
+        }
+        
+    
+    ]
+    

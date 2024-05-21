@@ -1,0 +1,146 @@
+[{
+    "section_name": "life",
+    "title":"Life",
+    "card_one_texts": [
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content"
+    ],
+
+    "image_urls_card_one": [
+        "../static/images/misc/cards.jpg",
+         "../static/images/misc/cards.jpg",
+          "../static/images/misc/cards.jpg",
+           "../static/images/misc/cards.jpg",
+            "../static/images/misc/cards.jpg",
+             "../static/images/misc/cards.jpg",
+              "../static/images/misc/cards.jpg",
+               "../static/images/misc/cards.jpg",
+                "../static/images/misc/cards.jpg"
+    ],
+
+            "card_first_urls": [
+        "../static/images/misc/cards.jpg",
+         "../static/images/misc/cards.jpg",
+          "../static/images/misc/cards.jpg",
+           "../static/images/misc/cards.jpg",
+            "../static/images/misc/cards.jpg",
+             "../static/images/misc/cards.jpg",
+              "../static/images/misc/cards.jpg",
+               "../static/images/misc/cards.jpg",
+                "../static/images/misc/cards.jpg"
+    ],
+
+
+
+
+    "more_link": "..\\static\\images\\misc\\cards.jpg"
+},
+{
+    "section_name": "project",
+    "title":"Project",
+    "card_one_texts": [
+        "Patching and Unpatching are a set of tools that are used for image processing. The patching ..",
+        "TinyURL is a URL shortening service, which provides a short alias for long URLs. This service is particularly useful for making links more manageable and easier to share, especially on platforms with character limits, such as Twitter.",
+        "Federated Learning is paradigm that covers the decentralized learning of the model on the ..",
+        "The neural style transfer is implemented as per paper that came in 2015 title A Neural Style ..",
+        "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query ...",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content"
+    ],
+
+    "image_urls_card_one": [
+        "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+        "..\\static\\images\\projects\\tiny-url\\www.png",
+         "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
+          "..\\static\\images\\projects\\neural-transfer\\image_1.png",
+           "..\\static\\images\\projects\\academic-website\\main_page.png",
+            "../static/images/misc/cards.jpg",
+             "../static/images/misc/cards.jpg",
+              "../static/images/misc/cards.jpg",
+               "../static/images/misc/cards.jpg",
+                "../static/images/misc/cards.jpg"
+    ],
+
+            "card_first_urls": [
+        "/projects/patching-unpatching",
+        "/projects/tiny-url",
+         "/projects/federated-learning",
+          "/projects/neural-transfer",
+           "/projects/academic-website",
+            "../static/images/misc/cards.jpg",
+             "../static/images/misc/cards.jpg",
+              "../static/images/misc/cards.jpg",
+               "../static/images/misc/cards.jpg",
+                "../static/images/misc/cards.jpg"
+    ],
+
+
+
+
+    "more_link": "#"
+}
+,
+{
+    "section_name": "tech",
+    "title":"Tech",
+    "card_one_texts": [
+        "System design a multidisciplinary field that encompasses various aspects of designing ....",
+        "Dynamic programming is a programming paradigm that can be used in problems which can ..",
+        "Image processing is a technique used by machines to understand data in a flat block of arrays, which can",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content",
+        "Some quick example text to build on the card title and make up the bulk of the card's content"
+    ],
+
+    "image_urls_card_one": [
+        "..\\static\\images\\tech\\system-design.png",
+         "..\\static\\images\\tech\\dynamic-programming.jpg",
+          "..\\static\\images\\tech\\image-processing.jpg",
+           "../static/images/misc/cards.jpg",
+            "../static/images/misc/cards.jpg",
+             "../static/images/misc/cards.jpg",
+              "../static/images/misc/cards.jpg",
+               "../static/images/misc/cards.jpg",
+                "../static/images/misc/cards.jpg"
+    ],
+
+            "card_first_urls": [
+        "/tech/system-design",
+         "/tech/dynamic-programming",
+          "/tech/image-processing",
+           "../static/images/misc/cards.jpg",
+            "../static/images/misc/cards.jpg",
+             "../static/images/misc/cards.jpg",
+              "../static/images/misc/cards.jpg",
+               "../static/images/misc/cards.jpg",
+                "../static/images/misc/cards.jpg"
+    ],
+
+
+
+
+    "more_link": "..\\static\\images\\misc\\cards.jpg"
+}
+
+
+
+
+
+]
+
+
+
+

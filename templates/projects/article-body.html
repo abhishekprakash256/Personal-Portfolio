@@ -1,0 +1,70 @@
+
+
+
+<body class="background-color-body">
+    <div class="container main-container-color shadow-lg">
+        <!-- the container is the start of the container  that has boxes inside it -->
+        {% for article in articles_json["aticle_data"] %}
+
+        {% set title = article.title %}
+        {% if title %}
+        {% include 'reusable/card-heading.html'%}
+        {% endif %}
+
+        {% set image_src = article.image_src %}
+        {% if image_src %}
+        {% include 'reusable/article-image.html'%}
+        {% endif %}
+
+
+        {% set article_para = article.article_para %}
+
+        {% if article_para %}
+        {% include 'reusable/article-desc.html' %}
+        {% endif %}
+
+
+        {% set markdown_data = article.markdown_data %}
+        {% if markdown_data %}
+        {% include 'reusable/markdown-block.html' %}
+        {% endif %}
+        {% endfor %}
+
+
+        {% set first_social_media_url = articles_json['first_social_media_url'] %}
+        {% set second_social_media_url = articles_json['second_social_media_url'] %}
+        {% set third_social_media_url = articles_json['third_social_media_url'] %}
+        {% set four_social_media_url = articles_json['four_social_media_url'] %}
+
+        {% if first_social_media_url or second_social_media_url or third_social_media_url or  four_social_media_url%}
+        {% include 'reusable/article-social-media-links.html' %}
+        {% endif %}
+        
+
+        {% set button_link = articles_json['button_link'] %}
+        {% if button_link %}
+        {% include 'reusable/demo-button.html' %}
+        {% endif %}
+
+
+        {% set card_one_text= articles_json['card_one_text'] %}
+        {% set image_url_card_one= articles_json['image_url_card_one'] %}
+        {% set card_one_url= articles_json['card_one_url'] %}
+
+        {% set card_two_text= articles_json['card_two_text'] %}
+        {% set image_url_card_two = articles_json['image_url_card_two'] %}
+        {% set card_two_url= articles_json['card_two_url'] %}
+
+        {% set card_three_text= articles_json['card_three_text'] %}
+        {% set image_url_card_three= articles_json['image_url_card_three'] %}
+        {% set card_three_url= articles_json['card_three_url'] %}
+
+        
+        {% include 'reusable/cards-display.html' %}
+
+        <!--------------------The end of one card  ---------------->
+        {% set more_link = articles_json.more_link %}
+        {% include 'reusable/more.html' %}
+
+    </div>
+</body>

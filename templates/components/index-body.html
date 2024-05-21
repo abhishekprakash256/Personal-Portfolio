@@ -1,0 +1,91 @@
+
+<body class="background-color-body">
+<div class="container main-container-color shadow-lg">
+  <!-- the container is the start of the container  that has boxes inside it -->
+
+
+<!------The  welcome bio block -->
+{% set welcome_text = "Abhi's Microcosm: Welcome!" %}
+<!----- set the welcome text ------->
+{% set bio_text = "I'm a working professional with a strong passion for machine learning and software development. Eager to learn and solve real-world challenges in computer engineering, I find joy in participating in Kaggle competitions and LeetCode." %}
+<!----------------The bio text is passed--------------------->
+{% include 'components/face-bio.html' %}
+
+ 
+{% set title = "Tech" %}
+{% include 'reusable/card-heading.html' %}
+
+<!--------------set the card structure ------>
+{% set card_one_text = "System design a multidisciplinary field that encompasses various aspects of designing the destributed systems.." %}
+{% set card_first_url = "/tech/system-design" %}
+<!--------- ------set card text------- ------->
+{%set image_url_card_one = "..\\static\\images\\tech\\system-design.png" %}
+
+{% set card_two_text = "Dynamic programming is a programming paradigm that can be used in problems which can .." %}
+{%set image_url_card_two = "..\\static\\images\\tech\\dynamic-programming.jpg" %}
+{% set card_two_url = "/tech/dynamic-programming" %}
+
+{% set card_three_text = "Image processing is a technique used by machines to understand data in a flat block of arrays, which can" %}
+{%set image_url_card_three = "..\\static\\images\\tech\\image-processing.jpg" %}
+{% set card_third_url = "/tech/image-processing" %}
+{% include 'reusable/cards-display.html' %}
+
+<!--------------------The end of one card  ---------------->
+{% set more_link = "/tech" %}
+{% include 'reusable/more.html' %}
+
+
+
+{% set title = "Projects" %}
+{% include 'reusable/card-heading.html' %}
+
+<!--------------set the card structure ------>
+                        
+{% set card_one_text = "Patching and Unpatching are a set of tools that are used for image processing. The patching .." %}
+<!--------- ------set card text------- ------->
+{%set image_url_card_one = "..\\static\\images\\projects\\patching-unpatching\\patching.png" %}
+{%set card_first_url = "/projects/patching-unpatching" %}
+
+
+{% set card_two_text = "Federated Learning is paradigm that covers the decentralized learning of the model on the .." %}
+{%set image_url_card_two = "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png" %}
+{%set card_two_url = "/projects/federated-learning" %}
+
+
+{% set card_three_text = "The neural style transfer is implemented as per paper that came in 2015 title A Neural Style .. " %}
+{%set image_url_card_three = "..\\static\\images\\projects\\neural-transfer\\image_1.png" %}
+{%set card_third_url = "/projects/neural-transfer" %}
+
+{% include 'reusable/cards-display.html' %}
+
+<!--------------------The end of one card  ---------------->
+{% set more_link = "/project" %}
+{% include 'reusable/more.html' %}
+
+
+
+{% set title = "Life" %}
+{% include 'reusable/card-heading.html' %}
+
+<!--------------set the card structure ------>
+{% set card_one_text = "Some quick example text to build on the card title and make up the bulk of the card's content" %}
+<!--------- ------set card text------- ------->
+{%set image_url_card_one = "../static/images/misc/cards.jpg" %}
+
+{% set card_two_text = "Some quick example text to build on the card title and make up the bulk of the card's content" %}
+{%set image_url_card_two = "../static/images/misc/cards.jpg" %}
+
+{% set card_three_text = "Some quick example text to build on the card title and make up the bulk of the card's content" %}
+{%set image_url_card_three = "../static/images/misc/cards.jpg" %}
+
+{% include 'reusable/cards-display.html' %}
+
+<!--------------------The end of one card  ---------------->
+{% set more_link = "/life" %}
+{% include 'reusable/more.html' %}
+
+{% include 'reusable/resume.html' %}
+
+</div>
+
+</body>

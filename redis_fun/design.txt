@@ -1,0 +1,100 @@
+Const -
+    url-hash  (hash for redis)
+    url-set  (set for redis)
+    PRE_GEN_HASH_NUM = 10 (set the number of pre generated hashes)
+
+Folder 
+    - redis (folder)
+        - redis_helper (file)
+            - check redis status (function)
+            - establish the client (function)
+            - helper_fun (class)
+                - add_value_to_set (method) -
+                - add_value_to_hash (method) -
+                - delete_db (method) -
+                - check_val_exist (method)
+                - pop_set_val - (method)
+                - get_hash_val (method) -
+                    """  
+                    Get the url value from the redis hashset
+                    return the orginal url to flask server
+                    """
+                - get_all_set_val (method)
+                  """
+                  get all the value from the set 
+                  """
+                - get_all_hash_val (method)
+                  """
+                  get all the value from the hash
+                  """
+
+    
+    - hashing (folder)
+        - make_hashes (file)
+            - generate_random_hash (function)
+    
+    - generate_tiny_url (file)
+        - check_redis_set (function)
+            """
+            check the len of the redis set and add value till
+            the len of the set is 10 
+            """
+        - generate_tiny_url_fun (function)
+            """
+            Pop the element from the redis set 
+            run check_redis_set
+            add the elemnet in the redis hash with url as per key and val
+            return the tiny url 
+            """
+
+
+
+front -end --
+
+    - input field 
+    - button to genrate the tiny url 
+    - output field to copy the url 
+
+    - api 
+        submit_tiny_url  (end point) (orginal_url)
+        out (new_hash)
+
+
+
+Flask server -- 
+
+    - tiny_url_redirect(tiny_url)
+      """
+      The function will redirect the tiny url to the main url 
+      """
+    - tiny_url_render ()
+      """
+      render the tiny url generatar page 
+      """
+
+
+
+Input -- 
+    url only as str 
+
+
+output -- 
+    tiny url as str 
+
+
+Reqs - 
+
+    - render the hash from front-end 
+      https://www.meabhi.me/tu/BuIvwW4  -- like this 
+    - get new hash and render it in front-end 
+    - with QR code 
+    - and copy function 
+    - give a option to generate new after that
+    - make redis to mongo data copy system
+    - and back and forth to save data in time to crissis
+    - check the error from section data in console 
+
+
+
+
+    

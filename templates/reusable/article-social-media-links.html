@@ -1,0 +1,25 @@
+<div class = "row p-3" >
+    
+    <div class="col text-center background-color-body rounded p-2">
+        
+        {% if first_social_media_url %}
+        <a href="{{ first_social_media_url}}" class = "" target="_blank"><i class="ml-2 mr-2"><img src="../static/images/icons/github.svg" class= "leetcode-icon hover-effect-github" width="33" height="33" alt="LeetCode"></i></a>
+        {% endif %}
+
+        {% if second_social_media_url %}
+        <a href="{{ second_social_media_url}}" class = "" target="_blank"><i class="ml-2 mr-2"><img src="../static/images/icons/linkedin.svg" class= "leetcode-icon hover-effect-linkedin" width="33" height="33" alt="LeetCode"></i></a>
+        {% endif %}
+
+
+        {% if third_social_media_url %}
+        <a href="{{ third_social_media_url}}" class = "" target="_blank"><i class="ml-2 mr-2"><img src="../static/images/icons/linkedin.svg" class= "leetcode-icon hover-effect-linkedin" width="33" height="33" alt="LeetCode"></i></a>
+        {% endif %}    
+
+        {% if fourth_social_media_url %}
+        <a href="{{ fourth_social_media_url}}" class = "" target="_blank"><i class="ml-2 mr-2"><img src="../static/images/icons/linkedin.svg" class= "leetcode-icon hover-effect-linkedin" width="33" height="33" alt="LeetCode"></i></a>
+        {% endif %}
+        
+       <!---<a class="btn btn-primary " href="{{ button_link }}" role="button">Demo</a>----->
+        
+    </div>
+  </div>

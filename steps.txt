@@ -1,0 +1,92 @@
+deafaul file for nginx config
+
+
+server {
+    listen 80;
+    server_name www.meabhi.me;
+
+    # Redirect HTTP to HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name www.meabhi.me;
+
+    ssl_certificate /etc/letsencrypt/live/meabhi.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/meabhi.me/privkey.pem;
+
+    # Other SSL configuration directives (e.g., SSL protocols, ciphers, etc.)
+
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+
+
+----------------------------------------------------------------------------------
+
+the nginx commands
+
+sudo apt update
+sudo apt install nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+---------------------------------------------------------------------------------
+flask run --host=0.0.0.0 --port=5000
+
+kil flask by 
+
+ps aux | grep flask
+kil pid
+
+
+run the flask in background 
+
+flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 & disown
+
+
+another approach to run in background 
+
+sudo apt-get install screen 
+
+#star the screen session
+screen -S flask_server
+flask run --host=0.0.0.0 --port=5000
+
+#to reattach
+screen -r flask_server
+
+
+
+--------------------------------------------------------------------------
+
+for the cert bot 
+
+sudo yum install certbot python3-certbot-nginx
+sudo certbot --nginx -d meabhi.me -d www.meabhi.me
+sudo certbot --nginx -d meabhi.me
+
+--------------------------------------------------------------------------------
+
+mongo commands
+
+
+mongosh 
+use your_database_name
+show collections
+db.dropDatabase()  #delete the dropDatabase
+db.<collection_name>.drop()  #drop the 
+db.my_collection.find() #show all the data in collection

