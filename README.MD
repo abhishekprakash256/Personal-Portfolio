@@ -15,12 +15,16 @@ aws ec2 (static ip)
 ### File structure : - 
 
 ```
+hashing (the hashing files for making the hash for tiny url)
+    - making_hashes (generate the radnom hash of var length using generate_random_hash)
 mongo (the files that are used for the mongo data hnadling and insertion)
     - mongo_helper (the file connects the mongo client and the data and the has the methods to add , insert , update, delete and show in the database, the database )
     - read_data_json (the file is used to read the data from the json for the insertion in the mongodb)
     - data_handling (the data handling file is used to add and update the database as per requirement)
     - bulk_data_insertion (The file is used for the addition of the data from the json file read it delete all and then write the lastest data , the problem is currently add the data by deletion of all rather than modifications)
 
+redis_fun( The redis helper function for fetechng the redis values)
+    - redis_helper (The redis helper function for add , checking , popping of values from hash and sets)
 
 static (The static files of the website are here )
     - images (all images as per sections of the website)
@@ -58,6 +62,8 @@ exp ( an experiment file can be changed anytime as per needed )
 form_data (the file to store the data from the message fields)
 
 read_data_mongo (read the data from the mongo and fetch it for render )
+
+generate_tiny_url (made the new hash and keep reseve value in set and give new value when ever asked for)
 ```
 
 ### Redis installation commands (Linux)
@@ -194,6 +200,11 @@ server {
 - The section database to store the section data 
     - The collection "section_data" is used to store the section data 
     - The "section_data" is stored with the data from life, project and tech page
+
+
+### Redis (database)
+- The "url-hash" is the hash to store the hashed url as key and orginal url as value
+- The "url-set" is the set to store the pre made hash values that are unique
 
 
 ### The App file (main flask file)
