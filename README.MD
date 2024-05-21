@@ -136,6 +136,15 @@ run the flask in background
 flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 & disown
 ```
 
+### For update in the server machine 
+
+```
+run this script 
+python3 update-script.py
+(kill the flask server, git pull latest, injest the mongo dataset, run the sever again )
+
+```
+
 
 ##  Nginx Configurations 
 
