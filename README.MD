@@ -244,7 +244,13 @@ server {
 
 
 
+### The tiny URL 
 
+- The tiny url uses  hash system to generate the data and the size varies from 5 to 10 from generate_random_hash
+- 10 hash values are premade and store in sets with checking in the redis hash as well for uniqueness.
+- Then the hash are popped out when the tiny url system with the original url 
+- The handling of the front end data is done using JS and then data is feched 
+- Redis plays an imp role in the data fetching system , the redis helper is the backbone of the system
 
 
 
