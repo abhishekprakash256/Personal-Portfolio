@@ -10,6 +10,7 @@ mongodb
 nginx 
 pymongo 
 aws ec2 (static ip)
+redis
 ```
 
 ### File structure : - 
@@ -64,6 +65,8 @@ form_data (the file to store the data from the message fields)
 read_data_mongo (read the data from the mongo and fetch it for render )
 
 generate_tiny_url (made the new hash and keep reseve value in set and give new value when ever asked for)
+
+update-script.py (the update script to pull the lastest file and injest data again in mongo and run the flask sever again)
 ```
 
 ### Redis installation commands (Linux)
@@ -134,6 +137,11 @@ kil pid
 
 run the flask in background 
 flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 & disown
+
+
+The command to do above all 
+python3 update_script.py
+
 ```
 
 ### For update in the server machine 
@@ -271,9 +279,21 @@ server {
 - Then the hash are popped out when the tiny url system with the original url 
 - The handling of the front end data is done using JS and then data is feched 
 - Redis plays an imp role in the data fetching system , the redis helper is the backbone of the system
+- The recovery system 
+    - the redis_recovery (folder) has redis_recovery_fun to store the value in json file 
+        - this file run every 10 to make the redis_hash.json in static (folder)
+    - push_hash_to_redis this makes the database and pushes the values to redis hash
+        - run python3 push_hash_to_redis.py to push all values to redis hash
 
+- the command to run the recovery system
+```
+ to start the srcipt and run in background 
+ nohup python3 redis_recovery_func.py > output.log 2>&1 &
+ to kill the script 
+ ps aux | redis_recovery_func.py
+ kill pid
 
-
+```
 
 
 

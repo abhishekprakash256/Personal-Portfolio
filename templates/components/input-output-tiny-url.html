@@ -1,4 +1,7 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>QR Code Generator</title>
     <style>
         .submit-success-message {
@@ -45,56 +48,60 @@
             margin-bottom: 20px;
         }
     </style>
-
-    <div class="row footer-header-color flex-column flex-md-row">
-        <div class="col"></div>
-        <div class="col text-center">
-            <form id="tinyurlForm">
-                <div class="form-group">
-                    <label></label>
-                    <input type="text" class="form-control" name="original_url" id="original_url" placeholder="Enter the original URL with http">
+</head>
+<body>
+    <div class="row p-3 flex-column flex-md-row ">
+        <div class="col rounded">
+            <div class="row flex-column flex-md-row background-color-body rounded" >
+                <div class="col "></div>
+                <div class="col text-center mt-3">
+                    <form id="tinyurlForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="original_url" id="original_url" placeholder="Enter the original URL with http or https">
+                        </div>
+                        <div id="successMessageSubmittinyurl" class="submit-success-message" style="display: none;">URL Generated Successfully!!</div>
+                        <div id="errorMessagetinyurl" class="submit-error-message bio-font" style="display: none;">Please enter a valid URL with http or https</div>
+                        <div id="tinyUrlDisplayContainer" style="display: none;">
+                            <div class ="tiny-url arial-font font-color-class " id="tinyUrlDisplay"></div>
+                            <button type="button" id="copyButton" class="btn button-custom-color bio-font">Copy Tiny URL</button>
+                        </div>
+                        <div class="button-container mb-3">
+                            <button type="submit" class="btn button-custom-color bio-font" id="get_tiny_url">Get Tiny URL</button>
+                            <button type="button" class="btn button-custom-color bio-font" id="clearButton" style="display: none;">Generate Another URL</button>
+                        </div>
+                    </form>
                 </div>
-                <div id="successMessageSubmittinyurl" class="submit-success-message" style="display: none;">URL Generated Succesfully!!</div>
-                <div id="errorMessagetinyurl" class="submit-error-message bio-font" style="display: none;">Please fill the URL</div>
-                <div id="tinyUrlDisplayContainer" style="display: none;">
-                    <div class ="tiny-url arial-font font-color-class " id="tinyUrlDisplay"></div>
-                    <button type="button" id="copyButton" class="btn button-custom-color bio-font">Copy Tiny URL</button>
-                </div>
-                <div class="button-container">
-                    <button type="submit" class="btn button-custom-color bio-font" id="get_tiny_url">Get Tiny URL</button>
-                    <button type="button" class="btn button-custom-color bio-font" id="clearButton" style="display: none;">Generate Another URL</button>
-                </div>
-                
-            </form>
-            
+                <div class="col"></div>
+            </div>
         </div>
-        <div class="col"></div>
     </div>
-    <div class="row footer-header-color text-center">
 
-        <div class = "col"></div>
-
-        <div class = "qr-code" id="qrcode"></div>
-
-        <div class = "col"></div>
+    <div id = "qrcontainer" class="row p-3 flex-column flex-md-row " style="display: none;">
+        <div class="col rounded">
+            <div class="row background-color-body rounded text-center">
+                <div class = "col"></div>
+                <div class = "qr-code" id="qrcode"></div>
+                <div class = "col"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Load QRCode library from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
     <script>
         document.getElementById("tinyurlForm").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent the default form submission behavior
         
-            // Check if the URL field is empty
+            // Check if the URL field is empty or invalid
             var original_url = document.getElementById("original_url").value;
+            var urlPattern = /^(https?:\/\/[^\s$.?#].[^\s]*)$/; // Regex pattern to validate URL with http or https
         
-            if (original_url === "") {
+            if (!original_url.match(urlPattern)) {
                 // Display error message
                 document.getElementById("errorMessagetinyurl").style.display = "block";
-                return; // Exit the function if the field is empty
+                return; // Exit the function if the field is empty or invalid
             } else {
-                // Hide error message if URL is not empty
+                // Hide error message if URL is valid
                 document.getElementById("errorMessagetinyurl").style.display = "none";
             }
         
@@ -114,8 +121,10 @@
             
                     // Display the generated tiny URL
                     var tinyUrlDisplayContainer = document.getElementById("tinyUrlDisplayContainer");
+                    var qrcontainer = document.getElementById("qrcontainer");
                     var tinyUrlDisplay = document.getElementById("tinyUrlDisplay");
                     tinyUrlDisplayContainer.style.display = "block";
+                    qrcontainer.style.display = "block";
                     tinyUrlDisplay.textContent = window.location.origin + "/tu/" + data.tiny_url;
             
                     // Show the Clear button, hide the Generate button
@@ -181,4 +190,5 @@
             }, 2000); // Change back to "Copy Tiny URL" after 2 seconds
         });
     </script>
-
+</body>
+</html>
