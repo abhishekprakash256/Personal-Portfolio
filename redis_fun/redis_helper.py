@@ -175,3 +175,16 @@ class Helper_fun():
         print("\nFields and values in Redis hash ")
         for field, value in hash_fields.items():
             print(f"{field}: {value}")
+
+
+    def store_hash_val(self,hash_map):
+        """
+        The function to store all values in hash map
+        """
+
+        hash_fields = redis_client.hgetall(self.hash_name)
+        print("Fields and values in Redis hash ")
+        for field, value in hash_fields.items():
+            hash_map[field] = value
+        
+
