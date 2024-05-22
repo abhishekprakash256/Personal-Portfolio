@@ -20,3 +20,17 @@ have a mechnis to push value in redis set again in case for recovery for one tim
         -- push_hash_to_redis(file)
             -- push_hash_from_json_to_redis(file_path, hash_name)
                 -- push hashes val from json to redis hash
+
+
+-- The redis_recovery_fun.py file shoudl run every 15 mins on server 
+-- In case of redis failure it can be restored by running push_hash_to_redis 
+
+
+-- Testing 
+    -- make a new hash 
+    -- run the redis_recovery_fun 
+    -- check working 
+    -- delete the database 
+    -- check if failed
+    -- run the push_hash_to_redis
+    -- check the url redirection
