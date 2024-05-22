@@ -10,6 +10,7 @@ mongodb
 nginx 
 pymongo 
 aws ec2 (static ip)
+redis
 ```
 
 ### File structure : - 
