@@ -262,7 +262,11 @@ server {
 - Then the hash are popped out when the tiny url system with the original url 
 - The handling of the front end data is done using JS and then data is feched 
 - Redis plays an imp role in the data fetching system , the redis helper is the backbone of the system
-
+- The recovery system 
+    - the redis_recovery (folder) has redis_recovery_fun to store the value in json file 
+        - this file run every 15 minutes to make the redis_hash.json in static (folder)
+    - push_hash_to_redis this makes the database and pushes the values to redis hash
+        - run python3 push_hash_to_redis.py to push all values to redis hash
 
 
 

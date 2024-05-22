@@ -19,7 +19,6 @@ SET_NAME = "url-set"
 #file path 
 JSON_FILE_PATH = "../static/redis_hash.json"
 
-print()
 
 #make the instance 
 helper_fun = Helper_fun(HASH_NAME,SET_NAME)
@@ -47,4 +46,5 @@ def push_hash_from_json_to_redis(file_path, hash_name):
         print(f"An error occurred while reading the JSON file: {e}")
 
 
+#push the values in the redis hash
 push_hash_from_json_to_redis(JSON_FILE_PATH,HASH_NAME)
