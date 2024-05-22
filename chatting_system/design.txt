@@ -62,4 +62,8 @@ Reusable components --
         -- order of chat message is imp
 
 
+look into -- 
 
+    -- chat storage systems (sql , nosql any)
+    -- rabbitmq 
+    -- kafka
