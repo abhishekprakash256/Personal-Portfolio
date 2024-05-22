@@ -265,11 +265,15 @@ server {
 - Redis plays an imp role in the data fetching system , the redis helper is the backbone of the system
 - The recovery system 
     - the redis_recovery (folder) has redis_recovery_fun to store the value in json file 
-        - this file run every 15 minutes to make the redis_hash.json in static (folder)
+        - this file run every 10 to make the redis_hash.json in static (folder)
     - push_hash_to_redis this makes the database and pushes the values to redis hash
         - run python3 push_hash_to_redis.py to push all values to redis hash
 
-
+- the command to run the recovery system
+```
+ nohup python3 redis_recovery_func.py > output.log 2>&1 &
+ kill 
+```
 
 
 
