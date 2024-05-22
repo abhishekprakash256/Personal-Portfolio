@@ -65,6 +65,8 @@ form_data (the file to store the data from the message fields)
 read_data_mongo (read the data from the mongo and fetch it for render )
 
 generate_tiny_url (made the new hash and keep reseve value in set and give new value when ever asked for)
+
+update-script.py (the update script to pull the lastest file and injest data again in mongo and run the flask sever again)
 ```
 
 ### Redis installation commands (Linux)
@@ -276,7 +278,7 @@ server {
  ro kill the script 
  ps aux | redis_recovery_func.py
  kill pid
- 
+
 ```
 
 
