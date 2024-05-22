@@ -56,8 +56,16 @@ print(injest_data.stdout)
 #change the dir again
 os.chdir(original_directory)
 
-#run the flask server again
 
+#run the redis recovery system 
+redis_recovery = subprocess.run(['cd redis_recovery && nohup python3 redis_recovery_func.py > output.log 2>&1 &'], shell=True, capture_output=True, text=True, check=True)
+
+
+#change the dir again
+os.chdir(original_directory)
+
+
+#run the flask server again
 
 run_server = subprocess.run('nohup flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 &', shell=True, check=True)
 if run_server:
