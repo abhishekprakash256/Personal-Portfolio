@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import time
 
 #make the parnet directory
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'redis_fun'))
@@ -14,6 +15,9 @@ HASH_NAME = "url-hash"
 SET_NAME = "url-set"
 #file path 
 JSON_FILE_PATH = "../static/redis_hash.json"
+#time duration of 10 seonds
+TIME_DURATION = 10
+
 
 #make the hash map 
 hash_mapper = {}
@@ -44,5 +48,29 @@ def save_dict_to_json_file(dictionary, file_path) :
         print(f"An error occurred while saving the dictionary to JSON: {e}")
 
 
-#save the redish hash to json 
-save_dict_to_json_file(hash_mapper, JSON_FILE_PATH)
+def run_periodically(duration):
+    """
+    The function to run the recovery system periodically 
+    """
+    while True:
+        # Run your code here
+        try:
+        
+            #save the redish hash to json 
+            save_dict_to_json_file(hash_mapper, JSON_FILE_PATH)
+            print("Running the script...")
+            # Example: Call your main function
+            # main_function()
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+        # Wait for 10 seconds
+        time.sleep(duration)  # 10 seconds
+
+
+
+if __name__ == "__main__":
+    run_periodically(TIME_DURATION)
+
+
+
