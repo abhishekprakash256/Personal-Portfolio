@@ -1,0 +1,64 @@
+Reqs for chatting system 
+    -- start chatting page 
+    -- two person chatting system 
+    -- links for both of them 
+    -- Qr code both people 
+    -- secret code for both of them 
+    -- secret code matching system and error system 
+    -- send and recieve message 
+    -- end the session 
+
+
+database -
+	-- mongodb
+        -- chatid (hash) 
+        -- message participant first
+        -- message participant second
+	-- redis 
+
+
+Font end -- 
+    -- Chat start page 
+        -- input First participant name
+        -- input Second participant name
+        -- start chat button 
+        -- first participant short url 
+        -- second participant short url 
+        -- first participant qr code 
+        -- second participant qr code
+        -- first participannt secret code 
+        -- second partcipant secret code
+    
+    -- Enter chat page for one perosn  
+        -- Hello Name should be written
+        -- enter the secret code 
+        -- Get in button
+
+    -- chat page 
+        -- show the opposite name in above 
+        -- input field box 
+        -- send button 
+        -- Endchat button (both sides of partcipant)
+            -- if any one clicks that button display chat has ended to other person 
+            -- 
+     
+Reusable components -- 
+	-- hashing system
+	-- qr code generation 
+	-- tiny-url generation 
+	-- input and output fields
+
+
+
+
+-- develop
+	-- chat start system
+	-- message sending system
+	-- message receiving system 
+	-- chat ending system 
+	-- dynamic chat popping and UI changing 
+	-- notification service 
+	-- Timeout system
+	-- destroy chat database
+
+
