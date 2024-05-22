@@ -24,6 +24,7 @@ print()
 #make the instance 
 helper_fun = Helper_fun(HASH_NAME,SET_NAME)
 
+#for testing purpose
 #helper_fun.delete_db(HASH_NAME)
 
 def push_hash_from_json_to_redis(file_path, hash_name):
