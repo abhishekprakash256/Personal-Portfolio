@@ -137,6 +137,11 @@ kil pid
 
 run the flask in background 
 flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 & disown
+
+
+The command to do above all 
+python3 update_script.py
+
 ```
 
 
