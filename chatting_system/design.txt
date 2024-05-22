@@ -12,8 +12,7 @@ Reqs for chatting system
 database -
 	-- mongodb
         -- chatid (hash) 
-        -- message participant first
-        -- message participant second
+        -- message as hash (key) : name as (val)
 	-- redis 
 
 
@@ -59,6 +58,8 @@ Reusable components --
 	-- dynamic chat popping and UI changing 
 	-- notification service 
 	-- Timeout system
-	-- destroy chat database
+	-- chat storage system 
+        -- order of chat message is imp
+
 
 
