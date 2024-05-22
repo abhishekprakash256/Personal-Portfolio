@@ -281,7 +281,7 @@ server {
  to start the srcipt and run in background 
  nohup python3 redis_recovery_func.py > output.log 2>&1 &
  to kill the script 
- ps aux | redis_recovery_func.py
+ ps aux | grep redis_recovery_func.py
  kill pid
 
 ```
