@@ -271,8 +271,12 @@ server {
 
 - the command to run the recovery system
 ```
+ to start the srcipt and run in background 
  nohup python3 redis_recovery_func.py > output.log 2>&1 &
- kill 
+ ro kill the script 
+ ps aux | redis_recovery_func.py
+ kill pid
+ 
 ```
 
 
