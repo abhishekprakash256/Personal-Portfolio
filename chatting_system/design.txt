@@ -92,7 +92,7 @@ Font end --
         -- send button 
         -- Endchat button (both sides of partcipant)
             -- if any one clicks that button display chat has ended to other person 
-            -- 
+            
 
 
 
