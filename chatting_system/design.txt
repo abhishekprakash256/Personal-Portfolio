@@ -7,6 +7,13 @@ Reqs for chatting system
     -- secret code matching system and error system 
     -- send and recieve message 
     -- end the session 
+    -- someone end the page accidentally 
+        -- the url should work
+        -- the person can open the url 
+        -- same landindg page 
+        -- put the ssecret code in 
+        -- the chat should be displayed as it is 
+    -- the chat destroyed only after ending the chat and a timeout system to detect inactivity 
 
 
 database -
@@ -122,8 +129,15 @@ Backend design thinking
                         secret_code2 = "secret_code"
                         
                     }
-                -- this data can be retrived with db file and can be used 
-                
+                -- this data can be retrived with db file and can be used for validation purpose
+        
+        -- chat landing page 
+            -- get the name from temp Db
+                -- display hello 
+                -- message 
+                --enter secret code 
+                -- validate the login 
+
 
 
 
