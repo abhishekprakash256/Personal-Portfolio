@@ -15,6 +15,22 @@ database -
         -- message as hash (key) : name as (val)
 	-- redis 
 
+database schema  -- 
+    -- example 
+       --  key (time_stamp for hash + username)
+            -- ex - 5DEC20231209ABHI 
+       -- value (message send )
+            -- "Hi"
+
+    Full storage system
+        -- two people name ABHI and ANNY 
+        -- mesaage_hash = 23AHi7
+        -- ex - 23AHi7 {
+        5DEC2023120912ABHI : "HI"
+        5DEC2023120913ANNY : "HEY"
+        }
+
+
 
 Font end -- 
     -- Chat start page 
@@ -40,7 +56,27 @@ Font end --
         -- Endchat button (both sides of partcipant)
             -- if any one clicks that button display chat has ended to other person 
             -- 
-     
+
+
+
+
+
+
+
+Backend design thinking 
+    -- Db is not needed as the chat record is not stored 
+    -- Chat record also should be destroyed after the chat eneded 
+    -- 
+
+
+
+
+
+
+
+
+
+
 Reusable components -- 
 	-- hashing system
 	-- qr code generation 
