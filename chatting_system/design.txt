@@ -16,11 +16,6 @@ Reqs for chatting system
     -- the chat destroyed only after ending the chat and a timeout system to detect inactivity 
 
 
-database -
-	-- mongodb
-        -- chatid (hash) 
-        -- message as hash (key) : name as (val)
-	-- redis 
 
 database schema  -- 
     -- example 
@@ -170,6 +165,8 @@ Reusable components --
 	-- Timeout system
 	-- chat storage system 
         -- order of chat message is imp
+    -- chat destruction system 
+    -- timeout system
 
 
 look into -- 
