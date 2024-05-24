@@ -185,7 +185,7 @@ def chatting_sender():
     return render_template('chatting/sender.html')
 
 @app.route('/receive_test')
-def receive():
+def chatting_receive():
     return render_template('chatting/receive.html')
 
 @socketio.on('message')
