@@ -14,6 +14,7 @@ Reqs for chatting system
         -- put the ssecret code in 
         -- the chat should be displayed as it is 
     -- the chat destroyed only after ending the chat and a timeout system to detect inactivity 
+    
 
 
 
@@ -175,3 +176,7 @@ look into --
     -- chat storage systems (sql , nosql any)
     -- rabbitmq 
     -- kafka
+    -- socket programming 
+    -- 
+
+
