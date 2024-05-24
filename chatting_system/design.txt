@@ -131,13 +131,14 @@ Backend design thinking
                 -- display hello 
                 -- message 
                 --enter secret code 
-                -- validate the login 
-
-
-
-
-
-
+                -- validate the login
+        
+        -- chat page   
+            -- input message (store in the database)
+            -- send button 
+                -- send the message to other side 
+                    -- store in the database
+                --- display the message on the other side 
 
 
 
