@@ -11,6 +11,7 @@ nginx
 pymongo 
 aws ec2 (static ip)
 redis
+flask socket IO
 ```
 
 ### File structure : - 

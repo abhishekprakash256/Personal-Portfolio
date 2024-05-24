@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Sender</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script defer src="/static/chat_sender.js"></script>
+</head>
+<body>
+    <h1>Send a Message</h1>
+    <div id="chat">
+        <input id="messageInput" autocomplete="off" placeholder="Type a message..."/>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</body>
+</html>

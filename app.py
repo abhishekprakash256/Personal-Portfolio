@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
+from flask_socketio import SocketIO, send
 
 
 #for test 
@@ -30,6 +31,7 @@ collections = ["projects","tech","life","section_data"]
 app = Flask(__name__)
 
 app.config['STATIC_FOLDER'] = 'static'
+socketio = SocketIO(app)
 
 
 #index page 
@@ -177,7 +179,21 @@ def tiny_url_render():
 
 
 
-#
+# -------------------- the chatting system experiments ---------------------
+@app.route('/chat_test')
+def chatting_sender():
+    return render_template('chatting/sender.html')
+
+@app.route('/receive_test')
+def receive():
+    return render_template('chatting/receive.html')
+
+@socketio.on('message')
+def handle_message(msg):
+    print(f'Message: {msg}')
+    send(msg, broadcast=True)
+
+
 
 
 
