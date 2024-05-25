@@ -180,10 +180,13 @@ def tiny_url_render():
 
 
 # -------------------- the chatting system experiments ---------------------
+
+#the one way chat sender system
 @app.route('/chat/send-test')
 def chatting_sender():
     return render_template('chatting/sender.html')
 
+#the reciver end 
 @app.route('/chat/receive-test')
 def chatting_receive():
     return render_template('chatting/receive.html')
@@ -193,13 +196,13 @@ def handle_message(msg):
     print(f'Message: {msg}')
     send(msg, broadcast=True)
 
-#one chat
+#one person chat sender 
 @app.route('/chat/chat-one')
 def chat_one():
     return render_template('chatting/chat.html')
 
 
-#one chat
+#one person chat rteciver 
 @app.route('/chat/chat-two')
 def chat_two():
     return render_template('chatting/chat.html')
