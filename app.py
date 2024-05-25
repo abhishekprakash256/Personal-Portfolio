@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
+from flask_socketio import SocketIO, send
 
 
 #for test 
@@ -30,21 +31,22 @@ collections = ["projects","tech","life","section_data"]
 app = Flask(__name__)
 
 app.config['STATIC_FOLDER'] = 'static'
+socketio = SocketIO(app)
 
 
+#index page 
 @app.route('/')
 def home():
     return render_template('index.html')
 
 
+#about page
 @app.route('/about')
 def about():
     return render_template('about.html')
 
 
-
-
-
+#section page
 @app.route('/<section_name>')
 def section(section_name):
 
@@ -55,7 +57,7 @@ def section(section_name):
     return render_template('section.html',**page_data)
 
 
-
+#article page can be projects
 @app.route('/projects/<article_name>')
 def projects(article_name):
 
@@ -84,7 +86,7 @@ def project_demo(project_name):
 
 
 
-
+#article page can be tech
 @app.route('/tech/<article_name>')
 def tech(article_name):
 
@@ -125,7 +127,7 @@ def store_form_data(name, email, message):
 
 
 
-
+#the sublit of the message route for the send message 
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     # Retrieve form data
@@ -140,6 +142,7 @@ def submit_form():
 
 
 
+#the submit post route for the tiny url 
 @app.route('/submit_tiny_url', methods=['POST'])
 def submit_tiny_url():
     # Retrieve form data
@@ -171,14 +174,35 @@ def tiny_url_redirect(tiny_url):
 @app.route('/demo/tiny-url')
 def tiny_url_render():
 
-
     return render_template('demo/tiny-url/tiny_url.html')
 
 
 
 
+# -------------------- the chatting system experiments ---------------------
+@app.route('/chat/send-test')
+def chatting_sender():
+    return render_template('chatting/sender.html')
+
+@app.route('/chat/receive-test')
+def chatting_receive():
+    return render_template('chatting/receive.html')
+
+@socketio.on('message')
+def handle_message(msg):
+    print(f'Message: {msg}')
+    send(msg, broadcast=True)
+
+#one chat
+@app.route('/chat/chat-one')
+def chat_one():
+    return render_template('chatting/chat.html')
 
 
+#one chat
+@app.route('/chat/chat-two')
+def chat_two():
+    return render_template('chatting/chat.html')
 
 
 if __name__ == '__main__':
