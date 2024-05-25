@@ -11,6 +11,10 @@ from redis_fun.redis_helper import *
 from generate_tiny_url import * 
 from flask_socketio import SocketIO, send
 
+#added for eventlet 
+import eventlet
+eventlet.monkey_patch()
+
 
 #for test 
 import json
@@ -31,7 +35,7 @@ collections = ["projects","tech","life","section_data"]
 app = Flask(__name__)
 
 app.config['STATIC_FOLDER'] = 'static'
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='eventlet')
 
 
 #index page 
