@@ -140,6 +140,17 @@ Backend design thinking
                     -- store in the database
                 --- display the message on the other side 
 
+            -- websocket for connecteion on server and clint side 
+            --  Client-Side:
+                -- The user types a message and hits send.
+                -- The client-side application captures the message, packages it (e.g., in JSON format), and sends it through the WebSocket connection to the server.
+
+            -- Server-Side:
+                -- The server receives the message.
+                -- The server processes the message (e.g., checking for forbidden content, adding timestamps).
+                -- The server stores the message in the database if persistence is required.
+                -- The server broadcasts the message to the intended recipient(s) via their WebSocket connections.
+            
 
 
 
@@ -175,3 +186,6 @@ look into --
     -- chat storage systems (sql , nosql any)
     -- rabbitmq 
     -- kafka
+    -- socket programming
+    -- websockets (bidirectional communication)
+    -- 
