@@ -63,13 +63,13 @@ redis_recovery = subprocess.run(['cd redis_recovery && nohup python3 redis_recov
 #change the dir again
 os.chdir(original_directory)
 
-
 #system start the redis 
-start_redis = subprocess.run(['sudo systemctl start redis-server.service'])
+start_redis = subprocess.run(['sudo systemctl start redis-server.service'], shell=True, capture_output=True, text=True, check=True)
+
 
 #system start the mongod 
+start_mongo = subprocess.run(['sudo systemctl status mongod.service'], shell=True, capture_output=True, text=True, check=True)
 
-start_mongo = subprocess.run(['sudo systemctl status mongod.service'])
 
 
 #run the flask server again
