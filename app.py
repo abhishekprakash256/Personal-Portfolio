@@ -207,7 +207,7 @@ def handle_message(msg):
     print(f'Message: {msg}')
     send(msg, broadcast=True)
 """
-    
+
 
 @socketio.on('message')
 def handle_message(msg):
