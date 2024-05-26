@@ -294,7 +294,14 @@ server {
 Reqs  -
 
     - flask socket (pip install Flask-SocketIO)
-    - 
+    - eventet (pip install eventlet)
+    - gunicorn (pip install gunicorn)
+
+
+### Start the server 
+    - python3 app.py 
+    - The wsgi.py is not required 
+    - eventlet.monkey_patch() this line makes the problem for mongodb
 
 
 

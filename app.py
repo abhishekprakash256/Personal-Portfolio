@@ -13,7 +13,7 @@ from flask_socketio import SocketIO, send
 
 #added for eventlet 
 import eventlet
-eventlet.monkey_patch()
+#eventlet.monkey_patch()
 
 
 #for test 
@@ -185,6 +185,8 @@ def tiny_url_render():
 
 # -------------------- the chatting system experiments ---------------------
 
+
+
 #the one way chat sender system
 @app.route('/chat/send-test')
 def chatting_sender():
@@ -214,3 +216,4 @@ def chat_two():
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, host='0.0.0.0', port=5000)
+    #app.run(debug=True)
