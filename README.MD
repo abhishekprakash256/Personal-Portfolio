@@ -339,11 +339,11 @@ Reqs  -
 
 
 ### Start the server 
-    - python3 app.py for local and server
+    - python3 app.py for local and server 
     - FLASK_APP=wsgi.py flask run --host=0.0.0.0 --port=5000 doesn't work on server
     - The wsgi.py is required for server
     - eventlet.monkey_patch() this line makes the problem for mongodb
-    - gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app to start the live sever and works
+    - gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app to start the live sever and works and better 
     - the nginx configuration file works 
 
 
