@@ -9,7 +9,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO, send, emit
 
 #added for eventlet 
 import eventlet
@@ -199,11 +199,20 @@ def chatting_sender():
 def chatting_receive():
     return render_template('chatting/receive.html')
 
+
+"""
 #mesage for the socket
 @socketio.on('message')
 def handle_message(msg):
     print(f'Message: {msg}')
     send(msg, broadcast=True)
+"""
+    
+
+@socketio.on('message')
+def handle_message(msg):
+    emit('message', msg, broadcast=True, include_self=False)
+
 
 #one person chat sender 
 @app.route('/chat/chat-one')
