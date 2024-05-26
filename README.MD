@@ -347,7 +347,8 @@ Reqs  -
     - the nginx configuration file works 
 
 
-
+### The files 
+    - the chat.js in static is the main file for two side chatting only
 
 ### Links 
 
