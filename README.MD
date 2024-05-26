@@ -349,6 +349,7 @@ Reqs  -
 
 ### The files 
     - the chat.js in static is the main file for two side chatting only
+    - chat.html is the main html file 
 
 ### Links 
 

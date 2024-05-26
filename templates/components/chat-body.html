@@ -1,0 +1,30 @@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script defer src="/static/chat.js"></script>
+    <style>
+        #chat {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #messages {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: scroll;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #messageInput {
+            width: 80%;
+        }
+        button {
+            width: 18%;
+        }
+    </style>
+
+    <h1>Chat Application</h1>
+    <div id="chat">
+        <div id="messages"></div>
+        <input id="messageInput" autocomplete="off" placeholder="Type a message..."/>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
