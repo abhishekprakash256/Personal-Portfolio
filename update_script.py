@@ -23,6 +23,13 @@ import subprocess
 import os
 
 
+#system start the redis 
+start_redis = subprocess.run(['sudo systemctl start redis-server.service'], shell=True, capture_output=True, text=True, check=True)
+
+
+#system start the mongod 
+start_mongo = subprocess.run(['sudo systemctl status mongod.service'], shell=True, capture_output=True, text=True, check=True)
+
 # Running a command to pull the latest git files
 git_pull = subprocess.run(['git', 'pull'], capture_output=True, text=True)
 
@@ -63,17 +70,8 @@ redis_recovery = subprocess.run(['cd redis_recovery && nohup python3 redis_recov
 #change the dir again
 os.chdir(original_directory)
 
-#system start the redis 
-start_redis = subprocess.run(['sudo systemctl start redis-server.service'], shell=True, capture_output=True, text=True, check=True)
-
-
-#system start the mongod 
-start_mongo = subprocess.run(['sudo systemctl status mongod.service'], shell=True, capture_output=True, text=True, check=True)
-
-
 
 #run the flask server again
-
 
 run_server = subprocess.run('nohup flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 &', shell=True, check=True)
 if run_server:
