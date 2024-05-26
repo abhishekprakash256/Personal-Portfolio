@@ -28,7 +28,7 @@ start_redis = subprocess.run(['sudo systemctl start redis-server.service'], shel
 
 
 #system start the mongod 
-start_mongo = subprocess.run(['sudo systemctl status mongod.service'], shell=True, capture_output=True, text=True, check=True)
+start_mongo = subprocess.run(['sudo systemctl start mongod.service'], shell=True, capture_output=True, text=True, check=True)
 
 # Running a command to pull the latest git files
 git_pull = subprocess.run(['git', 'pull'], capture_output=True, text=True)
