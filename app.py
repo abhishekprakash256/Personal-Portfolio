@@ -199,6 +199,7 @@ def chatting_sender():
 def chatting_receive():
     return render_template('chatting/receive.html')
 
+#mesage for the socket
 @socketio.on('message')
 def handle_message(msg):
     print(f'Message: {msg}')
