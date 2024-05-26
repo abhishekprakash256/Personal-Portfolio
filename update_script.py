@@ -56,7 +56,6 @@ print(injest_data.stdout)
 #change the dir again
 os.chdir(original_directory)
 
-
 #run the redis recovery system 
 redis_recovery = subprocess.run(['cd redis_recovery && nohup python3 redis_recovery_func.py > output.log 2>&1 &'], shell=True, capture_output=True, text=True, check=True)
 
@@ -65,7 +64,16 @@ redis_recovery = subprocess.run(['cd redis_recovery && nohup python3 redis_recov
 os.chdir(original_directory)
 
 
+#system start the redis 
+start_redis = subprocess.run(['sudo systemctl start redis-server.service'])
+
+#system start the mongod 
+
+start_mongo = subprocess.run(['sudo systemctl status mongod.service'])
+
+
 #run the flask server again
+
 
 run_server = subprocess.run('nohup flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 &', shell=True, check=True)
 if run_server:
