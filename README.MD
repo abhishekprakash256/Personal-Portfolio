@@ -288,6 +288,14 @@ server {
 ```
 
 
+### Chatting system 
+
+
+Reqs  -
+
+    - flask socket (pip install Flask-SocketIO)
+    - 
+
 
 
 
