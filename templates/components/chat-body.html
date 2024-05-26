@@ -16,10 +16,11 @@
             margin-bottom: 10px;
         }
         #messageInput {
-            width: 80%;
+            width: 100%;
         }
         #sendbutton {
-            width: 18%;
+            width: auto;
+    
         }
     </style>
 
@@ -30,26 +31,35 @@
         <button id ="sendbutton" onclick="sendMessage()">Send</button>
     </div> --->
     
-</div>
 
 
-<div id = "" class="row p-3 flex-column flex-md-row ">
+
+    <div class="row p-3 flex-column flex-md-row ">
     
-    <div class="col rounded"> </div>
+    <div class="col rounded">
+           
         
-    <div class = "col">
+        <div class="row flex-column flex-md-row background-color-body rounded" >
+
+        <div class="col "></div>
+        <div class="col text-center mt-3">
 
         <div id="messages"></div>
-        <input id="messageInput" autocomplete="off" placeholder="Type a message..."/>
-        <button id ="sendbutton" onclick="sendMessage()">Send</button>
+        <input class="form-control" id="messageInput" autocomplete="off" placeholder="Type your message..."/>
+        <button id ="sendbutton" class="btn button-custom-color bio-font" onclick="sendMessage()">Send</button>
+
+        </div>
+
+        <div class="col "></div>
+
     </div>
            
-    <div class = "col"></div>
+    </div>
         
     </div>
 
 
-
+</div>
 
 
 
