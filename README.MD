@@ -185,6 +185,46 @@ server {
 ```
 
 
+### The new Nginx config fro socket connection support 
+
+```
+server {
+    listen 80;
+    server_name www.meabhi.me;
+
+    # Redirect HTTP to HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name www.meabhi.me;
+
+    ssl_certificate /etc/letsencrypt/live/meabhi.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/meabhi.me/privkey.pem;
+
+    # Other SSL configuration directives (e.g., SSL protocols, ciphers, etc.)
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+
+}
+```
+
+
 ### Hosting process 
 
 - Make a ec2 or t2 micor with ubunut any instance in AWS 
@@ -299,9 +339,12 @@ Reqs  -
 
 
 ### Start the server 
-    - python3 app.py 
-    - The wsgi.py is not required 
+    - python3 app.py for local and server
+    - FLASK_APP=wsgi.py flask run --host=0.0.0.0 --port=5000 doesn't work on server
+    - The wsgi.py is required for server
     - eventlet.monkey_patch() this line makes the problem for mongodb
+    - gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app to start the live sever and works
+    - the nginx configuration file works 
 
 
 

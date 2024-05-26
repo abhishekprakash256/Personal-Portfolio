@@ -35,6 +35,8 @@ collections = ["projects","tech","life","section_data"]
 app = Flask(__name__)
 
 app.config['STATIC_FOLDER'] = 'static'
+
+#for socket programming
 socketio = SocketIO(app, async_mode='eventlet')
 
 
