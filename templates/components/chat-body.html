@@ -6,37 +6,44 @@
         
         <style>
 
-#messages {
-    height: 500px;
-    overflow-y: scroll;
-    margin-bottom: 10px;
-}
+        #messages {
+            height: 500px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+        }
 
-.message-wrapper {
-    display: flex; /* Use flexbox to handle alignment */
-    justify-content: flex-start; /* Default alignment for received messages */
-    margin-bottom: 5px;
-}
+        .message-wrapper {
+            display: flex; /* Use flexbox to handle alignment */
+            justify-content: flex-start; /* Default alignment for received messages */
+            margin-bottom: 5px;
+        }
 
-.message-wrapper.sent {
-    justify-content: flex-end; /* Align sent messages to the right */
-}
+        .message-wrapper.sent {
+            justify-content: flex-end; /* Align sent messages to the right */
+        }
 
-.message-box {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 80%; /* Ensure messages don't get too wide */
-    word-wrap: break-word;
-}
+        .message-box {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%; /* Ensure messages don't get too wide */
+            word-wrap: break-word;
+        }
 
-.message-received {
-    background-color: blue;
-}
+    .message-received {
+        margin-top: 10px;
+        background-color:#19A7CE;
+        font-weight: 500;
+        margin-left: 5px;
+    }
 
-.message-sent {
-    background-color: green;
-}
+    .message-sent {
+        margin-top: 10px;
+        background-color: #e9ecef;
+        font-weight: 500;
+        margin-right: 5px;
+
+    }
 
         </style>
 
