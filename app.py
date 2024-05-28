@@ -211,7 +211,9 @@ def handle_message(msg):
 
 @socketio.on('message')
 def handle_message(msg):
-    emit('message', msg, broadcast=True, include_self=False)
+    print('Message: ' + msg)
+    # Broadcast the message to all clients except the sender
+    socketio.emit('message', msg, broadcast=True, include_self=False)
 
 
 #one person chat sender 
