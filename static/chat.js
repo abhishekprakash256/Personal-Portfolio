@@ -5,10 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     socket.on('message', function(msg) {
         console.log('Received message:', msg);
         const messages = document.getElementById('messages');
+        const messageWrapper = document.createElement('div');
+        messageWrapper.classList.add('message-wrapper');
         const newMessage = document.createElement('div');
-        newMessage.classList.add('message-box', 'message-received'); // Add the custom class for received messages
+        newMessage.classList.add('message-box', 'message-received');
         newMessage.innerHTML = msg;
-        messages.appendChild(newMessage);
+        messageWrapper.appendChild(newMessage);
+        messages.appendChild(messageWrapper);
         messages.scrollTop = messages.scrollHeight;
     });
 
@@ -28,17 +31,20 @@ function sendMessage(socket) {
     const message = messageInput.value;
     if (message !== "") {
         console.log('Sending message:', message);
-        addSentMessage(message); // Add sent message to the UI
-        socket.emit('message', message); // Send message to the server
+        addSentMessage(message);
+        socket.emit('message', message);
         messageInput.value = '';
     }
 }
 
 function addSentMessage(message) {
     const messages = document.getElementById('messages');
+    const messageWrapper = document.createElement('div');
+    messageWrapper.classList.add('message-wrapper', 'sent');
     const newMessage = document.createElement('div');
-    newMessage.classList.add('message-box', 'message-sent'); // Add the custom class for sent messages
+    newMessage.classList.add('message-box', 'message-sent');
     newMessage.innerHTML = message;
-    messages.appendChild(newMessage);
+    messageWrapper.appendChild(newMessage);
+    messages.appendChild(messageWrapper);
     messages.scrollTop = messages.scrollHeight;
 }

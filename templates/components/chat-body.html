@@ -5,42 +5,38 @@
         <script defer src="/static/chat.js"></script>
         
         <style>
-            #chat {
-                margin: 0 auto;
-                text-align: center;
-            }
-            #messages {
-                height: 500px;
-                overflow-y: scroll;
-                margin-bottom: 10px;
-            }
-            .message-box {
-                padding: 10px;
-                border-radius: 10px;
-                margin-bottom: 5px;
-                max-width: 80%;
-            }
-        
-        
-        .message-received {
-            
-            width: auto; 
-            background-color: gray;
-            text-align: left; /* Align the text to the right */
-            margin-right: auto; /* This line ensures that the text is pushed to the right */
-         
-        }
 
-        .message-sent {
-            
-            width: auto; 
-            background-color: green;
-            text-align: right; /* Align the text to the right */
-            margin-left: auto; /* This line ensures that the text is pushed to the right */
-         
-        }
+#messages {
+    height: 500px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
 
+.message-wrapper {
+    display: flex; /* Use flexbox to handle alignment */
+    justify-content: flex-start; /* Default alignment for received messages */
+    margin-bottom: 5px;
+}
 
+.message-wrapper.sent {
+    justify-content: flex-end; /* Align sent messages to the right */
+}
+
+.message-box {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%; /* Ensure messages don't get too wide */
+    word-wrap: break-word;
+}
+
+.message-received {
+    background-color: blue;
+}
+
+.message-sent {
+    background-color: green;
+}
 
         </style>
 
