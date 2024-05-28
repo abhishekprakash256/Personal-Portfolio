@@ -2,7 +2,8 @@ let socket;
 
 document.addEventListener("DOMContentLoaded", () => {
     if (!socket) {
-        socket = io.connect('http://' + document.domain + ':' + location.port);
+        //socket = io.connect('http://' + document.domain + ':' + location.port);
+        socket = io.connect('https://' + document.domain + ':' + location.port);
         console.log('Connected to WebSocket');
 
         socket.on('message', function(msg) {
