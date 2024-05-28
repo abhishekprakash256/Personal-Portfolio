@@ -1,33 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-    //const socket = io.connect('http://' + document.domain + ':' + location.port);
-    const socket = io.connect('https://' + document.domain + ':' + location.port);
-    console.log('Connected to WebSocket');
+let socket;
 
-    socket.on('message', function(msg) {
-        console.log('Received message:', msg);
-        const messages = document.getElementById('messages');
-        const messageWrapper = document.createElement('div');
-        messageWrapper.classList.add('message-wrapper');
-        const newMessage = document.createElement('div');
-        newMessage.classList.add('message-box', 'message-received');
-        newMessage.innerHTML = msg;
-        messageWrapper.appendChild(newMessage);
-        messages.appendChild(messageWrapper);
-        messages.scrollTop = messages.scrollHeight;
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    if (!socket) {
+        socket = io.connect('http://' + document.domain + ':' + location.port);
+        console.log('Connected to WebSocket');
+
+        socket.on('message', function(msg) {
+            console.log('Received message:', msg);
+            addReceivedMessage(msg);
+        });
+    } else {
+        console.log('Socket already connected');
+    }
 
     document.getElementById('messageInput').addEventListener('keyup', function(event) {
         if (event.key === 'Enter') {
-            sendMessage(socket);
+            sendMessage();
         }
     });
 
     document.getElementById('sendbutton').addEventListener('click', function() {
-        sendMessage(socket);
+        sendMessage();
     });
 });
 
-function sendMessage(socket) {
+function sendMessage() {
     const messageInput = document.getElementById('messageInput');
     const message = messageInput.value;
     if (message !== "") {
@@ -36,6 +33,18 @@ function sendMessage(socket) {
         socket.emit('message', message);
         messageInput.value = '';
     }
+}
+
+function addReceivedMessage(message) {
+    const messages = document.getElementById('messages');
+    const messageWrapper = document.createElement('div');
+    messageWrapper.classList.add('message-wrapper');
+    const newMessage = document.createElement('div');
+    newMessage.classList.add('message-box', 'message-received');
+    newMessage.innerHTML = message;
+    messageWrapper.appendChild(newMessage);
+    messages.appendChild(messageWrapper);
+    messages.scrollTop = messages.scrollHeight;
 }
 
 function addSentMessage(message) {
