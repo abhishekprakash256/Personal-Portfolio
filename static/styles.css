@@ -1,4 +1,16 @@
 
+
+.flex-page {
+  flex-grow: 1; /* Ensure this row stretches to fill remaining space */
+  flex-direction:row;
+   /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+
 /* styles.css */
 .height-full {
   /* CSS properties and values */
@@ -7,7 +19,9 @@
 
 /* make the page not overflow the x axis*/
 html, body {
-  overflow-x: hidden;
+    overflow-x: hidden;
+    margin: 0;
+ 
 }
 
 .height-half {

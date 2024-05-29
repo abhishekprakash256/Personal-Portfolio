@@ -43,29 +43,37 @@ database schema  --
 
         session_id = "23AHi7"
         {
+            name_1 = "test1"
+            name_2 ="test2"
             [
                 {
-                    "sender": "User1",
+                    "sender": "test1",
                     "timestamp": "2024-05-23T15:01:23.456789",
                     "message": "Hello!"
                 },
                 {
-                    "sender": "User2",
+                    "sender": "test2",
                     "timestamp": "2024-05-23T15:02:10.123456",
                     "message": "Hi there!"
                 },
                 {
-                    "sender": "User1",
+                    "sender": "test1",
                     "timestamp": "2024-05-23T15:03:45.789012",
                     "message": "How are you?"
                 },
                 {
-                    "sender": "User2",
+                    "sender": "test2",
                     "timestamp": "2024-05-23T15:04:30.456789",
                     "message": "I'm good, thanks! How about you?"
                 }
             ]
         }
+
+
+
+-- The chatting pair logic and get chat 
+    -- 
+
 
 
 
@@ -76,12 +84,8 @@ Font end --
         -- input First participant name
         -- input Second participant name
         -- start chat button 
-        -- first participant short url 
-        -- second participant short url 
-        -- first participant qr code 
-        -- second participant qr code
-        -- first participannt secret code 
-        -- second partcipant secret code
+        -- participant short url 
+        -- participant qr code 
     
     -- Enter chat page for one perosn  
         -- Hello Name should be written
