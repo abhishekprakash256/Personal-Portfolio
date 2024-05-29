@@ -344,6 +344,11 @@ Reqs  -
     - The wsgi.py is required for server
     - eventlet.monkey_patch() this line makes the problem for mongodb
     - gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app to start the live sever and works and better 
+    - nohup gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app & to run the app in background 
+    - nohup gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app > gunicorn.log 2>&1 &  to run and output to other file 
+
+    - ps aux | grep gunicorn  (to grep the worker)
+    - kill pid
     - the nginx configuration file works 
 
 
