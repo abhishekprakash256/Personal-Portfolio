@@ -5,6 +5,11 @@
   height: 100vh;
 }
 
+/* make the page not overflow the x axis*/
+html, body {
+  overflow-x: hidden;
+}
+
 .height-half {
   height: 60vh;
 }

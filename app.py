@@ -187,12 +187,8 @@ def tiny_url_render():
 
 # -------------------- the chatting system experiments ---------------------
 
-@app.route('/chat-start')
-def chatting_start():
-    return render_template('chatting/chat-start.html')
 
-
-
+"""
 #the one way chat sender system
 @app.route('/chat/send-test')
 def chatting_sender():
@@ -204,13 +200,23 @@ def chatting_receive():
     return render_template('chatting/receive.html')
 
 
-"""
 #mesage for the socket
 @socketio.on('message')
 def handle_message(msg):
     print(f'Message: {msg}')
     send(msg, broadcast=True)
+
+    
+#one person chat rteciver 
+@app.route('/chat/chat-two')
+def chat_two():
+    return render_template('chatting/chat.html')
 """
+
+@app.route('/chat-start')
+def chatting_start():
+    return render_template('chatting/chat-start.html')
+
 
 
 @socketio.on('message')
@@ -223,12 +229,7 @@ def handle_message(msg):
 def chat_one():
     return render_template('chatting/chat.html')
 
-"""
-#one person chat rteciver 
-@app.route('/chat/chat-two')
-def chat_two():
-    return render_template('chatting/chat.html')
-"""
+
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, host='0.0.0.0', port=5000)
