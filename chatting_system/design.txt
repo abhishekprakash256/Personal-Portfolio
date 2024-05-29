@@ -189,3 +189,12 @@ look into --
     -- kafka
     -- socket programming
     -- websockets (bidirectional communication)
+
+
+
+development log -- 
+    -- The chat should come up start from bottom 
+    -- opening the other link get the other way to u (it should be the same using the cookie or login system so save data)
+    -- the chat should be save when open anywhere else for someone 
+    -- the database attachement (for both sides)
+    -- 

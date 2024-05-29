@@ -214,7 +214,7 @@ def handle_message(msg):
     emit('message', msg, broadcast=True, include_self=False)
 
 
-#the chat end point 
+#the chat end point
 @app.route('/chat')
 def chat_one():
     return render_template('chatting/chat.html')
