@@ -214,17 +214,17 @@ def handle_message(msg):
     emit('message', msg, broadcast=True, include_self=False)
 
 
-#one person chat sender 
-@app.route('/chat/chat-one')
+#the chat end point 
+@app.route('/chat')
 def chat_one():
     return render_template('chatting/chat.html')
 
-
+"""
 #one person chat rteciver 
 @app.route('/chat/chat-two')
 def chat_two():
     return render_template('chatting/chat.html')
-
+"""
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, host='0.0.0.0', port=5000)
