@@ -193,6 +193,7 @@ look into --
 
 
 development log -- 
+    -- the length of the chat message 
     -- The chat should come up start from bottom 
     -- opening the other link get the other way to u (it should be the same using the cookie or login system so save data)
     -- the chat should be save when open anywhere else for someone 
