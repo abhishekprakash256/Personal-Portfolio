@@ -71,7 +71,8 @@ database schema  --
 
 
 Font end -- 
-    -- Chat start page 
+    -- Chat start page (chat-start.html)
+    -- chat body page ( chat-body.html)
         -- input First participant name
         -- input Second participant name
         -- start chat button 

@@ -187,6 +187,10 @@ def tiny_url_render():
 
 # -------------------- the chatting system experiments ---------------------
 
+@app.route('/chat-start')
+def chatting_start():
+    return render_template('chatting/chat-start.html')
+
 
 
 #the one way chat sender system
