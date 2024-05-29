@@ -1,7 +1,32 @@
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
 
-        
+                    {% set title = "Enter the name of two particpants" %}
+                    {% include 'reusable/card-heading.html' %}
+
+                
+
+                    <div class="row p-3">
+
+                        <div class = "col" >
+
+                        <div class = "row background-color-body rounded">
+
+                        <div class = "col-2 "></div>
+    
+                        <div class="col-8 text-center background-color-body rounded p-3">
+                            <input class="form-control mb-3" id="name_1" autocomplete="off" placeholder="1st Person name .."/>
+                            <input class="form-control mb-3" id="name_2" autocomplete="off" placeholder="2nd Person name .."/>
+                            <button id="startChat" class="btn button-custom-color bio-font" onclick="sendMessage()">Start Chat</button>
+                          
+                        </div>
+
+                        <div class="col-2"></div>
+                      </div>
+                        </div>
+                    </div>
+
+
     </div>
 
 </body>

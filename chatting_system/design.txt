@@ -141,6 +141,7 @@ Backend design thinking
                 -- send the message to other side 
                     -- store in the database
                 --- display the message on the other side 
+                --- display the time for message 
 
             -- websocket for connecteion on server and clint side 
             --  Client-Side:
