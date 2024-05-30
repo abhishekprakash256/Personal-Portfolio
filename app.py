@@ -213,9 +213,12 @@ def chat_two():
     return render_template('chatting/chat.html')
 """
 
+
+
+
 @app.route('/chat-start')
 def chatting_start():
-    return render_template('chatting/chat-start.html')
+    return render_template('chatting/chat-register.html')
 
 
 

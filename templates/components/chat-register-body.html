@@ -1,0 +1,90 @@
+<body class="background-color-body">
+    <div class="container main-container-color shadow-lg">
+
+    {% set title = "Enter the name of two particpants" %}
+    {% include 'reusable/card-heading.html' %}
+    <style>
+        .submit-success-message {
+            color: #557C55;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .submit-error-message {
+            color: #FA7070;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .button-custom-color {
+            background-color: #19A7CE;
+            border-color: #19A7CE;
+            color: #ffffff;
+        }
+
+        .button-custom-color:hover {
+            background-color: #0D87B0;
+            border-color: #0D87B0;
+            color: #fefefe;
+        }
+
+        #qrcode {
+            margin-top: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px; /* Space between buttons */
+        }
+
+        .qr-code {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tiny-url{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+        
+
+    <div class="row p-3">
+
+        <div class = "col" >
+
+        <div class = "row background-color-body rounded">
+            
+        <div class = "col-2 "></div>
+
+        <div class="col-8 text-center background-color-body rounded p-3">
+            <input class="form-control mb-3" id="name_1" autocomplete="off" placeholder="1st Person name .."/>
+            <input class="form-control mb-3" id="name_2" autocomplete="off" placeholder="2nd Person name .."/>
+            <button id="startChat" class="btn button-custom-color bio-font" onclick="sendMessage()">Sign Up</button>
+            
+        </div>
+
+        <div class="col-2"></div>
+        </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    <div id = "qrcontainer" class="row p-3 flex-column flex-md-row " style="display: none;">
+        <div class="col rounded">
+            <div class="row background-color-body rounded text-center">
+                <div class = "col"></div>
+                <div id="chatHashUrl" style="display: none;">
+                    <div class ="tiny-url arial-font font-color-class " id="tinyUrlDisplay"></div>
+                    <button type="button" id="copyButton" class="btn button-custom-color bio-font">Copy Chat Url</button>
+                </div>
+                <div class = "qr-code" id="qrcode"></div>
+                <div class = "col"></div>
+            </div>
+        </div>
+    </div>
+
+</body>

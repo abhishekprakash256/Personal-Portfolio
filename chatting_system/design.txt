@@ -71,21 +71,50 @@ database schema  --
 
 
 
--- The chatting pair logic and get chat 
-    -- 
-
-
 
 
 
 Font end -- 
-    -- Chat start page (chat-start.html)
-    -- chat body page ( chat-body.html)
+
+    (chat-register)
+    -- Chat start page (chat-register.html)
+    -- chat body page ( chat-redister-body.html)
+        
+        (input)
         -- input First participant name
         -- input Second participant name
-        -- start chat button 
+        -- (register user) button 
+
+        (output)
         -- participant short url 
         -- participant qr code 
+        -- copy link functionality
+
+
+
+Backend -- 
+
+    (chat_user_sign_up) (get)
+    -- read the input (jasionfy it )
+    -- generate the hash 
+    -- generate the dynamic link 
+    -- store in db 
+        -- hash 
+        -- name 1 
+        -- name 2 
+    -- genrate the chat link 
+    -- generate the qr code 
+
+    (chat_user_hash) (post)
+    -- class, methods and functions -- 
+        -- Post method to catch the input 
+        -- hash generation 
+        -- two db 
+            -- chat-hash
+        -- get method to fetch the url and generate the qr code 
+   
+
+
     
     -- Enter chat page for one perosn  
         -- Hello Name should be written
@@ -124,19 +153,14 @@ Backend design thinking
                     {
                         name1 = "Dummy1"
                         name2 = "Dummy2"
-                        name1_link = "url_hash"
-                        name2_link = "url_hash"
-                        secret_code1 = "secret_code"
-                        secret_code2 = "secret_code"
+
                         
                     }
                 -- this data can be retrived with db file and can be used for validation purpose
         
         -- chat landing page 
-            -- get the name from temp Db
                 -- display hello 
-                -- message 
-                --enter secret code 
+                -- enter the name for login 
                 -- validate the login
         
         -- chat page   
