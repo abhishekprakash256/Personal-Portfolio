@@ -64,6 +64,7 @@
                     <input class="form-control mb-3" id="name_1" name="name_1" autocomplete="off" placeholder="1st Person name .."/>
                     <input class="form-control mb-3" id="name_2" name="name_2" autocomplete="off" placeholder="2nd Person name .."/>
                     <button id="submit" class="btn button-custom-color bio-font" type="submit">Sign Up</button>
+                    <button type="button" class="btn button-custom-color bio-font" id="clearButton" style="display: none;">Clear</button>
                 </div>
             </form>
         </div>
@@ -72,10 +73,6 @@
         </div>
         </div>
     </div>
-
-
-    </div>
-
     <div id = "qrcontainer" class="row p-3 flex-column flex-md-row " style="display: none;">
         <div class="col rounded">
             <div class="row background-color-body rounded text-center">
@@ -87,8 +84,28 @@
                 <div class = "qr-code" id="qrcode"></div>
                 <div class = "col"></div>
             </div>
+
+
+
         </div>
     </div>
+    
+    <div class="row background-color-body rounded text-center">
+        <div class = "col"></div>
+    
+        <div class="col"></div><div class = "qr-code" id="qrcode"></div>
+        <div class = "col"></div>
+    
+    
+    </div>
+
+
+
+
+
+    </div>
+
+
 
    <!-- Load QRCode library from CDN -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
