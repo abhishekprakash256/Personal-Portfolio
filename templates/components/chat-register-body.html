@@ -59,10 +59,14 @@
         <div class = "col-2 "></div>
 
         <div class="col-8 text-center background-color-body rounded p-3">
+            <form id="chatRegsitrationForm">
+                <div class="form-group">
             <input class="form-control mb-3" id="name_1" autocomplete="off" placeholder="1st Person name .."/>
             <input class="form-control mb-3" id="name_2" autocomplete="off" placeholder="2nd Person name .."/>
             <button id="startChat" class="btn button-custom-color bio-font" onclick="sendMessage()">Sign Up</button>
             
+            </div>
+        </form>
         </div>
 
         <div class="col-2"></div>
@@ -86,5 +90,98 @@
             </div>
         </div>
     </div>
+
+   <!-- Load QRCode library from CDN -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+   <script>
+       document.getElementById("chatRegsitrationForm").addEventListener("submit", function(event) {
+           event.preventDefault(); // Prevent the default form submission behavior
+       
+       
+           // Send the form data to the Flask backend using AJAX
+           var formData = new FormData(this);
+           fetch('/submit_tiny_url', {
+               method: 'POST',
+               body: formData
+           })
+           .then(response => response.json())
+           .then(data => {
+               if (data.success) {
+                   // Display success message
+                   document.getElementById("successMessageSubmittinyurl").style.display = "block";
+                   // Clear form fields
+                   document.getElementById("original_url").value = "";
+           
+                   // Display the generated tiny URL
+                   var tinyUrlDisplayContainer = document.getElementById("tinyUrlDisplayContainer");
+                   var qrcontainer = document.getElementById("qrcontainer");
+                   var tinyUrlDisplay = document.getElementById("tinyUrlDisplay");
+                   tinyUrlDisplayContainer.style.display = "block";
+                   qrcontainer.style.display = "block";
+                   tinyUrlDisplay.textContent = window.location.origin + "/tu/" + data.tiny_url;
+           
+                   // Show the Clear button, hide the Generate button
+                   document.getElementById("clearButton").style.display = "inline";
+                   document.getElementById("get_tiny_url").style.display = "none";
+
+                   // Generate the QR code for the tiny URL
+                   generateQRCode(tinyUrlDisplay.textContent);
+               } else {
+                   // Display error message
+                   document.getElementById("errorMessagetinyurl").style.display = "block";
+               }
+           })
+           .catch(error => {
+               // Handle error if needed
+               console.error('Error:', error);
+               document.getElementById("errorMessagetinyurl").style.display = "block";
+           });
+       });
+
+       // Generate Another URL button functionality
+       document.getElementById("clearButton").addEventListener("click", function() {
+           // Redirect to the page URL
+           window.location.href = window.location.origin + window.location.pathname;
+       });
+
+       const qrcodeElement = document.getElementById("qrcode");
+       const qr = new QRCode(qrcodeElement, {
+           width: 200,
+           height: 200
+       });
+
+       // Function to generate QR code
+       function generateQRCode(url) {
+           qr.clear(); // Clear the previous QR code
+           qr.makeCode(url); // Generate QR code for the tiny URL
+       }
+
+       // Select the copy button
+       const copyButton = document.getElementById("copyButton");
+
+       // Add click event listener to the copy button
+       copyButton.addEventListener("click", function() {
+           // Select the tiny URL text
+           const tinyUrlText = document.getElementById("tinyUrlDisplay").textContent;
+
+           // Create a temporary textarea element to copy the text
+           const textarea = document.createElement("textarea");
+           textarea.value = tinyUrlText;
+           document.body.appendChild(textarea);
+           textarea.select();
+
+           // Copy the text to the clipboard
+           document.execCommand("copy");
+
+           // Remove the temporary textarea
+           document.body.removeChild(textarea);
+
+           // Provide visual feedback that the URL has been copied
+           copyButton.textContent = "Copied!";
+           setTimeout(function() {
+               copyButton.textContent = "Copy Tiny URL";
+           }, 2000); // Change back to "Copy Tiny URL" after 2 seconds
+       });
+   </script>
 
 </body>
