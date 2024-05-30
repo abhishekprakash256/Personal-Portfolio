@@ -11,6 +11,10 @@ from redis_fun.redis_helper import *
 from generate_tiny_url import * 
 from flask_socketio import SocketIO, send, emit
 
+#the hasing test
+from hashing import *
+
+
 #added for eventlet 
 import eventlet
 #eventlet.monkey_patch()
@@ -213,6 +217,30 @@ def chat_two():
     return render_template('chatting/chat.html')
 """
 
+
+#register the user for chat page 
+
+@app.route('/chat_user_sign_up', methods=['POST'])
+def submit_user_details():
+    
+    data = request.get_json()  # Retrieve JSON data from the request
+    name_1 = data.get('name_1')
+    name_2 = data.get('name_2')
+
+    chat_hash = generate_random_hash()
+    print(name_1)
+    print(name_2)
+    print(chat_hash)
+
+
+    # Store the pair data in the database
+   
+
+    # Generate the chat URL
+
+
+    # Return the chat URL
+    return jsonify({'success': True, 'hash': chat_hash})
 
 
 

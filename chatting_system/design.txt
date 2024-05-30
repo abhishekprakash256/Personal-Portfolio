@@ -69,6 +69,17 @@ database schema  --
             ]
         }
 
+	-- redis hash 
+		-- chat-hash (key) , val as list of [name1, name2] 
+        
+	-- mongodb 
+		-- hash as id
+		-- chat_id = "AH27f2"
+			{ "Abhi": ["Hey"],
+			   "Anny": ["hi","how are you" ]
+			   "Abhi": ["I am good"]
+			}
+
 
 
 
@@ -94,7 +105,7 @@ Font end --
 
 Backend -- 
 
-    (chat_user_sign_up) (get)
+    (chat_user_sign_up) (get) function (submit_user_details)
     -- read the input (jasionfy it )
     -- generate the hash 
     -- generate the dynamic link 
