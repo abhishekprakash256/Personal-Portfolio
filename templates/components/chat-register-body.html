@@ -67,6 +67,7 @@
                         <div class ="hash-url arial-font font-color-class " id="chatHashUrlDisplay"></div>
                         <button type="button" id="copyButton" class="btn button-custom-color bio-font">Copy Chat Url</button>
                         
+                        
                     </div>
                 </div>
             </form>
@@ -120,6 +121,7 @@
                 // Display the hash URL and QR container
                 document.getElementById("qrcontainer").style.display = "block";
                 document.getElementById("chatHashUrl").style.display = "block";
+                document.getElementById("clearButton").style.display = "inline";
                 
                 
 
@@ -134,6 +136,12 @@
     const qr = new QRCode(qrcodeElement, {
         width: 200,
         height: 200
+    });
+
+        // Generate Another URL button functionality
+        document.getElementById("clearButton").addEventListener("click", function() {
+        // Redirect to the page URL
+        window.location.href = window.location.origin + window.location.pathname;
     });
 
     // Function to generate QR code
