@@ -38,10 +38,7 @@
             margin-top: 20px; /* Space between buttons */
         }
 
-        .qr-code {
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
+
 
         .hash-url{
             margin-top: 10px;
@@ -49,8 +46,8 @@
         }
     </style>
         
-
-    <div class="row p-3">
+    <body>
+    <div class="row p-3 main-container-color flex-column flex-md-row">
 
         <div class = "col" >
 
@@ -81,6 +78,7 @@
                 <div id="chatHashUrl" style="display: none;">
                     <div class ="hash-url arial-font font-color-class " id="chatHashUrlDisplay"></div>
                     <button type="button" id="copyButton" class="btn button-custom-color bio-font">Copy Chat Url</button>
+                    
                 </div>
                 </div>
 
@@ -99,7 +97,8 @@
         <div class = "col"></div>
     
         <div class="col">
-            <div class = "qr-code" id="qrcode"></div>
+           <div class = "qr-code" id="qrcode"></div>
+           <h1>This is test</h1>
 
         </div>
         <div class = "col"></div>
@@ -142,9 +141,10 @@
                 chatHashUrlDisplay.textContent = chatUrl;
 
                 // Display the hash URL and QR container
+                document.getElementById("qrcontainer").style.display = "block";
                 document.getElementById("chatHashUrl").style.display = "block";
                 document.getElementById("hashcontainer").style.display = "block";
-                document.getElementById("qrcontainer").style.display = "block";
+                
 
                 // Generate the QR code for the chat URL
                 generateQRCode(chatUrl);
@@ -193,4 +193,5 @@
     });
 </script>
 
+</div>
 </body>
