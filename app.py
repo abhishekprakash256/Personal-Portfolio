@@ -9,7 +9,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
-from flask_socketio import SocketIO, send, emit
+from flask_socketio import SocketIO, send, emit, join_room, leave_room
 
 #the hasing test
 from hashing import *
@@ -241,7 +241,7 @@ def submit_user_details():
     # Store the pair data in the database
     redis_helper_fun.add_value_to_hash(chat_hash,"1")
 
-    print(redis_helper_fun.get_all_hash_val())
+    #print(redis_helper_fun.get_all_hash_val())
     
     # Return the chat URL
     return jsonify({'success': True, 'hash': chat_hash})
@@ -253,10 +253,30 @@ def chatting_start():
     return render_template('chatting/chat-register.html')
 
 
-
+"""
 @socketio.on('message')
 def handle_message(msg):
     emit('message', msg, broadcast=True, include_self=False)
+"""
+
+
+@socketio.on('join')
+def on_join(data):
+    chat_hash = data['chat_hash']
+    join_room(chat_hash)
+    emit('status', {'msg': f'{request.sid} has entered the room.'}, room=chat_hash)
+
+@socketio.on('leave')
+def on_leave(data):
+    chat_hash = data['chat_hash']
+    leave_room(chat_hash)
+    emit('status', {'msg': f'{request.sid} has left the room.'}, room=chat_hash)
+
+@socketio.on('message')
+def handle_message(data):
+    chat_hash = data['chat_hash']
+    msg = data['msg']
+    emit('message', {'msg': msg}, room=chat_hash)
 
 
 #the chat end point
