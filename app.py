@@ -25,13 +25,19 @@ import json
 
 #const
 
+#const values for redis
+HASH_NAME = "url-hash"
+SET_NAME = "url-set"
+
 #db names in mongo
 db_name = ["articles","section"]
 
 #collection names in database 
 collections = ["projects","tech","life","section_data"]
 
-#redis database 
+#redis helper function
+redis_helper_fun = Helper_fun(HASH_NAME,SET_NAME) 
+
 
 
 
@@ -228,17 +234,15 @@ def submit_user_details():
     name_2 = data.get('name_2')
 
     chat_hash = generate_random_hash()
-    print(name_1)
-    print(name_2)
-    print(chat_hash)
-
+    #print(name_1)
+    #print(name_2)
+    #print(chat_hash)
 
     # Store the pair data in the database
-   
+    redis_helper_fun.add_value_to_hash(chat_hash,"1")
 
-    # Generate the chat URL
-
-
+    print(redis_helper_fun.get_all_hash_val())
+    
     # Return the chat URL
     return jsonify({'success': True, 'hash': chat_hash})
 
@@ -256,9 +260,17 @@ def handle_message(msg):
 
 
 #the chat end point
-@app.route('/chat')
-def chat_one():
-    return render_template('chatting/chat.html')
+@app.route('/chat/user/<chat_hash_url>')
+def chat_one(chat_hash_url):
+
+    #chec the database for value 
+    res = redis_helper_fun.check_hash_exist(chat_hash_url)
+
+    if res:
+        return render_template('chatting/chat.html')
+    else:
+        return "page not found"
+
 
 
 
