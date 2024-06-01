@@ -1,9 +1,15 @@
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
 
-    {% set title = "Enter the name of two particpants" %}
+    {% set title = "Enter the name of Users" %}
     {% include 'reusable/card-heading.html' %}
     <style>
+
+        .row-height{
+            height: 60px;
+        }
+
+
         .submit-success-message {
             color: #557C55;
             font-size: 20px;
@@ -35,7 +41,7 @@
         }
 
         .button-container {
-            margin-top: 20px; /* Space between buttons */
+            margin-top: 25px; /* Space between buttons */
         }
 
 
@@ -60,8 +66,10 @@
                 <div class="form-group">
                     <input class="form-control mb-3" id="name_1" name="name_1" autocomplete="off" placeholder="1st Person name .."/>
                     <input class="form-control mb-3" id="name_2" name="name_2" autocomplete="off" placeholder="2nd Person name .."/>
+                    <div id="successMessageSubmittinyurl" class="submit-success-message" style="display: none;">Users Got Registered!!</div>
+                    <div id="errorMessagetinyurl" class="submit-error-message bio-font" style="display: none;">Please enter names</div>
                     <button id="submit" class="btn button-custom-color bio-font" type="submit">Sign Up</button>
-                    <button type="button" class="btn button-custom-color bio-font" id="clearButton" style="display: none;">Clear</button>
+                    <button type="button" class="btn button-custom-color bio-font" id="clearButton" style="display: none;">Sign Up more Users</button>
 
                     <div id="chatHashUrl" style="display: none;">
                         <div class ="hash-url arial-font font-color-class " id="chatHashUrlDisplay"></div>
@@ -89,6 +97,11 @@
         </div>
     </div>
 
+
+    <div id ="false-row" class="row row-height" >
+
+    </div>
+
     
 </div>
 
@@ -102,6 +115,19 @@
         var name_1 = document.getElementById("name_1").value;
         var name_2 = document.getElementById("name_2").value;
 
+        // Check if the URL field is empty or invalid
+        if (!name_1 || !name_2)
+        {
+            // Display error message
+            document.getElementById("errorMessagetinyurl").style.display = "block";
+                return; // Exit the function if the field is empty or invalid
+            } else {
+                // Hide error message if URL is valid
+                document.getElementById("errorMessagetinyurl").style.display = "none";
+            
+        }
+
+
         // Send the form data to the Flask backend using AJAX
         fetch('/chat_user_sign_up', {
             method: 'POST',
@@ -113,9 +139,13 @@
         .then(response => response.json())
         .then(data => {
             if (data.success) {
+
+                // Display success message
+                document.getElementById("successMessageSubmittinyurl").style.display = "block";
                 // Display the generated chat URL
+
                 const chatHashUrlDisplay = document.getElementById("chatHashUrlDisplay");
-                const chatUrl = window.location.origin + "/chat/" + data.hash;
+                const chatUrl = window.location.origin + "/chat/user/" + data.hash;
                 chatHashUrlDisplay.textContent = chatUrl;
 
                 // Display the hash URL and QR container
@@ -123,6 +153,13 @@
                 document.getElementById("chatHashUrl").style.display = "block";
                 document.getElementById("clearButton").style.display = "inline";
                 document.getElementById("submit").style.display = "none";
+
+                //hide the extra area 
+                document.getElementById("false-row").style.display = "none";
+                
+                //make the fields clear 
+                document.getElementById("name_1").value = "";
+                document.getElementById("name_2").value = "";
                 
 
                 // Generate the QR code for the chat URL
