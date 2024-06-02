@@ -200,7 +200,7 @@ class Helper_fun():
         """
 
         uers_json = json.dumps(value)
-        redis_client.hset("chat_rooms",key,uers_json)   
+        redis_client.hset(self.hash_name,key,uers_json)   
 
 
 

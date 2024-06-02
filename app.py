@@ -230,8 +230,11 @@ def submit_user_details():
     print(name_2)
     print(chat_hash)
 
+    #exp
+    helper_fun_chat_hash.store_list_hash_val(chat_hash,[name_1,name_2])
+
     # Store the pair data in the database
-    helper_fun_chat_hash.add_value_to_hash(chat_hash,"1")
+    #helper_fun_chat_hash.add_value_to_hash(chat_hash,"1")
 
     #print all the value
     #print(redis_helper_fun.get_list_value_from_hash(chat_hash))

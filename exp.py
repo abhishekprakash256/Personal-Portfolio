@@ -19,6 +19,8 @@ retrieved_data_str = r.hget('test-hash', 'name2')
 retrieved_data = json.loads(retrieved_data_str)
 
 print(retrieved_data)  # Output: ["Abhi", "anny"]
+print(retrieved_data[0])
+print(retrieved_data[1])
 
 # Check if a field exists in the hash
 field_exists = r.hexists('test-hash', 'name2')
