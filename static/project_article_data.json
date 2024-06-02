@@ -81,6 +81,47 @@
             "more_link":"/project"
         
              }
+
+             ,
+
+             {
+                "article_name": "chat-app",
+                "aticle_data": [
+                    
+                    {"title": "Chat App", "image_src": "..\\static\\images\\projects\\tiny-url\\www.png", "article_para": "", "markdown_data": ""},
+                    {"title": "Project Description", "image_src": "", "article_para": "", "markdown_data": ""},
+                    {"title": "", "image_src": "", "article_para": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter, more manageable links. The backend leverages Redis for efficient data storage and retrieval, ensuring quick access and collision-free management of shortened URLs.", "markdown_data": ""},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Key Features \n1. **URL Shortening**: Users can input long URLs and receive a shortened version that redirects to the original link. \n2. **Custom Aliases**: Option to create custom aliases for the shortened URLs, enhancing readability and memorability. \n3. **High Performance**: Utilizes Redis for storing and fetching URLs, ensuring rapid response times and scalability."},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Technical Details \n- **Flask Server**: The web application is built using the Flask framework, providing a lightweight and flexible environment for handling HTTP requests and responses.\n- **Redis Integration**: Redis is used as the primary database, chosen for its speed and efficiency in handling large volumes of read/write operations.\n- **Redis Hash**: Used to avoid collisions by ensuring unique shortened URLs and storing mappings of short URLs to their original counterparts.\n- **Redis Sets**: Pre-generated short URLs are stored in a Redis set for faster allocation and retrieval.\n- **Redirect Functionality**: The application redirects users from the shortened URL to the original URL seamlessly."},
+                    {"title": "", "image_src": "..\\static\\images\\projects\\tiny-url\\tiny-url-system-design.png", "article_para": "", "markdown_data": ""},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Implementation\n1. **Adding Data**: A Redis helper function is used to add new URL mappings. It checks for collisions using Redis hash and ensures each short URL is unique.\n2. **Fetching Data**: For retrieving the original URL, the application fetches the corresponding value from the Redis hash, utilizing the pre-generated values from the Redis set for efficient data access.\n3. **Collision Avoidance**: By using Redis hash, the application effectively manages and prevents URL collisions, maintaining the integrity of the service."},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Benefits\n- **Speed**: The use of Redis ensures quick read/write operations, making the URL shortening and redirection process almost instantaneous.\n- **Scalability**: The application is designed to handle a large number of URL mappings, making it suitable for high-traffic environments.\n- **Reliability**: The collision avoidance mechanisms and pre-generated URL values ensure consistent performance and reliability."},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Motivation \nInspired by the system design principles of existing URL shortening services, this project was undertaken to create a custom solution tailored to specific needs. The choice of Redis as the database and the overall system architecture significantly improved the efficiency and reliability of URL shortening, making the service dependable for both personal and broader use cases."},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Conclusion \nThe Tiny-URL Generator project showcases the integration of Flask and Redis to build a robust, high-performance URL shortening service. With its emphasis on speed, scalability, and ease of use, this application serves as a reliable tool for managing and sharing URLs efficiently."}
+            
+                    
+            
+                ],
+                "card_one_text": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches",
+                "image_url_card_one": "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+                "card_one_url": "/projects/patching-unpatching",
+            
+                "card_two_text": "Federated Learning is a decentralized learning paradigm where models are trained on various devices, and their parameters are combined to create a global model. Initially introduced by Google",
+                "image_url_card_two": "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
+                "card_two_url": "/projects/federated-learning",
+            
+                "card_three_text": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the",
+                "image_url_card_three": "..\\static\\images\\projects\\academic-website\\main_page.png",
+                "card_three_url": "/projects/academic-website",
+    
+    
+                "first_social_media_url" : "https://github.com/abhishekprakash256/Flask/tree/main/testing/test17/redis_fun",
+                
+                "second_social_media_url" : "",
+                "button_link":"/demo/chat-app",
+                "more_link":"/project"
+            
+                 }
         ,
         {
             "article_name": "federated-learning",

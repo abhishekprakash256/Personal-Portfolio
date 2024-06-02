@@ -241,23 +241,23 @@ def submit_user_details():
     # Store the pair data in the database
     redis_helper_fun.add_value_to_hash(chat_hash,"1")
 
-    #print(redis_helper_fun.get_all_hash_val())
+    
     
     # Return the chat URL
     return jsonify({'success': True, 'hash': chat_hash})
 
 
 
-@app.route('/chat-start')
+@app.route('/demo/chat-app')
 def chatting_start():
     return render_template('chatting/chat-register.html')
 
 @socketio.on('join')
-def on_join(data):
+def on_join(data):#
     chat_hash = data['chat_hash']
     user_id = data['user_id']
     join_room(chat_hash)
-    #emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
+    emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
 
 @socketio.on('leave')
 def on_leave(data):
@@ -271,6 +271,9 @@ def handle_message(data):
     chat_hash = data['chat_hash']
     msg = data['msg']
     user_id = data['user_id']
+
+    print(redis_helper_fun.get_all_hash_val())
+
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
 
 @app.route('/chat/user/<chat_hash_url>')
