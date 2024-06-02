@@ -257,7 +257,7 @@ def on_join(data):
     chat_hash = data['chat_hash']
     user_id = data['user_id']
     join_room(chat_hash)
-    emit('status', {'msg': f'{user_id} has entered the room.'}, room=chat_hash)
+    #emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
 
 @socketio.on('leave')
 def on_leave(data):
