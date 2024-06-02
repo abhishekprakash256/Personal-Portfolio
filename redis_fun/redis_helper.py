@@ -205,11 +205,12 @@ class Helper_fun():
 
 
     #the method to show the values from the chat hash 
-    def get_list_value_from_hash(self,key):
+    def get_users_value_from_hash(self,key):
+
         # Retrieve and deserialize the list from JSON string
-        serialized_value = redis_client.hget(key, 'users')
-        if serialized_value:
-            return json.loads(serialized_value)
-        return None
+        retrieved_data_str = redis_client.hget(self.hash_name, key)
+
+        return retrieved_data_str
+
 
 

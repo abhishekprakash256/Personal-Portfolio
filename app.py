@@ -240,7 +240,7 @@ def submit_user_details():
     #print(redis_helper_fun.get_list_value_from_hash(chat_hash))
 
     #to print the value of all hash val 
-    print(helper_fun_chat_hash.get_all_hash_val())
+    #print(helper_fun_chat_hash.get_all_hash_val())
 
     # Return the chat URL
     return jsonify({'success': True, 'hash': chat_hash})
@@ -274,7 +274,7 @@ def handle_message(data):
     msg = data['msg']
     user_id = data['user_id']
 
-    #print(redis_helper_fun.get_all_hash_val())
+    #print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
 
