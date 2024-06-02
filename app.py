@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, jsonify, redirect
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
+from chat_hash import *
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
 
 #the hasing test
@@ -25,21 +26,12 @@ import json
 
 #const
 
-#const values for redis
-HASH_NAME = "url-hash"
-SET_NAME = "url-set"
 
 #db names in mongo
 db_name = ["articles","section"]
 
 #collection names in database 
 collections = ["projects","tech","life","section_data"]
-
-#redis helper function
-redis_helper_fun = Helper_fun(HASH_NAME,SET_NAME) 
-
-
-
 
 
 app = Flask(__name__)
@@ -195,7 +187,7 @@ def tiny_url_render():
 
 
 
-# -------------------- the chatting system experiments ---------------------
+#-------------------- the chatting system experiments ---------------------
 
 
 """
@@ -234,15 +226,19 @@ def submit_user_details():
     name_2 = data.get('name_2')
 
     chat_hash = generate_random_hash()
-    #print(name_1)
-    #print(name_2)
-    #print(chat_hash)
+    print(name_1)
+    print(name_2)
+    print(chat_hash)
 
     # Store the pair data in the database
-    redis_helper_fun.add_value_to_hash(chat_hash,"1")
+    helper_fun_chat_hash.add_value_to_hash(chat_hash,"1")
 
-    
-    
+    #print all the value
+    #print(redis_helper_fun.get_list_value_from_hash(chat_hash))
+
+    #to print the value of all hash val 
+    print(helper_fun_chat_hash.get_all_hash_val())
+
     # Return the chat URL
     return jsonify({'success': True, 'hash': chat_hash})
 
@@ -252,12 +248,14 @@ def submit_user_details():
 def chatting_start():
     return render_template('chatting/chat-register.html')
 
+
 @socketio.on('join')
 def on_join(data):#
     chat_hash = data['chat_hash']
     user_id = data['user_id']
     join_room(chat_hash)
     emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
+
 
 @socketio.on('leave')
 def on_leave(data):
@@ -266,23 +264,29 @@ def on_leave(data):
     leave_room(chat_hash)
     emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
 
+
 @socketio.on('message')
 def handle_message(data):
     chat_hash = data['chat_hash']
     msg = data['msg']
     user_id = data['user_id']
 
-    print(redis_helper_fun.get_all_hash_val())
+    #print(redis_helper_fun.get_all_hash_val())
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
 
+
+
 @app.route('/chat/user/<chat_hash_url>')
 def chat_one(chat_hash_url):
-    res = redis_helper_fun.check_hash_exist(chat_hash_url)
+    res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
     if res:
-        return render_template('chatting/chat.html', chat_hash_url=chat_hash_url)
+        return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
     else:
         return "page not found"
+
+
+
 
 """
 @socketio.on('message')
