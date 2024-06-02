@@ -88,7 +88,7 @@
                 "article_name": "chat-app",
                 "aticle_data": [
                     
-                    {"title": "Chat App", "image_src": "..\\static\\images\\projects\\tiny-url\\www.png", "article_para": "", "markdown_data": ""},
+                    {"title": "Chat App", "image_src": "..\\static\\images\\projects\\chat-app\\chat-app.png", "article_para": "", "markdown_data": ""},
                     {"title": "Project Description", "image_src": "", "article_para": "", "markdown_data": ""},
                     {"title": "", "image_src": "", "article_para": "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask framework. This project aims to simplify the process of sharing long URLs by generating shorter, more manageable links. The backend leverages Redis for efficient data storage and retrieval, ensuring quick access and collision-free management of shortened URLs.", "markdown_data": ""},
                     {"title": "", "image_src": "", "article_para": "", "markdown_data": "#### Key Features \n1. **URL Shortening**: Users can input long URLs and receive a shortened version that redirects to the original link. \n2. **Custom Aliases**: Option to create custom aliases for the shortened URLs, enhancing readability and memorability. \n3. **High Performance**: Utilizes Redis for storing and fetching URLs, ensuring rapid response times and scalability."},
