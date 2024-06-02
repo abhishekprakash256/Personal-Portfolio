@@ -252,6 +252,34 @@ def submit_user_details():
 def chatting_start():
     return render_template('chatting/chat-register.html')
 
+@socketio.on('join')
+def on_join(data):
+    chat_hash = data['chat_hash']
+    user_id = data['user_id']
+    join_room(chat_hash)
+    emit('status', {'msg': f'{user_id} has entered the room.'}, room=chat_hash)
+
+@socketio.on('leave')
+def on_leave(data):
+    chat_hash = data['chat_hash']
+    user_id = data['user_id']
+    leave_room(chat_hash)
+    emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
+
+@socketio.on('message')
+def handle_message(data):
+    chat_hash = data['chat_hash']
+    msg = data['msg']
+    user_id = data['user_id']
+    emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
+
+@app.route('/chat/user/<chat_hash_url>')
+def chat_one(chat_hash_url):
+    res = redis_helper_fun.check_hash_exist(chat_hash_url)
+    if res:
+        return render_template('chatting/chat.html', chat_hash_url=chat_hash_url)
+    else:
+        return "page not found"
 
 """
 @socketio.on('message')
@@ -260,36 +288,7 @@ def handle_message(msg):
 """
 
 
-@socketio.on('join')
-def on_join(data):
-    chat_hash = data['chat_hash']
-    join_room(chat_hash)
-    emit('status', {'msg': f'{request.sid} has entered the room.'}, room=chat_hash)
 
-@socketio.on('leave')
-def on_leave(data):
-    chat_hash = data['chat_hash']
-    leave_room(chat_hash)
-    emit('status', {'msg': f'{request.sid} has left the room.'}, room=chat_hash)
-
-@socketio.on('message')
-def handle_message(data):
-    chat_hash = data['chat_hash']
-    msg = data['msg']
-    emit('message', {'msg': msg}, room=chat_hash)
-
-
-#the chat end point
-@app.route('/chat/user/<chat_hash_url>')
-def chat_one(chat_hash_url):
-
-    #chec the database for value 
-    res = redis_helper_fun.check_hash_exist(chat_hash_url)
-
-    if res:
-        return render_template('chatting/chat.html')
-    else:
-        return "page not found"
 
 
 

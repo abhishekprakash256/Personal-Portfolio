@@ -1,54 +1,49 @@
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
- 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
-        <script defer src="/static/chat.js"></script>
-        
+
         <style>
+            #messages {
+                height: 500px;
+                overflow-y: scroll;
+                margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+            }
 
-        #messages {
-                    height: 500px;
-                    overflow-y: scroll;
-                    margin-bottom: 10px;
-                    display: flex;
-                    flex-direction: column; /* Default direction: column */
-                }
+            .message-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                margin-bottom: 5px;
+            }
 
-        .message-wrapper {
-            display: flex; /* Use flexbox to handle alignment */
-            justify-content: flex-start; /* Default alignment for received messages */
-            margin-bottom: 5px;
-        }
+            .message-wrapper.sent {
+                justify-content: flex-end;
+            }
 
-        .message-wrapper.sent {
-            justify-content: flex-end; /* Align sent messages to the right */
-        }
+            .message-box {
+                display: inline-block;
+                padding: 10px;
+                border-radius: 10px;
+                max-width: 80%;
+                word-wrap: break-word;
+            }
 
-        .message-box {
-            display: inline-block;
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 80%; /* Ensure messages don't get too wide */
-            word-wrap: break-word;
-        }
+            .message-received {
+                margin-top: 10px;
+                background-color: #19A7CE;
+                font-weight: 500;
+                margin-left: 5px;
+                color: white;
+            }
 
-    .message-received {
-        margin-top: 10px;
-        background-color:#19A7CE;
-        font-weight: 500;
-        margin-left: 5px;
-        color: white;
-    }
-
-    .message-sent {
-        margin-top: 10px;
-        background-color: #e9ecef;
-        font-weight: 500;
-        margin-right: 5px;
-        color: #146C94;
-
-    }
-
+            .message-sent {
+                margin-top: 10px;
+                background-color: #e9ecef;
+                font-weight: 500;
+                margin-right: 5px;
+                color: #146C94;
+            }
         </style>
 
         <div class="row p-3 flex-column flex-md-row">
@@ -62,11 +57,75 @@
                 <div class="row background-color-body rounded mt-3 p-3">
                     <div class="col-12 d-flex align-items-center">
                         <input class="form-control mr-2" id="messageInput" autocomplete="off" placeholder="Type your message..."/>
-                        <button id="sendbutton" class="btn button-custom-color bio-font" onclick="sendMessage()">Send</button>
+                        <button id="sendButton" class="btn button-custom-color bio-font">Send</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        var socket = io();
+        var chatHash = '{{ chat_hash_url }}'; // Get the chat hash from the template context
+        var userId = Math.random().toString(36).substr(2, 9); // Generate a random user ID
+
+        // Join the room
+        socket.emit('join', { chat_hash: chatHash, user_id: userId });
+
+        // Send a message function
+        function sendMessage() {
+            var message = document.getElementById('messageInput').value;
+            if (message.trim() !== '') {
+                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId });
+                document.getElementById('messageInput').value = '';
+            }
+        }
+
+        // Send a message when the "Send" button is clicked
+        document.getElementById('sendButton').onclick = function() {
+            sendMessage();
+        };
+
+        // Send a message when the "Enter" key is pressed
+        document.getElementById('messageInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent the default form submission behavior
+                sendMessage();
+            }
+        });
+
+        // Receive a message
+        socket.on('message', function(data) {
+            displayMessage(data, data.user_id === userId);
+        });
+
+        // Display a message
+        function displayMessage(data, isSent) {
+            var messageDiv = document.createElement('div');
+            messageDiv.className = 'message-wrapper' + (isSent ? ' sent' : '');
+            var messageBox = document.createElement('div');
+            messageBox.className = 'message-box' + (isSent ? ' message-sent' : ' message-received');
+            messageBox.textContent = data.msg;
+            messageDiv.appendChild(messageBox);
+            document.getElementById('messages').appendChild(messageDiv);
+
+            // Scroll to the bottom
+            document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+        }
+
+        // Receive a status update
+        socket.on('status', function(data) {
+            var statusDiv = document.createElement('div');
+            statusDiv.textContent = data.msg;
+            document.getElementById('messages').appendChild(statusDiv);
+
+            // Scroll to the bottom
+            document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+        });
+
+        // Handle leaving the room before unload
+        window.onbeforeunload = function() {
+            socket.emit('leave', { chat_hash: chatHash, user_id: userId });
+        };
+    </script>
 </body>
