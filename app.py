@@ -252,16 +252,15 @@ def submit_user_details():
 #the sublit of the message route for the send message 
 @app.route('/login_user', methods=['POST'])
 def submit_user_login():
-    # Retrieve form data
-
     
+    # Retrieve form data
     user_name = request.form.get('user_name')
     chat_hash = request.form['chat_hash']
 
     print(user_name)
     print(chat_hash)
 
-    #print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
+    print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
 
     return jsonify({'success': True, 'message': 'Form data submitted successfully'})
 
