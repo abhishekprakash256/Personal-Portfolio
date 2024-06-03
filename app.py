@@ -253,9 +253,15 @@ def submit_user_details():
 @app.route('/login_user', methods=['POST'])
 def submit_user_login():
     # Retrieve form data
+
+    
     user_name = request.form.get('user_name')
+    chatHash = request.form.get('chatHash')
 
     print(user_name)
+    print(chatHash)
+
+    #print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
 
     return jsonify({'success': True, 'message': 'Form data submitted successfully'})
 

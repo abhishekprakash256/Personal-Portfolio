@@ -79,35 +79,37 @@
 
     <script>
 
-        document.getElementById('user_submit').onclick = function(event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
+    var chatHash = '{{ chat_hash_url }}';
 
-                    var userName = document.getElementById('user_name').value;
-                    if (!userName.trim()) {
-                        document.getElementById('errorMessage').style.display = 'block';
-                        return;
-                    } else {
-                        document.getElementById('errorMessage').style.display = 'none';
+    document.getElementById('user_submit').onclick = function(event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+
+                var userName = document.getElementById('user_name').value;
+                if (!userName.trim()) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    return;
+                } else {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }
+
+                var formData = new FormData();
+                formData.append('user_name', userName);
+
+                fetch('/login_user', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        chat_hash = data.chatHash;
+                        document.getElementById('loginContainer').style.display = 'none';
+                        document.getElementById('chatContainer').style.display = 'block';
+                       socket.emit('join', { chat_hash: chatHash, user_id: userId });
                     }
-
-                    var formData = new FormData();
-                    formData.append('user_name', userName);
-
-                    fetch('/login_user', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            
-                            document.getElementById('loginContainer').style.display = 'none';
-                            document.getElementById('chatContainer').style.display = 'block';
-                            socket.emit('join', { chat_hash: chatHash, user_id: userId });
-                        }
-                    })
-                    .catch(error => console.error('Error:', error));
-                };
+                })
+                .catch(error => console.error('Error:', error));
+            };
 
 
 
