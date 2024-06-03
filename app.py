@@ -256,10 +256,10 @@ def submit_user_login():
 
     
     user_name = request.form.get('user_name')
-    chatHash = request.form.get('chatHash')
+    chat_hash = request.form['chat_hash']
 
     print(user_name)
-    print(chatHash)
+    print(chat_hash)
 
     #print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
 

@@ -76,50 +76,43 @@
         </div>
     </div>
 
-
-    <script>
-
-    var chatHash = '{{ chat_hash_url }}';
-
-    document.getElementById('user_submit').onclick = function(event) {
-                event.preventDefault(); // Prevent the default form submission behavior
-
-                var userName = document.getElementById('user_name').value;
-                if (!userName.trim()) {
-                    document.getElementById('errorMessage').style.display = 'block';
-                    return;
-                } else {
-                    document.getElementById('errorMessage').style.display = 'none';
-                }
-
-                var formData = new FormData();
-                formData.append('user_name', userName);
-
-                fetch('/login_user', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        chat_hash = data.chatHash;
-                        document.getElementById('loginContainer').style.display = 'none';
-                        document.getElementById('chatContainer').style.display = 'block';
-                       socket.emit('join', { chat_hash: chatHash, user_id: userId });
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-            };
-
-
-
-    </script>
-
     <script>
         var socket = io();
-        var chatHash = '{{ chat_hash_url }}'; // Get the chat hash from the template context
+        var chatHash = '{{ chat_hash_url }}';
         var userId = Math.random().toString(36).substr(2, 9); // Generate a random user ID
 
+        document.getElementById('user_submit').onclick = function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            var userName = document.getElementById('user_name').value;
+            if (!userName.trim()) {
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            } else {
+                document.getElementById('errorMessage').style.display = 'none';
+            }
+
+            var formData = new FormData();
+            formData.append('user_name', userName);
+            formData.append('chat_hash', chatHash); // Include the chat hash
+
+            fetch('/login_user', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('chatContainer').style.display = 'block';
+                    socket.emit('join', { chat_hash: chatHash, user_id: userId });
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('errorMessage').textContent = 'Invalid login';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        };
 
         function sendMessage() {
             var message = document.getElementById('messageInput').value;
