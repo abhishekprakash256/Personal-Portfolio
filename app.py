@@ -247,6 +247,20 @@ def submit_user_details():
 
 
 
+
+#the login page for the user
+#the sublit of the message route for the send message 
+@app.route('/login_user', methods=['POST'])
+def submit_user_login():
+    # Retrieve form data
+    user_name = request.form.get('user_name')
+
+    print(user_name)
+
+    return jsonify({'success': True, 'message': 'Form data submitted successfully'})
+
+
+
 @app.route('/demo/chat-app')
 def chatting_start():
     return render_template('chatting/chat-register.html')

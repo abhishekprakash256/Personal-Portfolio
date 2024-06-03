@@ -13,5 +13,3 @@ SET_NAME = "chat-set"
 
 helper_fun_chat_hash = Helper_fun(HASH_NAME,SET_NAME)
 
-
-
