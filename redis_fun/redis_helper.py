@@ -210,7 +210,11 @@ class Helper_fun():
         # Retrieve and deserialize the list from JSON string
         retrieved_data_str = redis_client.hget(self.hash_name, key)
 
-        return retrieved_data_str
+        if retrieved_data_str:
+            # Deserialize the JSON string to a Python list
+            retrieved_data_list = json.loads(retrieved_data_str)
+            return retrieved_data_list
+        return None
 
 
 

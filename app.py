@@ -260,9 +260,18 @@ def submit_user_login():
     print(user_name)
     print(chat_hash)
 
-    print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
+    user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
+    user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
-    return jsonify({'success': True, 'message': 'Form data submitted successfully'})
+    #print(type(user_1))
+
+    if user_name == user_1 or user_name == user_2:
+
+        return jsonify({'success': True, 'message': 'Form data submitted successfully'})
+
+    else:
+
+        return jsonify({'success': False, 'message': 'data is not correct'})
 
 
 
