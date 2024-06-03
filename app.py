@@ -271,7 +271,7 @@ def submit_user_login():
 
     else:
 
-        return jsonify({'success': False, 'message': 'data is not correct'})
+        return jsonify({'success': False, 'message': 'Invalid Login'})
 
 
 

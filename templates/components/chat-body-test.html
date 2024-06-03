@@ -42,6 +42,12 @@
             margin-right: 5px;
             color: #146C94;
         }
+
+        .submit-error-message {
+            color: #FA7070;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body class="background-color-body">
@@ -49,12 +55,12 @@
         <div class="row p-3 flex-column flex-md-row" id="loginContainer">
             <div class="col rounded">
                 <div class="row flex-column flex-md-row background-color-body rounded">
-                    <div class="col text-center">
+                    <div class="col text-center mt-3">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Enter your name">
+                            <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Enter user name">
                         </div>
-                        <button type="submit" class="btn button-custom-color bio-font" id="user_submit">Login</button>
-                        <div id="errorMessage" style="display:none;color:red;">Please enter a valid name.</div>
+                        <button type="submit" class="btn button-custom-color bio-font mb-3" id="user_submit">Login</button>
+                        <div id="errorMessage" class="submit-error-message" style="display:none;">Please enter a valid name.</div>
                     </div>
                 </div>
             </div>
@@ -108,7 +114,7 @@
                     socket.emit('join', { chat_hash: chatHash, user_id: userId });
                 } else {
                     document.getElementById('errorMessage').style.display = 'block';
-                    document.getElementById('errorMessage').textContent = 'Invalid login';
+                    document.getElementById('errorMessage').textContent = 'Invalid User Name';
                 }
             })
             .catch(error => console.error('Error:', error));
