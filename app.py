@@ -5,7 +5,7 @@ make the main app for the website
 #imports
 import json
 import os 
-from flask import Flask, render_template, request, jsonify, redirect
+from flask import Flask, render_template, request, jsonify, redirect, make_response , url_for
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
@@ -257,6 +257,10 @@ def submit_user_login():
     user_name = request.form.get('user_name')
     chat_hash = request.form['chat_hash']
 
+
+    #set the cookie 
+    user_cookie = request.cookies.get('user_name')
+
     print(user_name)
     print(chat_hash)
 
@@ -264,8 +268,18 @@ def submit_user_login():
     user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
     #print(type(user_1))
+    #set the cookie 
+    #resp = make_response('Setting the cookie')
+    #resp.set_cookie('user_cookie', user_cookie)
 
     if user_name == user_1 or user_name == user_2:
+
+        #resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
+        #resp.set_cookie('user_cookie', user_cookie)
+
+        #return resp
+        resp = make_response('Setting the cookie')  
+        resp.set_cookie('GFG','ComputerScience Portal') 
 
         return jsonify({'success': True, 'message': 'Form data submitted successfully'})
 
@@ -311,6 +325,7 @@ def handle_message(data):
 @app.route('/chat/user/<chat_hash_url>')
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
+    
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
     else:
