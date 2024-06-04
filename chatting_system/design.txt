@@ -234,7 +234,7 @@ look into --
 
 
 development log --
-    -- the nav bar should have a live demo section -- later when have more projects 
+    -- the nav bar should have a live demo section -- later when have more projects that are live 
     -- opening the other link get the other way to u (it should be the same using the cookie or login system so save data)
         -- started 
     -- the chat should be save when open anywhere else for someone 

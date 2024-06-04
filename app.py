@@ -261,27 +261,28 @@ def submit_user_login():
     #set the cookie 
     user_cookie = request.cookies.get('user_name')
 
-    print(user_name)
-    print(chat_hash)
+    print("this is user name ", user_name)
+    print("this is chat hash",chat_hash)
 
     user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
     user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
-    #print(type(user_1))
-    #set the cookie 
-    #resp = make_response('Setting the cookie')
-    #resp.set_cookie('user_cookie', user_cookie)
+    #get the cookie 
+    
+    save_cookie = request.cookies.get(chat_hash)  #
+    
+    if save_cookie == user_1 or save_cookie == user_2:
+        return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
+    
 
     if user_name == user_1 or user_name == user_2:
 
-        #resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
-        #resp.set_cookie('user_cookie', user_cookie)
-
         #return resp
-        resp = make_response('Setting the cookie')  
-        resp.set_cookie('GFG','ComputerScience Portal') 
+        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))  #
+        resp.set_cookie(chat_hash,user_name)#
+        return resp#
 
-        return jsonify({'success': True, 'message': 'Form data submitted successfully'})
+        #return jsonify({'success': True, 'message': 'Form data submitted successfully'})
 
     else:
 
@@ -325,6 +326,11 @@ def handle_message(data):
 @app.route('/chat/user/<chat_hash_url>')
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
+
+    #get the cookie 
+    #save_cookie = request.cookies.get(chat_hash_url) 
+
+    #print("this is cookie",save_cookie)
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
