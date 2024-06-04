@@ -234,12 +234,10 @@ look into --
 
 
 development log --
-    -- The chat-body-test.html is the main file for chat body
-    -- add the dipaly of the projects on the 
+    -- add the dipaly of the projects on the (the images are not displaying )  -- 
     -- opening the other link get the other way to u (it should be the same using the cookie or login system so save data)
     -- the chat should be save when open anywhere else for someone 
     -- the database attachement (for both sides)
-    -- the datbase 
     -- make the username passed and match encrytption the upper and lower case doens't matter 
 
 
