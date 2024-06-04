@@ -337,8 +337,8 @@ def chat_one(chat_hash_url):
     
     if save_cookie == user_1 or save_cookie == user_2:
         #return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
-        #return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
-        return "cookie found"
+        return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
+        #return "cookie found"
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
