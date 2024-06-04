@@ -327,10 +327,17 @@ def handle_message(data):
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
 
-    #get the cookie 
-    #save_cookie = request.cookies.get(chat_hash_url) 
+    #new code 
+    user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
+    user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
 
-    #print("this is cookie",save_cookie)
+    #new code 
+    save_cookie = request.cookies.get(chat_hash_url)  #
+
+    
+    if save_cookie == user_1 or save_cookie == user_2:
+        #return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
+        return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
