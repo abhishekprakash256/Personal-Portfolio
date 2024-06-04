@@ -259,7 +259,7 @@ def submit_user_login():
 
 
     #set the cookie 
-    user_cookie = request.cookies.get('user_name')
+    #user_cookie = request.cookies.get('user_name')
 
     print("this is user name ", user_name)
     print("this is chat hash",chat_hash)
