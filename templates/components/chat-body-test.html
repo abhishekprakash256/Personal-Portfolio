@@ -83,6 +83,11 @@
 
 
     <!--------------set the card structure ------>
+
+    <div id="otherprojects">
+
+    {% set title = "Projects" %}
+    {% include 'reusable/card-heading.html' %}
                             
     {% set card_one_text = "Patching and Unpatching are a set of tools that are used for image processing. The patching .." %}
     <!--------- ------set card text-------------->
@@ -105,7 +110,7 @@
     {% set more_link = "/project" %}
     {% include 'reusable/more.html' %}
 
-
+</div>
 
     </div>
 
@@ -140,6 +145,8 @@
             .then(data => {
                 if (data.success) {
                     document.getElementById('loginContainer').style.display = 'none';
+                    document.getElementById('otherprojects').style.display = 'none';
+
                     document.getElementById('chatContainer').style.display = 'block';
                     socket.emit('join', { chat_hash: chatHash, user_id: userId });
                 } else {
