@@ -5,6 +5,7 @@ make the main app for the website
 #imports
 import json
 import os 
+from datetime import timedelta, datetime
 from flask import Flask, render_template, request, jsonify, redirect, make_response , url_for
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
@@ -277,9 +278,14 @@ def submit_user_login():
 
     if user_name == user_1 or user_name == user_2:
 
+        #set the expiration time of the cookie 
+        expires = datetime.now() + timedelta(days=1)  # Set the expiration time to 1 day
+
         #return resp
-        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))  #
-        resp.set_cookie(chat_hash,user_name)#
+        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))  
+
+        #cookie set for the secure, httponly , expires in one day , chat_hash,user_name
+        resp.set_cookie(chat_hash,user_name,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
         return resp#
 
         #return jsonify({'success': True, 'message': 'Form data submitted successfully'})
