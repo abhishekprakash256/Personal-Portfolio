@@ -6,6 +6,7 @@ make the main app for the website
 import json
 import os 
 from datetime import timedelta, datetime
+from itsdangerous import URLSafeTimedSerializer
 from flask import Flask, render_template, request, jsonify, redirect, make_response , url_for
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
@@ -25,15 +26,11 @@ import eventlet
 #for test 
 import json
 
-#const
-
-
 #db names in mongo
 db_name = ["articles","section"]
 
 #collection names in database 
 collections = ["projects","tech","life","section_data"]
-
 
 app = Flask(__name__)
 
@@ -41,6 +38,38 @@ app.config['STATIC_FOLDER'] = 'static'
 
 #for socket programming
 socketio = SocketIO(app, async_mode='eventlet')
+
+
+
+
+app.secret_key = 'Qwerty@8243'  # Replace with a strong, random key
+serializer = URLSafeTimedSerializer(app.secret_key)
+
+
+
+#the encryption and decryption of the cookie code 
+def encrypt_cookie(value):
+    return serializer.dumps(value)
+
+def decrypt_cookie(value):
+    try:
+        return serializer.loads(value, max_age=3600)  # 1 hour expiration
+    except:
+        return None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #index page 
@@ -269,7 +298,9 @@ def submit_user_login():
     user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
     #get the cookie to save
-    save_cookie = request.cookies.get(chat_hash)  
+    save_cookie = decrypt_cookie(request.cookies.get(chat_hash)) 
+
+    print(save_cookie)
     
     if save_cookie == user_1 or save_cookie == user_2:
         return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
@@ -281,10 +312,12 @@ def submit_user_login():
         expires = datetime.now() + timedelta(days=1)  # Set the expiration time to 1 day
 
         #return resp
-        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))  
+        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
+
+        encrypted_value = encrypt_cookie(user_name)  
 
         #cookie set for the secure, httponly , expires in one day , chat_hash,user_name
-        resp.set_cookie(chat_hash,user_name,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
+        resp.set_cookie(chat_hash,encrypted_value,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
         return resp#
 
         #return jsonify({'success': True, 'message': 'Form data submitted successfully'})
@@ -337,7 +370,9 @@ def chat_one(chat_hash_url):
     user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
 
     #new code 
-    save_cookie = request.cookies.get(chat_hash_url)  #
+    #save_cookie = request.cookies.get(chat_hash_url)  #
+    save_cookie = decrypt_cookie(request.cookies.get(chat_hash_url))
+    print(save_cookie)
 
     
     if save_cookie == user_1 or save_cookie == user_2:
