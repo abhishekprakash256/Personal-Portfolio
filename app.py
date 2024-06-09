@@ -306,11 +306,11 @@ def submit_user_login():
 
     print(save_cookie)
     
-    if save_cookie == user_1 or save_cookie == user_2:
-        print(type(save_cookie))
-        print("in")
+    #if save_cookie == user_1 or save_cookie == user_2:
+    #    print(type(save_cookie))
+    #    print("in")
 
-        return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
+    #    return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
     
 
     if user_name == user_1 or user_name == user_2:
@@ -380,9 +380,9 @@ def chat_one(chat_hash_url):
     #new code 
     save_cookie = request.cookies.get(chat_hash_url)  #
     #save_cookie = decrypt_cookie(request.cookies.get(chat_hash_url))
-    print(save_cookie)
-    print(type(save_cookie))
-    print(type(user_1))
+    #print(save_cookie)
+    #print(type(save_cookie))
+    #print(type(user_1))
 
     
     if save_cookie == user_1 or save_cookie == user_2:
