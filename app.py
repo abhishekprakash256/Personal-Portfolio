@@ -316,7 +316,7 @@ def submit_user_login():
     if user_name == user_1 or user_name == user_2:
 
         #set the expiration time of the cookie 
-        expires = datetime.now() + timedelta(days=1)  # Set the expiration time to 1 day
+        expires = datetime.now() + timedelta(hours=1)  # Set the expiration time to 1 day
 
         #return resp
         resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
@@ -325,7 +325,10 @@ def submit_user_login():
 
         #cookie set for the secure, httponly , expires in one day , chat_hash,user_name
         #resp.set_cookie(chat_hash,encrypted_value,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
-        resp.set_cookie(chat_hash,user_name)#
+
+        resp.set_cookie(chat_hash, user_name, max_age=3600, expires=expires, secure=True, httponly=True, samesite='Lax')
+
+        #resp.set_cookie(chat_hash,user_name)#
         return resp#
 
         #return jsonify({'success': True, 'message': 'Form data submitted successfully'})
@@ -394,7 +397,7 @@ def chat_one(chat_hash_url):
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
     else:
-        return "page not found"
+        return "page not found" 
 
 
 
