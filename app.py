@@ -306,11 +306,11 @@ def submit_user_login():
 
     print(save_cookie)
     
-    #if save_cookie == user_1 or save_cookie == user_2:
-    #    print(type(save_cookie))
-    #    print("in")
+    if save_cookie == user_1 or save_cookie == user_2:
+        print(type(save_cookie))
+        print("in")
 
-    #    return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
+        return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
     
 
     if user_name == user_1 or user_name == user_2:
@@ -326,9 +326,9 @@ def submit_user_login():
         #cookie set for the secure, httponly , expires in one day , chat_hash,user_name
         #resp.set_cookie(chat_hash,encrypted_value,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
 
-        resp.set_cookie(chat_hash, user_name, max_age=3600, expires=expires, secure=True, httponly=True, samesite='Lax')
+        #resp.set_cookie(chat_hash, user_name, max_age=3600, expires=expires, secure=True, httponly=True, samesite='Lax')
 
-        #resp.set_cookie(chat_hash,user_name)#
+        resp.set_cookie(chat_hash,user_name)#
         return resp#
 
         #return jsonify({'success': True, 'message': 'Form data submitted successfully'})
@@ -407,7 +407,6 @@ def chat_one(chat_hash_url):
 def handle_message(msg):
     emit('message', msg, broadcast=True, include_self=False)
 """
-
 
 
 
