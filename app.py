@@ -358,11 +358,6 @@ def handle_message(data):
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
 
-    #new code 
-    user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
-    user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
-
-
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
