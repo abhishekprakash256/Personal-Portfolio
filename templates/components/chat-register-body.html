@@ -140,9 +140,10 @@
         // Get the names from the form
         var name_1 = document.getElementById("name_1").value;
         var name_2 = document.getElementById("name_2").value;
+        var namePattern = /^[A-Za-z]+([ A-Za-z-]*[A-Za-z])?$/;
 
         // Check if the URL field is empty or invalid
-        if (!name_1 || !name_2)
+        if (!name_1.match(namePattern) || !name_2.match(namePattern)  || !name_1 || !name_2)
         {
             // Display error message
             document.getElementById("errorMessagetinyurl").style.display = "block";
