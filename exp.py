@@ -10,3 +10,11 @@ user_password = "1234"
 x = check_password_hash(hashed_password,user_password)
 
 print(x)
+
+
+name = "Abhi"
+
+
+name = name.lower()
+
+print(name)

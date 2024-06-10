@@ -256,6 +256,10 @@ def submit_user_details():
     name_1 = data.get('name_1')
     name_2 = data.get('name_2')
 
+    #make the upper and lower case
+    name_1 = name_1.lower()
+    name_2 = name_2.lower()
+
 
     #hash the user name 
     hashed_username_1 = generate_password_hash(name_1,method='pbkdf2:sha256')
@@ -280,6 +284,10 @@ def submit_user_login():
     
     # Retrieve form data
     user_name = request.form.get('user_name')
+
+    #handle  the upper and lower case
+    user_name = user_name.lower()
+
     chat_hash = request.form['chat_hash']
 
     #hash the username 
