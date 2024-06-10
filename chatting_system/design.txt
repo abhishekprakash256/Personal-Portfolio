@@ -240,6 +240,7 @@ development log --
         -- the cookies should have encrytption - done 
         -- cookie encrytption -- done 
     -- the auth system for the user name caps and small doesn't matter 
+    -- the username checksystem added -- done 
     -- the encrytption for the username storage and matching 
         -- when passed from the front end -- done 
         
