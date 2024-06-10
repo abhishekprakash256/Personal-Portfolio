@@ -288,29 +288,12 @@ def submit_user_login():
     chat_hash = request.form['chat_hash']
 
 
-    #set the cookie 
-    #user_cookie = request.cookies.get('user_name')
-
     print("this is user name ", user_name)
     print("this is chat hash",chat_hash)
 
     user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
     user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
-
-    #get the cookie to save
-
-    save_cookie = request.cookies.get(chat_hash)
-
-    #save_cookie = decrypt_cookie(request.cookies.get(chat_hash)) 
-
-    print(save_cookie)
-    
-    if save_cookie == user_1 or save_cookie == user_2:
-        print(type(save_cookie))
-        print("in")
-
-        return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
     
 
     if user_name == user_1 or user_name == user_2:
@@ -321,17 +304,16 @@ def submit_user_login():
         #return resp
         resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
 
-        #encrypted_value = encrypt_cookie(user_name)  
+        encrypted_value = encrypt_cookie(user_name)  
 
         #cookie set for the secure, httponly , expires in one day , chat_hash,user_name
         #resp.set_cookie(chat_hash,encrypted_value,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
 
         #resp.set_cookie(chat_hash, user_name, max_age=3600, expires=expires, secure=True, httponly=True, samesite='Lax')
 
-        resp.set_cookie(chat_hash,user_name)#
-        return resp#
+        resp.set_cookie(chat_hash,encrypted_value)
+        return resp
 
-        #return jsonify({'success': True, 'message': 'Form data submitted successfully'})
 
     else:
 
@@ -380,19 +362,7 @@ def chat_one(chat_hash_url):
     user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
     user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
 
-    #new code 
-    save_cookie = request.cookies.get(chat_hash_url)  #
-    #save_cookie = decrypt_cookie(request.cookies.get(chat_hash_url))
-    #print(save_cookie)
-    #print(type(save_cookie))
-    #print(type(user_1))
 
-    
-    if save_cookie == user_1 or save_cookie == user_2:
-        print("in chat hash url")
-        #return jsonify({'success': True, 'message': 'Form data submitted successfully'})#
-        return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
-        #return "cookie found"
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
