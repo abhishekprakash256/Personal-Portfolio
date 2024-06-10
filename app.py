@@ -299,7 +299,7 @@ def submit_user_login():
     if user_name == user_1 or user_name == user_2:
 
         #set the expiration time of the cookie 
-        expires = datetime.now() + timedelta(hours=1)  # Set the expiration time to 1 day
+        #expires = datetime.now() + timedelta(hours=1)  # Set the expiration time to 1 day
 
         #return resp
         resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
