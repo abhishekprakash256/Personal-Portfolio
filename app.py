@@ -13,6 +13,7 @@ from redis_fun.redis_helper import *
 from generate_tiny_url import * 
 from chat_hash import *
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
+from werkzeug.security import generate_password_hash, check_password_hash
 
 #the hasing test
 from hashing import *
@@ -255,22 +256,16 @@ def submit_user_details():
     name_1 = data.get('name_1')
     name_2 = data.get('name_2')
 
+
+    #hash the user name 
+    hashed_username_1 = generate_password_hash(name_1,method='pbkdf2:sha256')
+    hashed_username_2 = generate_password_hash(name_2,method='pbkdf2:sha256')
+
+    #generate the random hash
     chat_hash = generate_random_hash()
-    print(name_1)
-    print(name_2)
-    print(chat_hash)
 
-    #exp
-    helper_fun_chat_hash.store_list_hash_val(chat_hash,[name_1,name_2])
-
-    # Store the pair data in the database
-    #helper_fun_chat_hash.add_value_to_hash(chat_hash,"1")
-
-    #print all the value
-    #print(redis_helper_fun.get_list_value_from_hash(chat_hash))
-
-    #to print the value of all hash val 
-    #print(helper_fun_chat_hash.get_all_hash_val())
+    #store the chat hash and the hashed uername in the redis 
+    helper_fun_chat_hash.store_list_hash_val(chat_hash,[hashed_username_1,hashed_username_2])
 
     # Return the chat URL
     return jsonify({'success': True, 'hash': chat_hash})
@@ -287,27 +282,20 @@ def submit_user_login():
     user_name = request.form.get('user_name')
     chat_hash = request.form['chat_hash']
 
+    #hash the username 
+    hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
+    hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
-    print("this is user name ", user_name)
-    print("this is chat hash",chat_hash)
 
-    user_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
-    user_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
-
-    
-
-    if user_name == user_1 or user_name == user_2:
+    #check for the login 
+    if check_password_hash(hashed_username_1,user_name) or check_password_hash(hashed_username_2,user_name):
 
         #set the expiration time of the cookie 
         #expires = datetime.now() + timedelta(hours=1)  # Set the expiration time to 1 day
 
-        #return resp
         resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
 
         encrypted_value = encrypt_cookie(user_name)  
-
-        #cookie set for the secure, httponly , expires in one day , chat_hash,user_name
-        #resp.set_cookie(chat_hash,encrypted_value,max_age=60*60*24, expires=expires, secure=True, httponly=True, samesite='Lax')#
 
         #resp.set_cookie(chat_hash, user_name, max_age=3600, expires=expires, secure=True, httponly=True, samesite='Lax')
 
@@ -348,7 +336,6 @@ def handle_message(data):
     msg = data['msg']
     user_id = data['user_id']
 
-    #print(helper_fun_chat_hash.get_users_value_from_hash(chat_hash))
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
 
@@ -367,7 +354,7 @@ def chat_one(chat_hash_url):
 
 
 
-"""7.0.0.1:5000/
+"""
 @socketio.on('message')
 def handle_message(msg):
     emit('message', msg, broadcast=True, include_self=False)

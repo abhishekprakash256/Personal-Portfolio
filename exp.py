@@ -1,31 +1,12 @@
-import redis
-import json
+from werkzeug.security import generate_password_hash, check_password_hash
+password = "1234"
 
-r = redis.Redis(host='localhost', port=6379, db=0,decode_responses=True)
+hashed_password = generate_password_hash(password,method='pbkdf2:sha256')
 
-# Data to store
-data = ["Abhi", "anny"]
+print(hashed_password)
 
-# Convert the list to a JSON string
-data_str = json.dumps(data)
+user_password = "1234"
 
-# Set the JSON string in the Redis hash
-r.hset('test-hash', 'name2', data_str)
+x = check_password_hash(hashed_password,user_password)
 
-# Retrieve the JSON string from the Redis hash
-retrieved_data_str = r.hget('test-hash', 'name2')
-
-# Convert the JSON string back to a list
-retrieved_data = json.loads(retrieved_data_str)
-
-print(retrieved_data)  # Output: ["Abhi", "anny"]
-print(retrieved_data[0])
-print(retrieved_data[1])
-
-# Check if a field exists in the hash
-field_exists = r.hexists('test-hash', 'name2')
-
-if field_exists:
-    print("The field 'name2' exists in the hash 'test-hash'.")
-else:
-    print("The field 'name2' does not exist in the hash 'test-hash'.")
+print(x)

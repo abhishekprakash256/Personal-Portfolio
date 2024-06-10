@@ -237,8 +237,18 @@ development log --
     -- the nav bar should have a live demo section -- later when have more projects that are live 
     -- opening the other link get the other way to u (it should be the same using the cookie or login system so save data)
         -- started 
-        -- the cookies should have encrytption
-        -- cookie encrytption
+        -- the cookies should have encrytption - done 
+        -- cookie encrytption -- done 
+    -- the auth system for the user name caps and small doesn't matter 
+    -- the encrytption for the username storage and matching 
+        -- when passed from the front end 
+        
+    -- the chat timeout system 
+        -- keep the session alive when cut and send the message still 
+
+    -- delete the chat system 
+        -- button to kill chat 
+
     -- the chat should be save when open anywhere else for someone 
     -- the database attachement (for both sides)
     -- make the username passed and match encrytption the upper and lower case doens't matter 
