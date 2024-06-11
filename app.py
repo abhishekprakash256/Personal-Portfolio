@@ -294,6 +294,11 @@ def submit_user_login():
     hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
     hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
+    #overridding
+    #resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
+    #encrypted_value = encrypt_cookie(user_name)
+    #resp.set_cookie(chat_hash,encrypted_value)
+
 
     #check for the login 
     if check_password_hash(hashed_username_1,user_name) or check_password_hash(hashed_username_2,user_name):
@@ -354,7 +359,7 @@ def on_join(data):
     chat_hash = data['chat_hash']
     user_id = data['user_id']
     join_room(chat_hash)
-    
+
     emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
 
 
