@@ -127,6 +127,7 @@
         var chatHash = '{{ chat_hash_url }}';
         var userId = Math.random().toString(36).substr(2, 9); // Generate a random user ID
 
+
         document.addEventListener('DOMContentLoaded', function() {
             var saveCookie = document.cookie.split('; ').find(row => row.startsWith(chatHash));
 
@@ -178,7 +179,7 @@
             var message = document.getElementById('messageInput').value;
             var userName = document.getElementById('user_name').value;
             if (message.trim() !== '') {
-                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId , hu : userName});
+                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId });
                 document.getElementById('messageInput').value = '';
             }
         }

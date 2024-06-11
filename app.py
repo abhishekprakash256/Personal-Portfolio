@@ -374,8 +374,13 @@ def handle_message(data):
 
     #add the data store system here 
 
+    #get the cookie value from here 
+    cookie_value = request.cookies.get(chat_hash)
+    #print(cookie_value)
+    #cookie_value = decrypt_cookie(cookie_value) 
+
     #get the message data here , username is not coming rn 
-    print("all the message data",chat_hash,msg,user_id, data["hu"])
+    print("all the message data",chat_hash,msg,cookie_value)
 
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
