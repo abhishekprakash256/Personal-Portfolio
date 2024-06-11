@@ -85,7 +85,18 @@ database schema  --
         -- using mongodb for message storage 
         -- redis for session as pre storage 
         -- design for mongodb 
-            -- 
+    
+    -- the designs system to store and fecth the messages
+
+        --end points -
+            -- /login_user
+
+
+        -- def handle messages()
+            -- to store the messages
+
+        -- def chat_one()
+            -- tpo fetch the message and pass to the template
 
 
 

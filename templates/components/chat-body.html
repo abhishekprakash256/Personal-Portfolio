@@ -176,8 +176,9 @@
 
         function sendMessage() {
             var message = document.getElementById('messageInput').value;
+            var userName = document.getElementById('user_name').value;
             if (message.trim() !== '') {
-                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId });
+                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId , hu : userName});
                 document.getElementById('messageInput').value = '';
             }
         }

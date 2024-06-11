@@ -370,6 +370,12 @@ def handle_message(data):
     chat_hash = data['chat_hash']
     msg = data['msg']
     user_id = data['user_id']
+    #user_name = data['userName']
+
+    #add the data store system here 
+
+    #get the message data here , username is not coming rn 
+    print("all the message data",chat_hash,msg,user_id, data["hu"])
 
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
@@ -380,6 +386,8 @@ def handle_message(data):
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
 
+
+    #add the code for data fetrching and passing to the template 
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
