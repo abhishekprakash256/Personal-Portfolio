@@ -215,6 +215,18 @@ class Helper_fun():
             retrieved_data_list = json.loads(retrieved_data_str)
             return retrieved_data_list
         return None
+    
+    def delete_hash_val(self,key):
+        """
+        The method to delete the hash value from the redis hash
+        """
+
+        res = redis_client.hdel(self.hash_name,key)
+
+        if res:
+            return "deleted succesfully"
+        else:
+            return "data not found"
 
 
 

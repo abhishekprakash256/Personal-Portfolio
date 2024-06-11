@@ -252,6 +252,7 @@ development log --
 
     -- the chat should be save when open anywhere else for someone 
     -- the database attachement (for both sides)
+    -- make a page not found page (good one with theme)
  
 
 

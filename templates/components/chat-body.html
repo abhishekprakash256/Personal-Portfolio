@@ -221,5 +221,35 @@
             socket.emit('leave', { chat_hash: chatHash, user_id: userId });
         };
     </script>
+
+
+<script>
+    var chatHash = '{{ chat_hash_url }}';  // Ensure this is correctly rendered by Flask
+    document.getElementById("endChat").addEventListener("click", function() {
+        // Send a simple POST request to the Flask server endpoint
+        fetch('/end_chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                message: "User has ended the chat",
+                chat_hash: chatHash  // Include the chat hash
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.redirect_url) {
+                window.location.href = data.redirect_url;
+            } else {
+                console.error('No redirect URL found in the response');
+            }
+        })
+        .catch((error) => console.error('Error:', error));
+    });
+</script>
+
+
+
 </body>
 </html>

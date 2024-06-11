@@ -317,6 +317,33 @@ def submit_user_login():
 
 
 
+@app.route('/end_chat', methods=['POST'])
+def end_chat():
+    data = request.get_json()
+    message = data.get('message')
+    
+    # Perform your necessary action like deleting data from Redis
+    print(message)
+
+    #delete the data from redis
+    print(data['chat_hash'])
+
+    #delete the data from redis 
+    helper_fun_chat_hash.delete_hash_val(data['chat_hash'])
+
+
+    #delete the database of chat messages 
+    #add the code -------
+
+    
+    # Return a JSON response with the URL to redirect
+    return jsonify({"status": "success", "redirect_url": url_for('chatting_start')})
+    
+
+
+
+
+
 @app.route('/demo/chat-app')
 def chatting_start():
     return render_template('chatting/chat-register.html')
@@ -357,7 +384,7 @@ def chat_one(chat_hash_url):
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
     else:
-        return "page not found" 
+        return "<h1>Page not found</h1>" 
 
 
 
