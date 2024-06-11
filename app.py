@@ -350,7 +350,7 @@ def chatting_start():
 
 
 @socketio.on('join')
-def on_join(data):#
+def on_join(data):
     chat_hash = data['chat_hash']
     user_id = data['user_id']
     join_room(chat_hash)

@@ -80,6 +80,13 @@ database schema  --
 			   "Abhi": ["I am good"]
 			}
 
+    
+    -- Final decision for the database 
+        -- using mongodb for message storage 
+        -- redis for session as pre storage 
+        -- design for mongodb 
+            -- 
+
 
 
 
@@ -247,12 +254,15 @@ development log --
     -- the chat timeout system 
         -- keep the session alive when cut and send the message still 
 
-    -- delete the chat system -- doing 
-        -- button to kill chat 
+    -- delete the chat system -- done
+        -- button to kill chat -- done 
 
-    -- the chat should be save when open anywhere else for someone 
+    -- the chat should be save when open anywhere else for someone -- doing
     -- the database attachement (for both sides)
     -- make a page not found page (good one with theme)
+    -- pass the secret key from other files 
+
+
  
 
 
