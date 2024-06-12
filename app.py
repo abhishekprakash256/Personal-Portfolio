@@ -382,12 +382,12 @@ def handle_message(data):
     #add the data store system here 
 
     #get the cookie value from here 
-    cookie_value = request.cookies.get(chat_hash)
-    print(cookie_value)
+    cookie_value = request.cookies.get(chat_hash) #test
+    print(cookie_value) #test
     #cookie_value = decrypt_cookie(cookie_value) 
 
     #get the message data here , username is not coming rn 
-    print("all the message data",user_id,chat_hash,msg,cookie_value)
+    print("all the message data",user_id,chat_hash,msg,cookie_value) #test
 
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
@@ -400,6 +400,9 @@ def chat_one(chat_hash_url):
 
 
     #add the code for data fetrching and passing to the template 
+
+    print(chat_hash_url) #test  
+    print(request.cookies.get(chat_hash_url)) #test
     
     if res:
         return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
