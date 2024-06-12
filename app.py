@@ -306,7 +306,7 @@ def submit_user_login():
         #set the expiration time of the cookie 
         #expires = datetime.now() + timedelta(hours=1)  # Set the expiration time to 1 day
 
-        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
+        resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully', 'reload': True}))
 
         encrypted_value = encrypt_cookie(user_name)  
 
@@ -343,7 +343,7 @@ def end_chat():
     
     # Return a JSON response with the URL to redirect
     return jsonify({"status": "success", "redirect_url": url_for('chatting_start')})
-    
+
 
 
 
@@ -351,6 +351,7 @@ def end_chat():
 
 @app.route('/demo/chat-app')
 def chatting_start():
+    
     return render_template('chatting/chat-register.html')
 
 
@@ -382,11 +383,11 @@ def handle_message(data):
 
     #get the cookie value from here 
     cookie_value = request.cookies.get(chat_hash)
-    #print(cookie_value)
+    print(cookie_value)
     #cookie_value = decrypt_cookie(cookie_value) 
 
     #get the message data here , username is not coming rn 
-    print("all the message data",chat_hash,msg,cookie_value)
+    print("all the message data",user_id,chat_hash,msg,cookie_value)
 
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)

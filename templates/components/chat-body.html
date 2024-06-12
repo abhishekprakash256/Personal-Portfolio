@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,26 +76,16 @@
                         <input class="form-control mr-2" id="messageInput" autocomplete="off" placeholder="Type your message..."/>
                         <button id="sendButton" class="btn button-custom-color bio-font">Send</button>                       
                     </div>
-                    
                 </div>
-
-
                 <div class="row background-color-body rounded mt-3 p-3">
                     <div class="col"></div>
                     <div class="col text-center">
                         <button id="endChat" class="btn button-custom-color bio-font">End</button>                       
                     </div>
                     <div class="col"></div>
-                    
                 </div>
-
-
-                
             </div>
         </div>
-
-        <!--------------set the card structure ------>
-
         <div id="otherprojects">
             {% set title = "Projects" %}
             {% include 'reusable/card-heading.html' %}
@@ -121,12 +110,10 @@
             {% include 'reusable/more.html' %}
         </div>
     </div>
-
     <script>
         var socket = io();
         var chatHash = '{{ chat_hash_url }}';
-        var userId = Math.random().toString(36).substr(2, 9); // Generate a random user ID
-
+        var userId = Math.random().toString(36).substr(2, 9);
 
         document.addEventListener('DOMContentLoaded', function() {
             var saveCookie = document.cookie.split('; ').find(row => row.startsWith(chatHash));
@@ -141,7 +128,7 @@
             }
 
             document.getElementById('user_submit').onclick = function(event) {
-                event.preventDefault(); // Prevent the default form submission behavior
+                event.preventDefault();
 
                 var userName = document.getElementById('user_name').value;
                 if (!userName.trim()) {
@@ -153,7 +140,7 @@
 
                 var formData = new FormData();
                 formData.append('user_name', userName);
-                formData.append('chat_hash', chatHash); // Include the chat hash
+                formData.append('chat_hash', chatHash);
 
                 fetch('/login_user', {
                     method: 'POST',
@@ -162,10 +149,9 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        document.getElementById('loginContainer').style.display = 'none';
-                        document.getElementById('otherprojects').style.display = 'none';
-                        document.getElementById('chatContainer').style.display = 'block';
-                        socket.emit('join', { chat_hash: chatHash, user_id: userId });
+                        if (data.reload) {
+                            location.reload();
+                        }
                     } else {
                         document.getElementById('errorMessage').style.display = 'block';
                         document.getElementById('errorMessage').textContent = 'Invalid User Name';
@@ -190,7 +176,7 @@
 
         document.getElementById('messageInput').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent the default form submission behavior
+                event.preventDefault();
                 sendMessage();
             }
         });
@@ -222,36 +208,29 @@
         window.onbeforeunload = function() {
             socket.emit('leave', { chat_hash: chatHash, user_id: userId });
         };
-    </script>
 
-
-<script>
-    var chatHash = '{{ chat_hash_url }}';  // Ensure this is correctly rendered by Flask
-    document.getElementById("endChat").addEventListener("click", function() {
-        // Send a simple POST request to the Flask server endpoint
-        fetch('/end_chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 
-                message: "User has ended the chat",
-                chat_hash: chatHash  // Include the chat hash
+        var chatHash = '{{ chat_hash_url }}';
+        document.getElementById("endChat").addEventListener("click", function() {
+            fetch('/end_chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    message: "User has ended the chat",
+                    chat_hash: chatHash
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.redirect_url) {
-                window.location.href = data.redirect_url;
-            } else {
-                console.error('No redirect URL found in the response');
-            }
-        })
-        .catch((error) => console.error('Error:', error));
-    });
-</script>
-
-
-
+            .then(response => response.json())
+            .then(data => {
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    console.error('No redirect URL found in the response');
+                }
+            })
+            .catch((error) => console.error('Error:', error));
+        });
+    </script>
 </body>
-</html>
+
