@@ -270,7 +270,7 @@ development log --
 
     -- the front end not rendering the message but the backend get's the message -- debugging 
 
-    -- the chat should be save when open anywhere else for someone -- doing
+    -- the chat should be save when open anywhere else for someone -- doing later
         -- The connection can get lost  
         -- 3 things can be done 
             -- implement the reconnection logic
@@ -278,7 +278,33 @@ development log --
             -- implemnt heartbeat protocol 
 
 
-    -- the database attachement (for both sides)
+    -- the database attachement (for both sides) -- doing
+        -- redis and mongo are good choise 
+        -- start with mongodb
+        -- database design 
+            -- make a new database in mongo 
+            -- chat-data
+            -- make collection named chat-messages 
+            -- inside the chat messages
+            -- the schema 
+            message_doc = {
+                'chat_hash': chat_hash,
+                'sender_hash': sender_hash,
+                'recipient_hash': recipient_hash,
+                'message': message,
+                'timestamp': datetime.now()
+            }
+            chat_messages.insert_one(message_doc)
+
+            -- the chathash is the unique identifier 
+            -- the userhash is the user identiofier in the chathash
+            -- the message can be retrived from database and can be 
+                displayed by latering the userhasd logic 
+                time stamp will be also used 
+
+
+
+
     -- make a page not found page (good one with theme)
     -- pass the secret key from other files 
 
