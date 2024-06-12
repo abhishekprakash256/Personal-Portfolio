@@ -268,7 +268,16 @@ development log --
     -- delete the chat system -- done
         -- button to kill chat -- done 
 
+    -- the front end not rendering the message but the backend get's the message -- debugging 
+
     -- the chat should be save when open anywhere else for someone -- doing
+        -- The connection can get lost  
+        -- 3 things can be done 
+            -- implement the reconnection logic
+            -- implement the connect lost showing mechanism 
+            -- implemnt heartbeat protocol 
+
+
     -- the database attachement (for both sides)
     -- make a page not found page (good one with theme)
     -- pass the secret key from other files 
