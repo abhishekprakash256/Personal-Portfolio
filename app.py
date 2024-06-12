@@ -15,8 +15,11 @@ from chat_hash import *
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
 from werkzeug.security import generate_password_hash, check_password_hash
 
-#the hasing test
+#the hasing 
 from hashing import *
+
+#the database message addition test
+from exp import * 
 
 
 #added for eventlet 
@@ -371,21 +374,40 @@ def on_leave(data):
     leave_room(chat_hash)
     emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
 
+#test code ---
+#database and collection
+DATA_BASE_NAME = "test-chat-data"
+COLLECTION_NAME = "test-chat-message"
+
+
 
 @socketio.on('message')
 def handle_message(data):
     chat_hash = data['chat_hash']
     msg = data['msg']
     user_id = data['user_id']
+ 
+    #get the cookie value 
+    cookie_value = request.cookies.get(chat_hash) 
+    
+    #decrypt the cookie value 
+    user_name = decrypt_cookie(cookie_value)
 
-    cookie_value = request.cookies.get(chat_hash) #test
-    print(cookie_value) #test
+    #get the user name hashes from database 
+    hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
+    hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
+
+    #the logic to flip the usename as per hash value found 
+    if check_password_hash(hashed_username_1,user_name):
+        user_hash_1, user_hash_2 =  hashed_username_1, hashed_username_2
+
+    else:
+        user_hash_1, user_hash_2 = hashed_username_2 , hashed_username_1
+
 
     #add the data store system here 
+    mongo_helper_class.insert_message_data(DATA_BASE_NAME,COLLECTION_NAME,chat_hash,user_hash_1,user_hash_2,msg)
 
-    #get the cookie value from here 
-
-    #cookie_value = decrypt_cookie(cookie_value) 
 
     #get the message data here , username is not coming rn 
     print("all the message data",user_id,chat_hash,msg,cookie_value) #test
