@@ -1,20 +1,52 @@
-from werkzeug.security import generate_password_hash, check_password_hash
-password = "1234"
+"""
+The chat storage system for the message sending and reciving
+maek the dummy message, chathash, cookie hash for both users , messges
 
-hashed_password = generate_password_hash(password,method='pbkdf2:sha256')
+ijGTeB hi InF3ZSI.ZmkriQ.lp1JQX0LsKUsHwcJZBlc-KYlfgk
 
-print(hashed_password)
+ijGTeB hello InJ0eSI.ZmksAg.t_VuaonAEQYHqy-Bbg4Sqt1NMmM
 
-user_password = "1234"
+messages 
+    user_1
+        hi 
+    
+    user_2 
+        hey 
+        how are you ?
 
-x = check_password_hash(hashed_password,user_password)
+    user_1
+        I am good 
+        how u doing ? 
 
-print(x)
+    user_2
+        I am good any plans 
 
 
-name = "Abhi"
 
 
-name = name.lower()
+"""
 
-print(name)
+
+from datetime import datetime
+chat_hash = "ijGTeB"
+
+user_hash_1 = "InF3ZSI.ZmkriQ.lp1JQX0LsKUsHwcJZBlc-KYlfgk"
+
+user_hash_2 = "InJ0eSI.ZmksAg.t_VuaonAEQYHqy-Bbg4Sqt1NMmM"
+
+message = "hi"
+
+
+message_doc = {
+    'chat_hash': chat_hash,
+    'sender_hash': user_hash_1,
+    'recipient_hash': user_hash_2,
+    'message': message,
+    'timestamp': datetime.now()
+}
+
+print(message_doc)
+
+
+
+
