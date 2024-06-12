@@ -396,6 +396,8 @@ def handle_message(data):
     #get the user name hashes from database 
     hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
     hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
+    print(hashed_username_1)
+    print(hashed_username_2)
 
     #the logic to flip the usename as per hash value found 
     if check_password_hash(hashed_username_1,user_name):

@@ -52,11 +52,11 @@ mongo_helper_class.make_database_and_collection(DATA_BASE_NAME,COLLECTION_NAME)
 
 
 
-chat_hash = "ijGTeB"
+chat_hash = "9wCPZUFVNZ"
 
-user_hash_1 = "InF3ZSI.ZmkriQ.lp1JQX0LsKUsHwcJZBlc-KYlfgk"
+user_hash_1 = "pbkdf2:sha256:600000$3B3wNKyIrygNsAXS$714434fbb1208916051268f635e5a8865b8d9b836c2d08bfc99db3d651174580"
 
-user_hash_2 = "InJ0eSI.ZmksAg.t_VuaonAEQYHqy-Bbg4Sqt1NMmM"
+user_hash_2 = "pbkdf2:sha256:600000$LhLfKUG0jJfbWsF0$ab1b402e6b413916b4d69aa41b193bd22ebb4d47e5f64efaeb3b43dabb2c55c4"
 
 
 
