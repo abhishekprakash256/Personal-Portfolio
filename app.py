@@ -385,7 +385,7 @@ def handle_message(data):
 
 
     #get the message data here , username is not coming rn 
-    print("all the message data",user_id,chat_hash,msg,cookie_value) #test
+    #print("all the message data",user_id,chat_hash,msg,cookie_value) #test
 
 
     emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
