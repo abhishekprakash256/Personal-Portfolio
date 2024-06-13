@@ -392,52 +392,42 @@ def handle_message(data):
 
 
 
+
 @app.route('/chat/user/<chat_hash_url>')
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
 
-
-    #add the code for data fetching and passing to the template 
-    #cookie give me user , chat_hash
-
-    #get the user cookie
+    # Get the user cookie
     user_cookie = request.cookies.get(chat_hash_url)
 
     if user_cookie:
-
-        print("in",user_cookie)
+        print("in", user_cookie)
 
         hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
         hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
 
-        #decrypt the cookie value 
+        # Decrypt the cookie value
         user_name = decrypt_cookie(user_cookie)
-        #print(user_name)
-        #print(hashed_username_1)
-        #print(hashed_username_2)
 
-        #the logic to flip the usename as per hash value found 
-        if check_password_hash(hashed_username_1,user_name):
-            user_hash_1 =  hashed_username_1
-
+        # The logic to flip the username as per hash value found
+        if check_password_hash(hashed_username_1, user_name):
+            user_hash_1 = hashed_username_1
         else:
-            user_hash_1 = hashed_username_2 
+            user_hash_1 = hashed_username_2
 
-        retrive_message(DATA_BASE_NAME,COLLECTION_NAME,chat_hash_url,user_hash_1)
+        # Retrieve messages
+        messages = retrive_message(DATA_BASE_NAME, COLLECTION_NAME, chat_hash_url, user_hash_1)
 
-
-        
         if res:
-            return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
+            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages)
         else:
-            return "<h1>Page not found</h1>" 
-    
+            return "<h1>Page not found</h1>"
     else:
-
         if res:
-            return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
+            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url)
         else:
-            return "<h1>Page not found</h1>" 
+            return "<h1>Page not found</h1>"
+
 
 
 

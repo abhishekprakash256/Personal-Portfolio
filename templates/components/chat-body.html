@@ -1,4 +1,5 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +42,6 @@
             margin-right: 5px;
             color: #146C94;
         }
-
         .submit-error-message {
             color: #FA7070;
             font-size: 20px;
@@ -68,19 +68,27 @@
             <div class="col rounded">
                 <div class="row flex-column flex-md-row background-color-body rounded">
                     <div class="col">
-                        <div class="mt-3" id="messages"></div>
+                        <div class="mt-3" id="messages">
+                            {% for message in messages %}
+                                <div class="message-wrapper {{ 'sent' if message.type == 'sent' else '' }}">
+                                    <div class="message-box {{ 'message-sent' if message.type == 'sent' else 'message-received' }}">
+                                        {{ message.message }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 <div class="row background-color-body rounded mt-3 p-3">
                     <div class="col-12 d-flex align-items-center">
                         <input class="form-control mr-2" id="messageInput" autocomplete="off" placeholder="Type your message..."/>
-                        <button id="sendButton" class="btn button-custom-color bio-font">Send</button>                       
+                        <button id="sendButton" class="btn button-custom-color bio-font">Send</button>
                     </div>
                 </div>
                 <div class="row background-color-body rounded mt-3 p-3">
                     <div class="col"></div>
                     <div class="col text-center">
-                        <button id="endChat" class="btn button-custom-color bio-font">End</button>                       
+                        <button id="endChat" class="btn button-custom-color bio-font">End</button>
                     </div>
                     <div class="col"></div>
                 </div>
@@ -89,23 +97,16 @@
         <div id="otherprojects">
             {% set title = "Projects" %}
             {% include 'reusable/card-heading.html' %}
-                                
             {% set card_one_text = "Patching and Unpatching are a set of tools that are used for image processing. The patching .." %}
-            <!--------- ------set card text-------------->
             {% set image_url_card_one = url_for('static', filename='images/projects/patching-unpatching/patching.png') %}
             {% set card_one_url = "/projects/patching-unpatching" %}
-            
             {% set card_two_text = "Federated Learning is paradigm that covers the decentralized learning of the model on the .." %}
             {% set image_url_card_two = url_for('static', filename='images/projects/federated-learning/federated-learning-flow.png') %}
             {% set card_two_url = "/projects/federated-learning" %}
-            
             {% set card_three_text = "The neural style transfer is implemented as per paper that came in 2015 title A Neural Style .. " %}
             {% set image_url_card_three = url_for('static', filename='images/projects/neural-transfer/image_1.png') %}
             {% set card_three_url = "/projects/neural-transfer" %}
-            
             {% include 'reusable/cards-display.html' %}
-            
-            <!--------------------The end of one card  ---------------->
             {% set more_link = "/project" %}
             {% include 'reusable/more.html' %}
         </div>
@@ -182,20 +183,16 @@
         });
 
         socket.on('message', function(data) {
-            displayMessage(data, data.user_id === userId);
-        });
-
-        function displayMessage(data, isSent) {
             var messageDiv = document.createElement('div');
-            messageDiv.className = 'message-wrapper' + (isSent ? ' sent' : '');
+            messageDiv.className = 'message-wrapper' + (data.user_id === userId ? ' sent' : '');
             var messageBox = document.createElement('div');
-            messageBox.className = 'message-box' + (isSent ? ' message-sent' : ' message-received');
+            messageBox.className = 'message-box' + (data.user_id === userId ? ' message-sent' : ' message-received');
             messageBox.textContent = data.msg;
             messageDiv.appendChild(messageBox);
             document.getElementById('messages').appendChild(messageDiv);
 
             document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
-        }
+        });
 
         socket.on('status', function(data) {
             var statusDiv = document.createElement('div');
@@ -209,7 +206,6 @@
             socket.emit('leave', { chat_hash: chatHash, user_id: userId });
         };
 
-        var chatHash = '{{ chat_hash_url }}';
         document.getElementById("endChat").addEventListener("click", function() {
             fetch('/end_chat', {
                 method: 'POST',
@@ -233,4 +229,4 @@
         });
     </script>
 </body>
-
+</html>
