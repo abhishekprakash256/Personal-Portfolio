@@ -24,7 +24,7 @@ mongo_helper_class.make_database_and_collection(DATA_BASE_NAME,COLLECTION_NAME)
         
 def retrive_message(DATA_BASE_NAME, COLLECTION_NAME, chat_hash, user_hash_1):
     """
-    The retrived messages form teh database
+    The retrived messages form the database
     """
     messages = mongo_helper_class.get_chat_messages(DATA_BASE_NAME, COLLECTION_NAME, chat_hash)
     formatted_messages = []
