@@ -19,7 +19,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from hashing import *
 
 #the database message addition test
-from exp import * 
+from chat_data_handling import *
+
 
 
 #added for eventlet 
@@ -57,7 +58,7 @@ def encrypt_cookie(value):
 
 def decrypt_cookie(value):
     try:
-        return serializer.loads(value, max_age=3600)  # 1 hour expiration
+        return serializer.loads(value)  # 1 hour expiration
     except:
         return None
 
@@ -221,33 +222,12 @@ def tiny_url_render():
 
 
 
-#-------------------- the chatting system experiments ---------------------
+#-------------------- the chatting system  ---------------------
 
+#database and collection for message data saving 
+DATA_BASE_NAME = "test-chat-data"
+COLLECTION_NAME = "test-chat-message"
 
-"""
-#the one way chat sender system
-@app.route('/chat/send-test')
-def chatting_sender():
-    return render_template('chatting/sender.html')
-
-#the reciver end 
-@app.route('/chat/receive-test')
-def chatting_receive():
-    return render_template('chatting/receive.html')
-
-
-#mesage for the socket
-@socketio.on('message')
-def handle_message(msg):
-    print(f'Message: {msg}')
-    send(msg, broadcast=True)
-
-    
-#one person chat rteciver 
-@app.route('/chat/chat-two')
-def chat_two():
-    return render_template('chatting/chat.html')
-"""
 
 
 #register the user for chat page 
@@ -329,19 +309,16 @@ def submit_user_login():
 def end_chat():
     data = request.get_json()
     message = data.get('message')
-    
-    # Perform your necessary action like deleting data from Redis
-    print(message)
 
     #delete the data from redis
-    print(data['chat_hash'])
+    chat_hash = data['chat_hash']
 
     #delete the data from redis 
     helper_fun_chat_hash.delete_hash_val(data['chat_hash'])
 
 
     #delete the database of chat messages 
-    #add the code -------
+    mongo_helper_class.delete_message(DATA_BASE_NAME,COLLECTION_NAME,chat_hash)
 
     
     # Return a JSON response with the URL to redirect
@@ -374,10 +351,6 @@ def on_leave(data):
     leave_room(chat_hash)
     emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
 
-#test code ---
-#database and collection
-DATA_BASE_NAME = "test-chat-data"
-COLLECTION_NAME = "test-chat-message"
 
 
 
@@ -396,8 +369,8 @@ def handle_message(data):
     #get the user name hashes from database 
     hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
     hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
-    print(hashed_username_1)
-    print(hashed_username_2)
+    #print(hashed_username_1)
+    #print(hashed_username_2)
 
     #the logic to flip the usename as per hash value found 
     if check_password_hash(hashed_username_1,user_name):
@@ -424,15 +397,48 @@ def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
 
 
-    #add the code for data fetrching and passing to the template 
+    #add the code for data fetching and passing to the template 
+    #cookie give me user , chat_hash
 
-    print(chat_hash_url) #test  
-    print(request.cookies.get(chat_hash_url)) #test
+    #get the user cookie
+    user_cookie = request.cookies.get(chat_hash_url)
+
+    if user_cookie:
+
+        print("in",user_cookie)
+
+        hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
+        hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
+
+        #decrypt the cookie value 
+        user_name = decrypt_cookie(user_cookie)
+        #print(user_name)
+        #print(hashed_username_1)
+        #print(hashed_username_2)
+
+        #the logic to flip the usename as per hash value found 
+        if check_password_hash(hashed_username_1,user_name):
+            user_hash_1 =  hashed_username_1
+
+        else:
+            user_hash_1 = hashed_username_2 
+
+        retrive_message(DATA_BASE_NAME,COLLECTION_NAME,chat_hash_url,user_hash_1)
+
+
+        
+        if res:
+            return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
+        else:
+            return "<h1>Page not found</h1>" 
     
-    if res:
-        return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
     else:
-        return "<h1>Page not found</h1>" 
+
+        if res:
+            return render_template('chatting/chat.html', chat_hash_url = chat_hash_url)
+        else:
+            return "<h1>Page not found</h1>" 
+
 
 
 

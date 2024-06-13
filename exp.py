@@ -48,19 +48,19 @@ COLLECTION_NAME = "test-chat-message"
 mongo_helper_class = Helper_fun()
 
 #make the database and collection 
-mongo_helper_class.make_database_and_collection(DATA_BASE_NAME,COLLECTION_NAME)
+#mongo_helper_class.make_database_and_collection(DATA_BASE_NAME,COLLECTION_NAME)
 
 
 
-chat_hash = "9wCPZUFVNZ"
+chat_hash = "FY5VjP"
 
-user_hash_1 = "pbkdf2:sha256:600000$3B3wNKyIrygNsAXS$714434fbb1208916051268f635e5a8865b8d9b836c2d08bfc99db3d651174580"
+#user_hash_1 = "pbkdf2:sha256:600000$H64sqjpmIdhfkWHj$cfe78d7aee720a1a9c69cb77f494f87ec66da1ff4302d8ce7f8b6ea355583b15"
 
-user_hash_2 = "pbkdf2:sha256:600000$LhLfKUG0jJfbWsF0$ab1b402e6b413916b4d69aa41b193bd22ebb4d47e5f64efaeb3b43dabb2c55c4"
-
-
+#user_hash_2 = "pbkdf2:sha256:600000$kIbCgRoDW3MvGm2B$34440d26c7d559b04a822a570552afcc1414ded986fb5ec882204bf01f9ca9e6"
 
 
+
+#mongo_helper_class.delete_message(DATA_BASE_NAME,COLLECTION_NAME,chat_hash)
 
 
 
@@ -74,13 +74,22 @@ user_hash_2 = "pbkdf2:sha256:600000$LhLfKUG0jJfbWsF0$ab1b402e6b413916b4d69aa41b1
 
 #retrive the messages 
 
-# Retrieve chat messages for the given chat hash
+"""
 messages = mongo_helper_class.get_chat_messages(DATA_BASE_NAME,COLLECTION_NAME,chat_hash)
 for message in messages:
     if message['sender_hash'] == user_hash_1:
         print(f'Sender: {message["message"]}')
     else:
         print(f'Recipient: {message["message"]}')
+
+"""
+def retrive_message(DATA_BASE_NAME,COLLECTION_NAME,chat_hash,user_hash_1):
+    messages = mongo_helper_class.get_chat_messages(DATA_BASE_NAME,COLLECTION_NAME,chat_hash)
+    for message in messages:
+        if message['sender_hash'] == user_hash_1:
+            print(f'Sender: {message["message"]}')
+        else:
+            print(f'Recipient: {message["message"]}')
 
 
 
