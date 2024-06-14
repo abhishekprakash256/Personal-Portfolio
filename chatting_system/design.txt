@@ -303,6 +303,14 @@ development log --
                 time stamp will be also used 
 
 
+            -- make the tracker for exceptions cases -- 
+                -- dat not found ones baseically 
+                -- if one pperson ends the chat , the other should get a claer message 
+            -- bug tracker 
+                -- the person joined the login with same login gets the same messages -- doing 
+                --
+
+
 
 
     -- make a page not found page (good one with theme)

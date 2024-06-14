@@ -335,10 +335,17 @@ def chatting_start():
     return render_template('chatting/chat-register.html')
 
 
+
 @socketio.on('join')
 def on_join(data):
     chat_hash = data['chat_hash']
     user_id = data['user_id']
+
+    #get the cookie value 
+    cookie_val = request.cookies.get(chat_hash)
+    print(cookie_val)
+
+
     join_room(chat_hash)
 
     emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
@@ -348,7 +355,13 @@ def on_join(data):
 def on_leave(data):
     chat_hash = data['chat_hash']
     user_id = data['user_id']
+
+    #get the cookie value 
+    cookie_val = request.cookies.get(chat_hash)
+    print(cookie_val)
+
     leave_room(chat_hash)
+    
     emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
 
 
@@ -401,7 +414,6 @@ def chat_one(chat_hash_url):
     user_cookie = request.cookies.get(chat_hash_url)
 
     if user_cookie:
-        print("in", user_cookie)
 
         hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
         hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
