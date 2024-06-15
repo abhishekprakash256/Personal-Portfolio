@@ -345,12 +345,13 @@ def log_out():
     # (Add your Redis deletion logic here)
 
     # Return a JSON response with the URL to redirect
-    redirect_url = f'/chat/user/{chat_hash}'
+    # Create a response object
+    resp = make_response(jsonify({"status": "success", "redirect_url": f'/chat/user/{chat_hash}'}))
 
-    
+    # Set the cookie with an expiration date in the past to delete it
+    resp.set_cookie(chat_hash, '', expires=datetime.utcnow() - timedelta(days=1))
 
-    return jsonify({"status": "success", "redirect_url": redirect_url})
-
+    return resp
 
 
 

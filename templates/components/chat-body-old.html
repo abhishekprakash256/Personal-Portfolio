@@ -53,8 +53,13 @@
     <div class="container main-container-color shadow-lg">
 
         <!-----set the name titile -->
-        {% set title = "Welcome "+user_name %}
-        {% include 'reusable/card-heading.html' %}
+        <div class = "row p-3" >
+    
+            <div class="col text-center background-color-body rounded">
+              <h1 class = "bio-font font-color-class heading-responsive-font mb-2 mt-2" >Welcome {{ user_name }}</h1>
+            </div>
+        </div>
+
 
 
         <div class="row p-3 flex-column flex-md-row" id="loginContainer">
@@ -222,6 +227,28 @@
                 },
                 body: JSON.stringify({ 
                     message: "User has ended the chat",
+                    chat_hash: chatHash
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    console.error('No redirect URL found in the response');
+                }
+            })
+            .catch((error) => console.error('Error:', error));
+        });
+
+        document.getElementById("logOut").addEventListener("click", function() {
+            fetch('/log_out', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    message: "User has logged out",
                     chat_hash: chatHash
                 })
             })

@@ -326,6 +326,26 @@ def end_chat():
 
 
 
+#logut function 
+
+@app.route('/log_out', methods=['POST'])
+def log_out():
+    data = request.get_json()
+    message = data.get('message')
+    chat_hash = data.get('chat_hash')
+
+    # delete the data from Redis
+    # (Add your Redis deletion logic here)
+
+    # Return a JSON response with the URL to redirect
+    # Create a response object
+    resp = make_response(jsonify({"status": "success", "redirect_url": f'/chat/user/{chat_hash}'}))
+
+    # Set the cookie with an expiration date in the past to delete it
+    resp.set_cookie(chat_hash, '', expires=datetime.utcnow() - timedelta(days=1))
+
+    return resp
+
 
 
 

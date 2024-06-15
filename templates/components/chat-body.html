@@ -52,9 +52,13 @@
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
 
-        
-          {% set title = "Welcome "+user_name %}
-          {% include 'reusable/card-heading.html' %}
+
+        <div class = "row p-3" >
+    
+            <div class="col text-center background-color-body rounded">
+              <h1 class = "bio-font font-color-class heading-responsive-font mb-2 mt-2" >Welcome {{ user_name }}</h1>
+            </div>
+        </div>
 
 
 
@@ -93,16 +97,14 @@
                     </div>
                 </div>
                 <div class="row background-color-body rounded mt-3 p-3">
-                    
+
+
                     <div class="col text-center">
                         <button id="endChat" class="btn button-custom-color bio-font">End Chat</button>
                         <button id="logOut" class="btn button-custom-color bio-font">Logout</button>
                     </div>
 
-                    
                 </div>
-
-
             </div>
         </div>
         <div id="otherprojects">
@@ -219,6 +221,8 @@
         };
 
 
+
+
         document.getElementById("endChat").addEventListener("click", function() {
             fetch('/end_chat', {
                 method: 'POST',
@@ -248,7 +252,7 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ 
-                    message: "User Logged Out",
+                    message: "User has logged out",
                     chat_hash: chatHash
                 })
             })
