@@ -333,6 +333,27 @@ def end_chat():
 
 
 
+#logut function 
+
+@app.route('/log_out', methods=['POST'])
+def log_out():
+    data = request.get_json()
+    message = data.get('message')
+    chat_hash = data.get('chat_hash')
+
+    # delete the data from Redis
+    # (Add your Redis deletion logic here)
+
+    # Return a JSON response with the URL to redirect
+    redirect_url = f'/chat/user/{chat_hash}'
+
+    
+
+    return jsonify({"status": "success", "redirect_url": redirect_url})
+
+
+
+
 
 
 

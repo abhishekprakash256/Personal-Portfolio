@@ -96,7 +96,7 @@
                     
                     <div class="col text-center">
                         <button id="endChat" class="btn button-custom-color bio-font">End Chat</button>
-                        <button id="endChat" class="btn button-custom-color bio-font">Logout</button>
+                        <button id="logOut" class="btn button-custom-color bio-font">Logout</button>
                     </div>
 
                     
@@ -218,6 +218,7 @@
             socket.emit('leave', { chat_hash: chatHash, user_name: userName });
         };
 
+
         document.getElementById("endChat").addEventListener("click", function() {
             fetch('/end_chat', {
                 method: 'POST',
@@ -226,6 +227,28 @@
                 },
                 body: JSON.stringify({ 
                     message: "User has ended the chat",
+                    chat_hash: chatHash
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    console.error('No redirect URL found in the response');
+                }
+            })
+            .catch((error) => console.error('Error:', error));
+        });
+
+        document.getElementById("logOut").addEventListener("click", function() {
+            fetch('/log_out', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    message: "User Logged Out",
                     chat_hash: chatHash
                 })
             })
