@@ -51,6 +51,13 @@
 </head>
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
+
+        
+          {% set title = "Welcome "+user_name %}
+          {% include 'reusable/card-heading.html' %}
+
+
+
         <div class="row p-3 flex-column flex-md-row" id="loginContainer">
             <div class="col rounded">
                 <div class="row flex-column flex-md-row background-color-body rounded">
@@ -86,12 +93,16 @@
                     </div>
                 </div>
                 <div class="row background-color-body rounded mt-3 p-3">
-                    <div class="col"></div>
+                    
                     <div class="col text-center">
-                        <button id="endChat" class="btn button-custom-color bio-font">End</button>
+                        <button id="endChat" class="btn button-custom-color bio-font">End Chat</button>
+                        <button id="endChat" class="btn button-custom-color bio-font">Logout</button>
                     </div>
-                    <div class="col"></div>
+
+                    
                 </div>
+
+
             </div>
         </div>
         <div id="otherprojects">
@@ -114,7 +125,8 @@
     <script>
         var socket = io();
         var chatHash = '{{ chat_hash_url }}';
-        var userId = Math.random().toString(36).substr(2, 9);
+        //var userId = Math.random().toString(36).substr(2, 9);
+        var userName = document.getElementById('user_name').value;
 
         document.addEventListener('DOMContentLoaded', function() {
             var saveCookie = document.cookie.split('; ').find(row => row.startsWith(chatHash));
@@ -123,7 +135,7 @@
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('otherprojects').style.display = 'none';
                 document.getElementById('chatContainer').style.display = 'block';
-                socket.emit('join', { chat_hash: chatHash, user_id: userId });
+                socket.emit('join', { chat_hash: chatHash, user_name: userName });
             } else {
                 document.getElementById('loginContainer').style.display = 'block';
             }
@@ -166,7 +178,7 @@
             var message = document.getElementById('messageInput').value;
             var userName = document.getElementById('user_name').value;
             if (message.trim() !== '') {
-                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId });
+                socket.emit('message', { chat_hash: chatHash, msg: message, user_name: userName });
                 document.getElementById('messageInput').value = '';
             }
         }
@@ -184,9 +196,9 @@
 
         socket.on('message', function(data) {
             var messageDiv = document.createElement('div');
-            messageDiv.className = 'message-wrapper' + (data.user_id === userId ? ' sent' : '');
+            messageDiv.className = 'message-wrapper' + (data.user_name === userName ? ' sent' : '');
             var messageBox = document.createElement('div');
-            messageBox.className = 'message-box' + (data.user_id === userId ? ' message-sent' : ' message-received');
+            messageBox.className = 'message-box' + (data.user_name === userName ? ' message-sent' : ' message-received');
             messageBox.textContent = data.msg;
             messageDiv.appendChild(messageBox);
             document.getElementById('messages').appendChild(messageDiv);
@@ -203,7 +215,7 @@
         });
 
         window.onbeforeunload = function() {
-            socket.emit('leave', { chat_hash: chatHash, user_id: userId });
+            socket.emit('leave', { chat_hash: chatHash, user_name: userName });
         };
 
         document.getElementById("endChat").addEventListener("click", function() {

@@ -431,7 +431,7 @@ def chat_one(chat_hash_url):
         messages = retrive_message(DATA_BASE_NAME, COLLECTION_NAME, chat_hash_url, user_hash_1)
 
         if res:
-            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages)
+            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages , user_name = user_name.capitalize())
         else:
             return "<h1>Page not found</h1>"
     else:

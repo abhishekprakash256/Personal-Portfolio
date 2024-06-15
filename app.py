@@ -229,6 +229,13 @@ DATA_BASE_NAME = "test-chat-data"
 COLLECTION_NAME = "test-chat-message"
 
 
+@app.route('/demo/chat-app')
+def chatting_start():
+    
+    return render_template('chatting/chat-register.html')
+
+
+
 
 #register the user for chat page 
 
@@ -329,40 +336,42 @@ def end_chat():
 
 
 
-@app.route('/demo/chat-app')
-def chatting_start():
-    
-    return render_template('chatting/chat-register.html')
-
-
+#------------------focus on the these 3 functiosn for the room join , message handle , leave room ----------------
 
 @socketio.on('join')
 def on_join(data):
     chat_hash = data['chat_hash']
-    user_id = data['user_id']
+    #user_id = data['user_id']
 
     #get the cookie value 
-    cookie_val = request.cookies.get(chat_hash)
-    print(cookie_val)
+    cookie_value = request.cookies.get(chat_hash)
+    print("in join ",cookie_value)
+
+    #decrypt the cookie value 
+    user_name = decrypt_cookie(cookie_value) 
+
+    join_room(user_name)
+
+    emit('status', {'msg': f'{user_name} has entered the room.'}, room = user_name)
 
 
-    join_room(chat_hash)
-
-    emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
 
 
 @socketio.on('leave')
 def on_leave(data):
     chat_hash = data['chat_hash']
-    user_id = data['user_id']
+    #user_id = data['user_id']
 
     #get the cookie value 
-    cookie_val = request.cookies.get(chat_hash)
-    print(cookie_val)
+    cookie_value = request.cookies.get(chat_hash)
 
-    leave_room(chat_hash)
-    
-    emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
+
+    #decrypt the cookie value 
+    user_name = decrypt_cookie(cookie_value) 
+
+    leave_room(user_name)
+
+    emit('status', {'msg': f'{user_name} has left the room.'}, room = user_name)
 
 
 
@@ -371,7 +380,7 @@ def on_leave(data):
 def handle_message(data):
     chat_hash = data['chat_hash']
     msg = data['msg']
-    user_id = data['user_id']
+    #user_id = data['user_id']
  
     #get the cookie value 
     cookie_value = request.cookies.get(chat_hash) 
@@ -401,7 +410,7 @@ def handle_message(data):
     #print("all the message data",user_id,chat_hash,msg,cookie_value) #test
 
 
-    emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
+    emit('message', {'msg': msg, 'user_name': user_name}, room= user_name)
 
 
 
@@ -429,9 +438,11 @@ def chat_one(chat_hash_url):
 
         # Retrieve messages
         messages = retrive_message(DATA_BASE_NAME, COLLECTION_NAME, chat_hash_url, user_hash_1)
+        
 
+        #pass the use name for the welcome text
         if res:
-            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages)
+            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages , user_name = user_name.capitalize())
         else:
             return "<h1>Page not found</h1>"
     else:
@@ -442,7 +453,7 @@ def chat_one(chat_hash_url):
 
 
 
-
+#--------------------------------------------------------------------------------------------
 
 
 """

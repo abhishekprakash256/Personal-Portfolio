@@ -51,6 +51,12 @@
 </head>
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
+
+        <!-----set the name titile -->
+        {% set title = "Welcome "+user_name %}
+        {% include 'reusable/card-heading.html' %}
+
+
         <div class="row p-3 flex-column flex-md-row" id="loginContainer">
             <div class="col rounded">
                 <div class="row flex-column flex-md-row background-color-body rounded">
@@ -86,11 +92,13 @@
                     </div>
                 </div>
                 <div class="row background-color-body rounded mt-3 p-3">
-                    <div class="col"></div>
+
                     <div class="col text-center">
-                        <button id="endChat" class="btn button-custom-color bio-font">End</button>
+                        <button id="endChat" class="btn button-custom-color bio-font">End Chat</button>
+                        <button id="endChat" class="btn button-custom-color bio-font">Logout</button>
                     </div>
-                    <div class="col"></div>
+
+
                 </div>
             </div>
         </div>
