@@ -1,12 +1,12 @@
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat App</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <style>
-        #messages {
+            #messages {
             height: 500px;
             overflow-y: scroll;
             margin-bottom: 10px;
@@ -51,17 +51,7 @@
 </head>
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
-
-        <!-----set the name titile -->
-        <div class = "row p-3" >
-    
-            <div class="col text-center background-color-body rounded">
-              <h1 class = "bio-font font-color-class heading-responsive-font mb-2 mt-2" >Welcome {{ user_name }}</h1>
-            </div>
-        </div>
-
-
-
+        <!-- Login container -->
         <div class="row p-3 flex-column flex-md-row" id="loginContainer">
             <div class="col rounded">
                 <div class="row flex-column flex-md-row background-color-body rounded">
@@ -75,18 +65,13 @@
                 </div>
             </div>
         </div>
+        <!-- Chat container -->
         <div class="row p-3 flex-column flex-md-row" id="chatContainer" style="display:none;">
             <div class="col rounded">
                 <div class="row flex-column flex-md-row background-color-body rounded">
                     <div class="col">
                         <div class="mt-3" id="messages">
-                            {% for message in messages %}
-                                <div class="message-wrapper {{ 'sent' if message.type == 'sent' else '' }}">
-                                    <div class="message-box {{ 'message-sent' if message.type == 'sent' else 'message-received' }}">
-                                        {{ message.message }}
-                                    </div>
-                                </div>
-                            {% endfor %}
+                            <!-- Messages will be loaded here -->
                         </div>
                     </div>
                 </div>
@@ -97,17 +82,16 @@
                     </div>
                 </div>
                 <div class="row background-color-body rounded mt-3 p-3">
-
                     <div class="col text-center">
                         <button id="endChat" class="btn button-custom-color bio-font">End Chat</button>
                         <button id="logOut" class="btn button-custom-color bio-font">Logout</button>
                     </div>
-
-
                 </div>
             </div>
         </div>
         <div id="otherprojects">
+            <!-- Other projects section -->
+
             {% set title = "Projects" %}
             {% include 'reusable/card-heading.html' %}
             {% set card_one_text = "Patching and Unpatching are a set of tools that are used for image processing. The patching .." %}
@@ -127,24 +111,24 @@
     <script>
         var socket = io();
         var chatHash = '{{ chat_hash_url }}';
-        var userId = Math.random().toString(36).substr(2, 9);
+        var userName = '';
 
         document.addEventListener('DOMContentLoaded', function() {
             var saveCookie = document.cookie.split('; ').find(row => row.startsWith(chatHash));
 
             if (saveCookie) {
+                userName = saveCookie.split('=')[1];
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('otherprojects').style.display = 'none';
                 document.getElementById('chatContainer').style.display = 'block';
-                socket.emit('join', { chat_hash: chatHash, user_id: userId });
+                socket.emit('join', { chat_hash: chatHash, user_name: userName });
             } else {
                 document.getElementById('loginContainer').style.display = 'block';
             }
 
             document.getElementById('user_submit').onclick = function(event) {
                 event.preventDefault();
-
-                var userName = document.getElementById('user_name').value;
+                userName = document.getElementById('user_name').value;
                 if (!userName.trim()) {
                     document.getElementById('errorMessage').style.display = 'block';
                     return;
@@ -177,9 +161,8 @@
 
         function sendMessage() {
             var message = document.getElementById('messageInput').value;
-            var userName = document.getElementById('user_name').value;
             if (message.trim() !== '') {
-                socket.emit('message', { chat_hash: chatHash, msg: message, user_id: userId });
+                socket.emit('message', { chat_hash: chatHash, msg: message, user_name: userName });
                 document.getElementById('messageInput').value = '';
             }
         }
@@ -197,9 +180,9 @@
 
         socket.on('message', function(data) {
             var messageDiv = document.createElement('div');
-            messageDiv.className = 'message-wrapper' + (data.user_id === userId ? ' sent' : '');
+            messageDiv.className = 'message-wrapper' + (data.user_name === userName ? ' sent' : '');
             var messageBox = document.createElement('div');
-            messageBox.className = 'message-box' + (data.user_id === userId ? ' message-sent' : ' message-received');
+            messageBox.className = 'message-box' + (data.user_name === userName ? ' message-sent' : ' message-received');
             messageBox.textContent = data.msg;
             messageDiv.appendChild(messageBox);
             document.getElementById('messages').appendChild(messageDiv);
@@ -216,7 +199,7 @@
         });
 
         window.onbeforeunload = function() {
-            socket.emit('leave', { chat_hash: chatHash, user_id: userId });
+            socket.emit('leave', { chat_hash: chatHash, user_name: userName });
         };
 
         document.getElementById("endChat").addEventListener("click", function() {
@@ -264,4 +247,4 @@
         });
     </script>
 </body>
-
+</html>

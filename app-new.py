@@ -222,7 +222,7 @@ def tiny_url_render():
 
 
 
-#-------------------- the chatting system  ---------------------
+#--------------------------- the chatting system  --------------------------------
 
 #database and collection for message data saving 
 DATA_BASE_NAME = "test-chat-data"
@@ -264,51 +264,27 @@ def submit_user_details():
 #the sublit of the message route for the send message 
 @app.route('/login_user', methods=['POST'])
 def submit_user_login():
-    
-    # Retrieve form data
-    user_name = request.form.get('user_name')
+    user_name = request.form.get('user_name').lower()
+    chat_hash = request.form.get('chat_hash')
 
-    #handle  the upper and lower case
-    user_name = user_name.lower()
-
-    chat_hash = request.form['chat_hash']
-
-    #hash the username 
     hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
     hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
 
-    #overridding
-    #resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully'}))
-    #encrypted_value = encrypt_cookie(user_name)
-    #resp.set_cookie(chat_hash,encrypted_value)
-
-
-    #check for the login 
-    if check_password_hash(hashed_username_1,user_name) or check_password_hash(hashed_username_2,user_name):
-
-        #set the expiration time of the cookie 
-        #expires = datetime.now() + timedelta(hours=1)  # Set the expiration time to 1 day
-
+    if check_password_hash(hashed_username_1, user_name) or check_password_hash(hashed_username_2, user_name):
         resp = make_response(jsonify({'success': True, 'message': 'Form data submitted successfully', 'reload': True}))
-
-        encrypted_value = encrypt_cookie(user_name)  
-
-        #resp.set_cookie(chat_hash, user_name, max_age=3600, expires=expires, secure=True, httponly=True, samesite='Lax')
-
-        resp.set_cookie(chat_hash,encrypted_value)
+        encrypted_value = encrypt_cookie(user_name)
+        resp.set_cookie(chat_hash, encrypted_value)
         return resp
-
-
     else:
-
         return jsonify({'success': False, 'message': 'Invalid Login'})
+
 
 
 
 @app.route('/end_chat', methods=['POST'])
 def end_chat():
     data = request.get_json()
-    message = data.get('message')
+    #message = data.get('message')
 
     #delete the data from redis
     chat_hash = data['chat_hash']
@@ -331,8 +307,9 @@ def end_chat():
 @app.route('/log_out', methods=['POST'])
 def log_out():
     data = request.get_json()
-    message = data.get('message')
+    #message = data.get('message')
     chat_hash = data.get('chat_hash')
+    print("in",chat_hash)
 
     # delete the data from Redis
     # (Add your Redis deletion logic here)
@@ -348,6 +325,7 @@ def log_out():
 
 
 
+#--------------------------------------------------- these methods are used ---------------------------------------------------
 
 @app.route('/demo/chat-app')
 def chatting_start():
@@ -359,69 +337,29 @@ def chatting_start():
 @socketio.on('join')
 def on_join(data):
     chat_hash = data['chat_hash']
-    user_id = data['user_id']
-
-    #get the cookie value 
-    cookie_val = request.cookies.get(chat_hash)
-    print(cookie_val)
-
+    user_name = data['user_name']
 
     join_room(chat_hash)
-
-    #emit('status', {'msg': f'{user_id} has entered the room.'}, room = chat_hash)
-
-
-@socketio.on('leave')
-def on_leave(data):
-    chat_hash = data['chat_hash']
-    user_id = data['user_id']
-
-    #get the cookie value 
-    cookie_val = request.cookies.get(chat_hash)
-    print(cookie_val)
-
-    leave_room(chat_hash)
-    
-    #emit('status', {'msg': f'{user_id} has left the room.'}, room=chat_hash)
-
+    socketio.emit('status', {'msg': f'{user_name} has entered the room'}, room=chat_hash)
 
 
 
 @socketio.on('message')
-def handle_message(data):
+def on_message(data):
     chat_hash = data['chat_hash']
     msg = data['msg']
-    user_id = data['user_id']
- 
-    #get the cookie value 
-    cookie_value = request.cookies.get(chat_hash) 
-    
-    #decrypt the cookie value 
-    user_name = decrypt_cookie(cookie_value)
+    user_name = data['user_name']
 
-    #get the user name hashes from database 
-    hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[0]
-    hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash)[1]
-    #print(hashed_username_1)
-    #print(hashed_username_2)
+    socketio.emit('message', {'msg': msg, 'user_name': user_name}, room=chat_hash)
 
-    #the logic to flip the usename as per hash value found 
-    if check_password_hash(hashed_username_1,user_name):
-        user_hash_1, user_hash_2 =  hashed_username_1, hashed_username_2
+@socketio.on('leave')
+def on_leave(data):
+    chat_hash = data['chat_hash']
+    user_name = data['user_name']
 
-    else:
-        user_hash_1, user_hash_2 = hashed_username_2 , hashed_username_1
+    leave_room(chat_hash)
+    socketio.emit('status', {'msg': f'{user_name} has left the room'}, room=chat_hash)
 
-
-    #add the data store system here 
-    mongo_helper_class.insert_message_data(DATA_BASE_NAME,COLLECTION_NAME,chat_hash,user_hash_1,user_hash_2,msg)
-
-
-    #get the message data here , username is not coming rn 
-    #print("all the message data",user_id,chat_hash,msg,cookie_value) #test
-
-
-    emit('message', {'msg': msg, 'user_id': user_id}, room=chat_hash)
 
 
 
@@ -429,39 +367,25 @@ def handle_message(data):
 @app.route('/chat/user/<chat_hash_url>')
 def chat_one(chat_hash_url):
     res = helper_fun_chat_hash.check_hash_exist(chat_hash_url)
-
-    # Get the user cookie
     user_cookie = request.cookies.get(chat_hash_url)
 
     if user_cookie:
-
+        user_name = decrypt_cookie(user_cookie)
         hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
         hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
 
-        # Decrypt the cookie value
-        user_name = decrypt_cookie(user_cookie)
-
-        # The logic to flip the username as per hash value found
-        if check_password_hash(hashed_username_1, user_name):
-            user_hash_1 = hashed_username_1
-        else:
-            user_hash_1 = hashed_username_2
-
-        # Retrieve messages
-        messages = retrive_message(DATA_BASE_NAME, COLLECTION_NAME, chat_hash_url, user_hash_1)
-
-        if res:
-            return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages , user_name = user_name.capitalize())
-        else:
-            return "<h1>Page not found</h1>"
-    else:
-        if res:
+        if check_password_hash(hashed_username_1, user_name) or check_password_hash(hashed_username_2, user_name):
             return render_template('chatting/chat.html', chat_hash_url=chat_hash_url)
         else:
-            return "<h1>Page not found</h1>"
+            return render_template('chatting/chat.html')
+    else:
+        return render_template('chatting/chat.html')
 
 
 
+
+
+#-------------------------------------------------------------- the end of the methods ----------------------------------------------------------------
 
 
 
