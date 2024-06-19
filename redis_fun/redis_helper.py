@@ -214,8 +214,12 @@ class Helper_fun():
             # Deserialize the JSON string to a Python list
             retrieved_data_list = json.loads(retrieved_data_str)
             return retrieved_data_list
-        return None
-    
+        
+        return "None"
+
+
+
+
     def delete_hash_val(self,key):
         """
         The method to delete the hash value from the redis hash

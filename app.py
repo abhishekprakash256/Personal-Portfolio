@@ -434,9 +434,15 @@ def chat_one(chat_hash_url):
     user_cookie = request.cookies.get(chat_hash_url)
 
     if user_cookie:
+        #print("inside cookie")
 
         hashed_username_1 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[0]
         hashed_username_2 = helper_fun_chat_hash.get_users_value_from_hash(chat_hash_url)[1]
+
+        print(hashed_username_1)
+
+        if not hashed_username_1 or not hashed_username_2:
+            return "<h1>Chat has been ended by user</h1>"
 
         # Decrypt the cookie value
         user_name = decrypt_cookie(user_cookie)
@@ -453,12 +459,12 @@ def chat_one(chat_hash_url):
         if res:
             return render_template('chatting/chat.html', chat_hash_url=chat_hash_url, messages=messages , user_name = user_name.capitalize())
         else:
-            return "<h1>Page not found</h1>"
+            return "<h1>Chat has been ended by user</h1>"
     else:
         if res:
             return render_template('chatting/chat.html', chat_hash_url=chat_hash_url)
         else:
-            return "<h1>Page not found</h1>"
+            return "<h1>Page not Found</h1>"
 
 
 
