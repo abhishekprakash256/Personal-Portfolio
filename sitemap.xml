@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://meabhi.me/</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/about</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/tech</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/project</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/life</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/tech/system-design</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/tech/dynamic-programming</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/tech/image-processing</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/projects/patching-unpatching</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/projects/federated-learning</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/projects/neural-transfer</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/resume/abhishek_ml.pdf</loc>
+  <lastmod>2024-05-21T19:30:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/projects/tiny-url</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/projects/chat-app</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/projects/academic-website</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/demo/tiny-url</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/demo/chat-app</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/demo/academic-website</loc>
+  <lastmod>2024-06-21T20:43:25+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/index.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/news_3.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/publication.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/group.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/courses.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/service.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/awards.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/contact.html</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/document(1).pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Hide_and_Seek_Waveform_Emulation_Attack_and_Defense_in_Cross-Technology_Communication.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Incentivizing_Relay_Participation_for_Securing_IoT_Communication.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/CREAM_Unauthorized_Secondary_User_Detection_in_Fading_Environments.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/CLASSIFICATION_OF_SEVERELY_OCCLUDED_IMAGE_SEQUENCES_VIA_CONVOLUTIONAL_RECURRENT_NEURAL_NETWORKS.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Secure_and_optimized_unauthorized_secondary_user_detection_in_dynamic_spectrum_access.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Social-Enabled_Data_Offloading_via_Mobile_Participation_-_A_Game-Theoretical_Approach.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/On_the_Achievable_Rate_of_MIMO_Cognitive_Radio_Network_with_Multiple_Secondary_Users.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/IS-WARS_Intelligent_and_Stealthy_Adversarial_Attack_to_Wi-Fi-based_Human_Activity_Recognition_Systems.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Incentivizing_Crowdsensing-Based_Noise_Monitoring_with_Differentially-Private_Locations.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Social-Aware_Energy-Efficient_Data_Offloading_With_Strong_Stability.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Motivating_Human-Enabled_Mobile_Participation_for_Data_Offloading.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Optimal_Source_and_Relay_Design_for_Multiuser_MIMO_AF_Relay_Communication_Systems_With_Direct_Links_and_Imperfect_Channel_Information.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/20150728014644114.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://meabhi.me/static/projects/Academic-Website/files/Secure_Authentication_in_Cross-Technology_Communication_for_Heterogeneous_IoT.pdf</loc>
+  <lastmod>2024-05-21T19:32:10+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+
+
+</urlset>
