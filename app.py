@@ -7,7 +7,7 @@ import json
 import os 
 from datetime import timedelta, datetime
 from itsdangerous import URLSafeTimedSerializer
-from flask import Flask, render_template, request, jsonify, redirect, make_response , url_for
+from flask import Flask, render_template, request, jsonify, redirect, make_response , url_for, send_from_directory
 from read_data_mongo import get_article_data
 from redis_fun.redis_helper import * 
 from generate_tiny_url import * 
@@ -88,6 +88,11 @@ def home():
 def about():
     return render_template('about.html')
 
+
+#the robot.txt file redirection
+@app.route('/robots.txt')
+def robots_txt():
+    return send_from_directory(app.root_path, 'robots.txt')
 
 #section page
 @app.route('/<section_name>')
