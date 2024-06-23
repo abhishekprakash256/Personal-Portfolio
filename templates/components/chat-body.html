@@ -153,62 +153,62 @@
     </div>
     <script>
         
-// Function to scroll the message box to the bottom
-function scrollMessageBox() {
-    const messageBox = document.getElementById('messages');
-    messageBox.scrollTo({
-        top: messageBox.scrollHeight,
-        behavior: 'smooth'
-    });
-}
-
-// Function to update arrow visibility based on scroll position
-function updateArrowVisibility() {
-    const messageBox = document.getElementById('messages');
-    const arrow = document.getElementById('scroll-arrow');
-    
-    // Check if the message box is scrolled to the bottom
-    if (isScrolledToBottom(messageBox)) {
-        arrow.classList.add('hidden');
-    } else {
-        arrow.classList.remove('hidden');
+    // Function to scroll the message box to the bottom
+    function scrollMessageBox() {
+        const messageBox = document.getElementById('messages');
+        messageBox.scrollTo({
+            top: messageBox.scrollHeight,
+            behavior: 'smooth'
+        });
     }
-}
 
-// Helper function to check if scrolled to bottom
-function isScrolledToBottom(element) {
-    return Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight) <= 1;
-}
+    // Function to update arrow visibility based on scroll position
+        function updateArrowVisibility() {
+            const messageBox = document.getElementById('messages');
+            const arrow = document.getElementById('scroll-arrow');
+            
+            // Check if the message box is scrolled to the bottom
+            if (isScrolledToBottom(messageBox)) {
+                arrow.classList.add('hidden');
+            } else {
+                arrow.classList.remove('hidden');
+            }
+        }
 
-// Debounce function to limit frequency of function calls
-function debounce(func, wait) {
-    let timeout;
-    return function() {
-        const context = this, args = arguments;
-        const later = function() {
-            timeout = null;
-            func.apply(context, args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+        // Helper function to check if scrolled to bottom
+        function isScrolledToBottom(element) {
+            return Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight) <= 1;
+        }
 
-// Event listeners for scroll and touch events on the message box
-const messageBox = document.getElementById('messages');
-messageBox.addEventListener('scroll', debounce(updateArrowVisibility, 100)); // Debounce scroll events
-messageBox.addEventListener('touchmove', debounce(updateArrowVisibility, 100)); // Debounce touchmove events
-messageBox.addEventListener('touchend', updateArrowVisibility); // Immediate update on touch end
+        // Debounce function to limit frequency of function calls
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                const context = this, args = arguments;
+                const later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
 
-// Initial check to hide the arrow if already at the bottom when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    updateArrowVisibility();
-});
+        // Event listeners for scroll and touch events on the message box
+        const messageBox = document.getElementById('messages');
+        messageBox.addEventListener('scroll', debounce(updateArrowVisibility, 100)); // Debounce scroll events
+        messageBox.addEventListener('touchmove', debounce(updateArrowVisibility, 100)); // Debounce touchmove events
+        messageBox.addEventListener('touchend', updateArrowVisibility); // Immediate update on touch end
 
-// Event listener for scrolling to the bottom when arrow is clicked
-document.getElementById('scroll-arrow').addEventListener('click', function() {
-    scrollMessageBox();
-});
+        // Initial check to hide the arrow if already at the bottom when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateArrowVisibility();
+        });
+
+        // Event listener for scrolling to the bottom when arrow is clicked
+        document.getElementById('scroll-arrow').addEventListener('click', function() {
+            scrollMessageBox();
+        });
 
 
 
