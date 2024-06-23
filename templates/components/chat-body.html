@@ -6,6 +6,32 @@
     <title>Chat App</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <style>
+
+        .arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            color: #146C94;
+        }
+
+        
+
+        .arrow::before {
+            content: '\2193';
+            font-size: 2rem;
+        }
+
+        .hidden {
+
+
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
         #messages {
             height: 500px;
             overflow-y: scroll;
@@ -87,6 +113,8 @@
                                     </div>
                                 </div>
                             {% endfor %}
+                            
+                            <div class="arrow" id="scroll-arrow" onclick="scrollMessageBox()"></div>
                         </div>
                     </div>
                 </div>
@@ -124,6 +152,39 @@
             {% include 'reusable/more.html' %}
         </div>
     </div>
+    <script>
+        // the function tot scroll the message box
+        
+        function scrollMessageBox() {
+                const messageBox = document.getElementById('messages');
+                messageBox.scrollTo({
+                    top: messageBox.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+
+            function updateArrowVisibility() {
+                const messageBox = document.getElementById('messages');
+                const arrow = document.getElementById('scroll-arrow');
+                
+                // Check if the message box is scrolled to the bottom
+                if (messageBox.scrollTop + messageBox.clientHeight >= messageBox.scrollHeight) {
+                    arrow.classList.add('hidden');
+                } else {
+                    arrow.classList.remove('hidden');
+                }
+            }
+
+            document.getElementById('messages').addEventListener('scroll', updateArrowVisibility);
+
+            // Initial check to hide the arrow if already at the bottom
+            document.addEventListener('DOMContentLoaded', function() {
+                updateArrowVisibility();
+            });
+
+
+    </script>
+
     <script>
         var socket = io();
         var chatHash = '{{ chat_hash_url }}';
