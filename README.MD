@@ -148,10 +148,20 @@ python3 update_script.py
 
 ##  Nginx Configurations 
 
-The nginx configuration file is used to make the nginx connect to the certbot files , put the domain name as well. The file location - 
+The nginx configuration file is used to make the nginx connect to the certbot files , put the domain name as well. The file location - /etc/nginx/sites-available
 
 
 
+## Nginx commands 
+```
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+```
+
+
+### The default nginx file 
 
 ```
 
@@ -185,7 +195,7 @@ server {
 ```
 
 
-### The new Nginx config fro socket connection support 
+### The new Nginx config for socket connection support 
 
 ```
 server {
@@ -223,6 +233,68 @@ server {
 
 }
 ```
+
+
+
+### The config file that has robots.txt file permission 
+```
+server {
+    listen 80;
+    server_name www.meabhi.me;
+
+    # Redirect HTTP to HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name www.meabhi.me;
+
+    ssl_certificate /etc/letsencrypt/live/meabhi.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/meabhi.me/privkey.pem;
+
+    # Other SSL configuration directives (e.g., SSL protocols, ciphers, etc.)
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+
+    # Serve static files directly
+  
+
+    # Serve robots.txt directly
+    location = /robots.txt {
+        root /home/ubuntu/Personal-Portfolio;
+        allow all;
+    }
+
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+  
+}
+
+
+```
+
+
+### Give the permsision for these files as well, running these conmmands 
+```
+sudo chown -R www-data:www-data /home/ubuntu/Personal-Portfolio
+sudo chmod -R 755 /home/ubuntu/Personal-Portfolio
+```
+
+
+
+
 
 
 ### Hosting process 
