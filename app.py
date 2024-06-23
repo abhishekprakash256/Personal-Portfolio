@@ -25,7 +25,7 @@ from chat_data_handling import *
 
 #added for eventlet 
 import eventlet
-#eventlet.monkey_patch()
+
 
 
 #for test 
