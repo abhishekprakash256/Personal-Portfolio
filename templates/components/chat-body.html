@@ -153,62 +153,40 @@
     </div>
     <script>
         
-// Function to check if the device is mobile
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
+        // Function to scroll the message box to the bottom
+        function scrollMessageBox() {
+            const messageBox = document.getElementById('messages');
+            messageBox.scrollTo({
+                top: messageBox.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
 
-// Function to scroll the message box to the bottom
-function scrollMessageBox() {
-    const messageBox = document.getElementById('messages');
-    messageBox.scrollTo({
-        top: messageBox.scrollHeight,
-        behavior: 'smooth'
-    });
-}
+        // Function to update arrow visibility based on scroll position
+        function updateArrowVisibility() {
+            const messageBox = document.getElementById('messages');
+            const arrow = document.getElementById('scroll-arrow');
+            
+            // Check if the message box is scrolled to the bottom
+            if (messageBox.scrollTop + messageBox.clientHeight >= messageBox.scrollHeight) {
+                arrow.classList.add('hidden');
+            } else {
+                arrow.classList.remove('hidden');
+            }
+        }
 
-// Function to update arrow visibility based on scroll position
-function updateArrowVisibility() {
-    const messageBox = document.getElementById('messages');
-    const arrow = document.getElementById('scroll-arrow');
-    
-    // Check if the message box is scrolled to the bottom
-    if (messageBox.scrollTop + messageBox.clientHeight >= messageBox.scrollHeight) {
-        arrow.classList.add('hidden');
-    } else {
-        arrow.classList.remove('hidden');
-    }
-}
+        // Event listener for scroll events on the message box
+        document.getElementById('messages').addEventListener('scroll', updateArrowVisibility);
 
-// Event listener for scroll events on the message box
-document.getElementById('messages').addEventListener('scroll', updateArrowVisibility);
+        // Initial check to hide the arrow if already at the bottom when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateArrowVisibility();
+        });
 
-// Initial check to hide the arrow if already at the bottom when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    updateArrowVisibility();
-});
-
-// Event listener for clicking the scroll arrow
-document.getElementById('scroll-arrow').addEventListener('click', function() {
-    scrollMessageBox();
-});
-
-// Check if the device is mobile and adjust behavior accordingly
-if (isMobileDevice()) {
-    // Hide the arrow initially on mobile devices
-    document.addEventListener('DOMContentLoaded', function() {
-        const arrow = document.getElementById('scroll-arrow');
-        arrow.classList.add('hidden');
-    });
-
-    // Adjust scroll behavior on mobile devices
-    document.getElementById('messages').addEventListener('scroll', function() {
-        const arrow = document.getElementById('scroll-arrow');
-        
-        // Always hide arrow on mobile devices while scrolling
-        arrow.classList.add('hidden');
-    });
-}
+        // Function to handle scrolling when arrow is clicked
+        document.getElementById('scroll-arrow').addEventListener('click', function() {
+            scrollMessageBox();
+        });
 
 
     </script>
