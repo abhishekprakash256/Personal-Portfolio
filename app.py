@@ -94,6 +94,15 @@ def about():
 def robots_txt():
     return send_from_directory(app.root_path, 'robots.txt')
 
+
+#tesing page
+@app.route('/exp')
+def exp():
+    return render_template('exp.html')
+
+
+
+
 #section page
 @app.route('/<section_name>')
 def section(section_name):
