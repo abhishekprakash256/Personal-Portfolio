@@ -162,10 +162,11 @@
             });
         }
 
+        // Function to update arrow visibility based on scroll position
         function updateArrowVisibility() {
             const messageBox = document.getElementById('messages');
             const arrow = document.getElementById('scroll-arrow');
-
+            
             // Check if the message box is scrolled to the bottom
             if (isScrolledToBottom(messageBox)) {
                 arrow.classList.add('hidden');
@@ -174,25 +175,26 @@
             }
         }
 
+        // Helper function to check if scrolled to bottom
         function isScrolledToBottom(element) {
-            return element.scrollTop + element.clientHeight >= element.scrollHeight;
+            return element.scrollHeight - element.scrollTop === element.clientHeight;
         }
 
-        // Event listener for scroll events on the message box
-        document.getElementById('messages').addEventListener('scroll', updateArrowVisibility);
-
-        // Event listener for touch events on the message box (for mobile devices)
-        document.getElementById('messages').addEventListener('touchend', updateArrowVisibility);
+        // Event listeners for scroll and touch events on the message box
+        const messageBox = document.getElementById('messages');
+        messageBox.addEventListener('scroll', updateArrowVisibility);
+        messageBox.addEventListener('touchend', updateArrowVisibility);
 
         // Initial check to hide the arrow if already at the bottom when the page loads
         document.addEventListener('DOMContentLoaded', function() {
             updateArrowVisibility();
         });
 
-        // Function to handle scrolling when arrow is clicked
+        // Event listener for scrolling to the bottom when arrow is clicked
         document.getElementById('scroll-arrow').addEventListener('click', function() {
             scrollMessageBox();
         });
+
 
 
     </script>
