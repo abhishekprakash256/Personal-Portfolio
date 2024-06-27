@@ -35,7 +35,7 @@
             </div>
           </div>
     
-          <h1 class="bio-responisve-font mb-2 mt-0 bio-desc font-color-class" >{{ bio_text }}</h1>
+          <h1 class="bio-responisve-font mb-2 mt-0 bio-desc font-color-class" >{{ bio_text | safe }}</h1>
           
           {% set more_link = "about" %}
           {% include 'reusable/more.html' %}
