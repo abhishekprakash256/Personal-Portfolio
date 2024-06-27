@@ -72,7 +72,12 @@ html, body {
 }
 
 .bio-responisve-font {
-  font-size: clamp(1.0rem, 1.5vw, 1.5rem);
+
+  font-size: 15px;
+  
+  /*font-size: clamp(1.2rem, 1.5vw, 1.8rem); /*
+
+
 
 
 }
