@@ -40,7 +40,7 @@
 
     
 
-    {% set heading_one = "ProPlaygrounds" %}
+    {% set heading_one = "<a href='https://proplaygrounds.com/' style='color: #4280c5; text-decoration: none;' onmouseover='this.style.color = \"#fe9e32\"' onmouseout='this.style.color=\"#4280c5\"'>Pro Playgrounds</a>" %}
     {% set heading_two = "SDE" %}
     {% set desc_one = "Implemented a Machine Learning product recommendation system, based on the most sold products in recent months.utilizing Popularity-Based Recommendation and Content-Based Filtering algorithms." %}
     {% set desc_two = "Achieved a notable 20% increase in user engagement, a 15% improvement in click-through rates, and a 10% increase in conversion rates" %}
@@ -49,7 +49,7 @@
     {% include 'components/experience-list-one.html' %}
 
 
-    {% set heading_one = "Cognitive Geo Interpretation Inc " %}
+    {% set heading_one = "<a href='https://interpretation.ai/' style='color: #4a4161; text-decoration: none;' onmouseover='this.style.color = \"#928cbb\"' onmouseout='this.style.color=\"#4a4161\"'>Cognitive Geo interpretation</a>" %}
     {% set heading_two = "SDE (Intern)" %}
     {% set desc_one = "Development, design, and ongoing maintenance of a robust GitLab CI/CD pipeline, enabling seamless infrastructure
     development for standalone machines on AWS. Employed Ansible for efficient provisioning processes. This pipeline has
@@ -63,7 +63,7 @@
 
     
 
-    {% set heading_one = "Florida State University" %}
+    {% set heading_one = "<a href='https://www.fsu.edu' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>" %}
     {% set heading_two = "Research Assistant" %}
     {% set desc_one = "Achieved a prediction accuracy of around 90% by Implementing Fed-Avg algorithm for Federated learning on MNIST
     data set with six learning workers using Pytorch.
@@ -77,7 +77,7 @@
 
     
 
-    {% set heading_one = "Florida State University" %}
+    {% set heading_one = "<a href='https://www.fsu.edu' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>" %}
     {% set heading_two = "Voluntary Research Assistant" %}
     {% set desc_one = "Accomplished the development of a website backend prototype, for seamless CRUD operations on an SQLite database
     using Python. Crafted and populated the database with a substantial dataset comprising 2000 entries..
@@ -88,22 +88,27 @@
     {% include 'components/experience-list-four.html' %}
 
 
-<!----------the experience ------------->
+<!----------the education ------------->
   
 {% set title = "Education" %}
 {% include 'reusable/card-heading.html' %}
 
 
-{% set heading_one = "Florida State University" %}
+{% set heading_one = "<a href='https://www.fsu.edu' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>" %}
 {% set heading_two = "Masters in Computer Science" %}
-{% set desc_one = "Accomplished the development of a website backend prototype, for seamless CRUD operations on an SQLite database
-using Python. Crafted and populated the database with a substantial dataset comprising 2000 entries..
-" %}
-{% set desc_two = "" %}
-
-{% include 'components/experience-list-four.html' %}
+{% set desc_one = "Courses: Deep Reinforcement Learning, Data and Computer Communication, Artificial Intelligence, Advanced
+Algorithms, Network System Admin, Intro to Data Science, Database management systems" %}
 
 
+{% include 'components/education-one.html' %}
+
+
+{% set heading_one = "<a href='https://bitdurg.ac.in/' style='color: #18aee6; text-decoration: none;' onmouseover='this.style.color = \"#ec0b00\"' onmouseout='this.style.color=\"#18aee6\"'>BIT</a>" %}
+{% set heading_two = "B.E in Computer Science" %}
+{% set desc_one = "Courses: Artifical Intelligence, Logic Building in Cpp, Data Base , Computer Networking , Web Technologies" %}
+
+
+{% include 'components/education-two.html' %}
 
   
     
