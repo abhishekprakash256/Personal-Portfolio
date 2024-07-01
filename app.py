@@ -51,7 +51,6 @@ app.secret_key = 'Qwerty@8243'  # Replace with a strong, random key
 serializer = URLSafeTimedSerializer(app.secret_key)
 
 
-
 #the encryption and decryption of the cookie code 
 def encrypt_cookie(value):
     return serializer.dumps(value)
