@@ -73,7 +73,7 @@ os.chdir(original_directory)
 
 #run the flask server again
 
-run_server = subprocess.run('nohup flask run --host=0.0.0.0 --port=5000 > output.log 2>&1 &', shell=True, check=True)
+run_server = subprocess.run('nohup gunicorn --worker-class eventlet -w 1 -b 0.0.0.0:5000 wsgi:app > gunicorn.log 2>&1 &', shell=True, check=True)
 if run_server:
     print("Server started succesfully")
 
