@@ -81,6 +81,46 @@
             "more_link":"/project"
         
              }
+
+             ,
+
+             {
+                "article_name": "chat-app",
+                "aticle_data": [
+                    
+                    {"title": "Chat App", "image_src": "..\\static\\images\\projects\\chat-app\\chat-app-icon.png", "article_para": "", "markdown_data": ""},
+                    {"title": "Project Description", "image_src": "", "article_para": "", "markdown_data": ""},
+                    {"title": "", "image_src": "", "article_para": "The chat app is a system designed to facilitate communication between two people by establishing unique chat rooms identified by hashes and user names. Inspired by the system architecture of chat apps like WhatsApp, I utilized several key components to build the app. The hashing system generates and handles unique identifiers for chat rooms, while the QR code system allows easy sharing and access to these rooms. Redis data helpers efficiently manage chat rooms and user data. Socket programming serves as the core component, enabling real-time communication between users. MongoDB is used for storing messages and ensuring data persistence. This integration of technologies, particularly socket programming and the hashing system, enables the creation and management of user accounts and chat rooms effectively..", "markdown_data": ""},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "### Key Features \n1. **User Registration and Unique Chat Hash Link**: Two users can register themselves to get a unique chat hash link and log in with unique user names. \n2. **Login Authentication System**: Users can log in and authenticate to fetch messages. \n3. **Session Storage System**: Uses cookies-based authentication for session storage. \n **Logout System**: Allows users to log out. \n4. **Message Storage System**: Preserves messages for retrieval upon login. \n **Kill Chat System**: Terminates the chat immediately and clears the message data."},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "## Technical Details \n1. **Flask Server**: Flask server is used with Socket.IO support to create the chat rooms. \n2. **Redis**: Redis is used to store user data including the login and the hashes for faster data accessing and smooth user experience. \n3. **Login System**: Uses Flask cookies for session storage with encryption done on cookies. \n4. **MongoDB**: MongoDB is used for message storage with datetime for message stamping and unique hashes for message retrieval, providing a faster way to retrieve and store messages using a NoSQL database."},
+                    {"title": "", "image_src": "..\\static\\images\\projects\\chat-app\\system-design-chat.png", "article_para": "", "markdown_data": ""},
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "## Implementation \n1. **Flask Server**: Utilizes Socket.IO programming to create and manage chat rooms using unique chat hashes. \n2. **Redis**: Stores user data, including hashed and encrypted usernames, for fast access and smooth performance. \n3. **MongoDB**: Handles message storage, using chat hashes as primary keys to efficiently retrieve and store messages. \n4. **Flask Cookies**: Manages chat session storage, ensuring secure and persistent user sessions through encrypted cookies."},
+                    
+                    {"title": "", "image_src": "", "article_para": "", "markdown_data": "## Conclusion \nIn developing this chat app, I integrated various technologies to create a seamless and efficient communication platform. By leveraging the Flask server with Socket.IO for real-time chat room creation, Redis for fast and secure user data management, MongoDB for efficient message storage and retrieval, and Flask cookies for robust session management, the app ensures a smooth user experience. These combined elements not only facilitate easy registration and secure login but also provide reliable message storage and retrieval, with the added functionality to terminate chats and clear data instantly. This holistic approach demonstrates a strong foundation in modern web development practices, ensuring a reliable and user-friendly chat application."}
+            
+                    
+            
+                ],
+                "card_one_text": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches",
+                "image_url_card_one": "..\\static\\images\\projects\\patching-unpatching\\patching.png",
+                "card_one_url": "/projects/patching-unpatching",
+            
+                "card_two_text": "Federated Learning is a decentralized learning paradigm where models are trained on various devices, and their parameters are combined to create a global model. Initially introduced by Google",
+                "image_url_card_two": "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
+                "card_two_url": "/projects/federated-learning",
+            
+                "card_three_text": "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query (for the responsive optimization for mobile, tablet and different size devices). The website is consist of 8 pages that shows the",
+                "image_url_card_three": "..\\static\\images\\projects\\academic-website\\main_page.png",
+                "card_three_url": "/projects/academic-website",
+    
+    
+                "first_social_media_url" : "https://github.com/abhishekprakash256/Personal-Portfolio/tree/chatting_system",
+                
+                "second_social_media_url" : "",
+                "button_link":"/demo/chat-app",
+                "more_link":"/project"
+            
+                 }
         ,
         {
             "article_name": "federated-learning",

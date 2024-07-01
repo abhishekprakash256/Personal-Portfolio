@@ -2,7 +2,7 @@
 <body class="background-color-body">
     <div class="container main-container-color shadow-lg">
       <!-- the container is the start of the container  that has boxes inside it -->
-    
+
     
     
      
@@ -15,20 +15,24 @@
     
     {% include 'reusable/social-media.html' %}
 
-    <!---------------the article ------------>
-    {% set article_para = "With a solid year of industry experience, I have developed expertise in various programming languages, with a strong emphasis on Python. My skill set extends to encompass Machine Learning, automation, and the design of tools for live production systems. I am well-versed in popular machine learning and deep learning frameworks such as PyTorch, TensorFlow, and scikit-learn.
-    In addition to my comprehensive computer science background, which includes a master's degree in computer science, I possess an in-depth understanding of data structures and algorithms. My professional journey has been marked by active involvement in a wide range of software projects, spanning from the development of small-scale tools to the orchestration of large-scale production systems. I take pride in my ability to ensure the robustness and efficiency of solutions, which is supported by my proficiency in unit testing and data visualization.
-    Furthermore, I have augmented my skill set with a specialization in Machine Learning Operations (MLOps). My knowledge in this domain extends to the management of CI/CD pipelines, guaranteeing the seamless integration and deployment of machine learning models. I am also well-versed in the use of automation tools like Ansible and Terraform, which has enabled me to streamline and automate MLOps processes. This optimization enhances the overall efficiency and reliability of machine learning workflows." %}
+    {% set article_para = "I am Abhishek Prakash (Abhi), a professional with over two years of industry experience and a master's degree in computer science from <a href='https://www.fsu.edu' target='_blank' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>. My expertise lies in various programming languages, with a strong emphasis on Python. I specialize in machine learning, automation, software development, and the design and deployment of cloud infrastructure as code. 
+
+    I am proficient in popular machine learning and deep learning frameworks such as PyTorch, TensorFlow, scikit-learn, and pandas. My comprehensive background in computer science, including an in-depth understanding of data structures and algorithms, underpins my professional journey.
     
+    Throughout my career, I have been actively involved in a wide range of software projects, from developing small-scale tools to orchestrating large-scale production systems. My experience extends to website development, including front-end, back-end, and database integration, ensuring the robustness and efficiency of solutions through unit testing, data visualization, and data engineering.
+    
+    In addition to my core skills, I have specialized in Machine Learning Operations (MLOps), managing CI/CD pipelines and Docker images to ensure the seamless integration and deployment of machine learning models. I am adept at using automation tools like Ansible and Terraform, streamlining and automating MLOps processes to enhance the overall efficiency and reliability of machine learning workflows." %}
+      
+
     {% include 'reusable/article-desc.html' %}
 
     {% set title = "Skills" %}
     {% include 'reusable/card-heading.html' %}
 
     {% set title = "Python | C++ | JavaScript | Shell Scripting" %}
-    {% set title_two = "ML | Deep Learning | Data Cleaning | TensorFlow| Pytorch| Scikit-learn" %}
-    {% set title_three = "AWS | CI/CD | Ansible | Kubernetes | Version-control| Git" %}
-    {% set title_four = "Front-end| Sql/No Sql db | Agile Methodology | Automation | Testing " %}
+    {% set title_two = "ML | Deep Learning | Data Cleaning | Data Engineering | TensorFlow| Pytorch| Scikit-learn | Pandas" %}
+    {% set title_three = "AWS | CI/CD | Ansible | Kubernetes | Version-control | Git | Docker" %}
+    {% set title_four = "Front-end| Back-end | Mongodb | Flask | Sql/No Sql db | Agile Methodology | Automation | Testing " %}
     {% include 'components/skills-heading.html' %}
 
     {% set title = "Experience" %}
@@ -36,7 +40,7 @@
 
     
 
-    {% set heading_one = "ProPlaygrounds" %}
+    {% set heading_one = "<a href='https://proplaygrounds.com/' target='_blank' style='color: #4280c5; text-decoration: none;' onmouseover='this.style.color = \"#fe9e32\"' onmouseout='this.style.color=\"#4280c5\"'>Pro Playgrounds</a>" %}
     {% set heading_two = "SDE" %}
     {% set desc_one = "Implemented a Machine Learning product recommendation system, based on the most sold products in recent months.utilizing Popularity-Based Recommendation and Content-Based Filtering algorithms." %}
     {% set desc_two = "Achieved a notable 20% increase in user engagement, a 15% improvement in click-through rates, and a 10% increase in conversion rates" %}
@@ -45,7 +49,7 @@
     {% include 'components/experience-list-one.html' %}
 
 
-    {% set heading_one = "Cognitive Geo Interpretation Inc " %}
+    {% set heading_one = "<a href='https://interpretation.ai/' target='_blank' style='color: #4a4161; text-decoration: none;' onmouseover='this.style.color = \"#928cbb\"' onmouseout='this.style.color=\"#4a4161\"'>Cognitive Geo interpretation</a>" %}
     {% set heading_two = "SDE (Intern)" %}
     {% set desc_one = "Development, design, and ongoing maintenance of a robust GitLab CI/CD pipeline, enabling seamless infrastructure
     development for standalone machines on AWS. Employed Ansible for efficient provisioning processes. This pipeline has
@@ -59,7 +63,7 @@
 
     
 
-    {% set heading_one = "Florida State University" %}
+    {% set heading_one = "<a href='https://www.fsu.edu' target='_blank' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>" %}
     {% set heading_two = "Research Assistant" %}
     {% set desc_one = "Achieved a prediction accuracy of around 90% by Implementing Fed-Avg algorithm for Federated learning on MNIST
     data set with six learning workers using Pytorch.
@@ -73,7 +77,7 @@
 
     
 
-    {% set heading_one = "Florida State University" %}
+    {% set heading_one = "<a href='https://www.fsu.edu' target='_blank' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>" %}
     {% set heading_two = "Voluntary Research Assistant" %}
     {% set desc_one = "Accomplished the development of a website backend prototype, for seamless CRUD operations on an SQLite database
     using Python. Crafted and populated the database with a substantial dataset comprising 2000 entries..
@@ -82,6 +86,30 @@
     across the project, showcasing a meticulous approach to software development" %}
 
     {% include 'components/experience-list-four.html' %}
+
+
+<!----------the education ------------->
+  
+{% set title = "Education" %}
+{% include 'reusable/card-heading.html' %}
+
+
+{% set heading_one = "<a href='https://www.fsu.edu' target='_blank' style='color: #CEB888; text-decoration: none;' onmouseover='this.style.color = \"#782F40\"' onmouseout='this.style.color=\"#CEB888\"'>Florida State University</a>" %}
+{% set heading_two = "Masters in Computer Science" %}
+{% set desc_one = "Courses: Deep Reinforcement Learning, Data and Computer Communication, Artificial Intelligence, Advanced
+Algorithms, Network System Admin, Intro to Data Science, Database management systems" %}
+
+
+{% include 'components/education-one.html' %}
+
+
+{% set heading_one = "<a href='https://bitdurg.ac.in/' target='_blank' style='color: #18aee6; text-decoration: none;' onmouseover='this.style.color = \"#ec0b00\"' onmouseout='this.style.color=\"#18aee6\"'>BIT</a>" %}
+{% set heading_two = "B.E in Computer Science" %}
+{% set desc_one = "Courses: Artifical Intelligence, Logic Building in Cpp, Data Base , Computer Networking , Web Technologies" %}
+
+
+{% include 'components/education-two.html' %}
+
   
     
 {% set title = "Projects" %}
@@ -91,7 +119,7 @@
 {% set card_one_text = "Patching and Unpatching are a set of tools that are used for image processing. The patching .." %}
 <!--------- ------set card text------- ------->
 {%set image_url_card_one = "..\\static\\images\\projects\\patching-unpatching\\patching.png" %}
-{%set card_first_url = "/projects/patching-unpatching" %}
+{%set card_one_url = "/projects/patching-unpatching" %}
 
 {% set card_two_text = "Federated Learning is paradigm that covers the decentralized learning of the model on the .." %}
 {%set image_url_card_two = "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png" %}
@@ -99,7 +127,7 @@
 
 {% set card_three_text = "The Tiny-URL Generator is a URL shortening service developed as a web application using the Flask ... " %}
 {%set image_url_card_three = "..\\static\\images\\projects\\tiny-url\\www.png" %}
-{%set card_third_url = "/projects/tiny-url" %}
+{%set card_three_url = "/projects/tiny-url" %}
 
 {% include 'reusable/cards-display.html' %}
 
@@ -115,7 +143,7 @@
   
     <!--------------set the card structure ------>
     {% set card_one_text = "System design a multidisciplinary field that encompasses various aspects of designing ...." %}
-    {% set card_first_url = "/tech/system-design" %}
+    {% set card_one_url = "/tech/system-design" %}
     {%set image_url_card_one = "..\\static\\images\\tech\\system-design.png" %}
     
     {% set card_two_text = "Dynamic programming is a programming paradigm that can be used in problems which can .." %}
@@ -124,7 +152,7 @@
     
     {% set card_three_text = "Image processing is a technique used by machines to understand data in a flat block of arrays, which can" %}
     {%set image_url_card_three = "..\\static\\images\\tech\\image-processing.jpg" %}
-    {% set card_third_url = "/tech/image-processing" %}
+    {% set card_three_url = "/tech/image-processing" %}
     
     {% include 'reusable/cards-display.html' %}
     

@@ -1,7 +1,8 @@
 #imports 
 from pymongo import MongoClient
 import subprocess
-
+from datetime import datetime
+import traceback
 
 #const values
 collection_lst = ["projects","tech","life"]
@@ -240,6 +241,7 @@ class Helper_fun():
         mongo_client.drop_database(db_name)
 
         print("The database has been deleted")
+    
 
     def delete_data_all(self,db_name,collection_name):
         """
@@ -248,6 +250,58 @@ class Helper_fun():
         pass
 
 
+
+    # the chat app data fetching methods  --- 
+
+    def insert_message_data(self,db_name,collection_name,chat_hash,sender_hash, recipient_hash, message):
+        """
+        The funciton to insert the message in the database and collection
+        """
+        db = mongo_client[db_name]
+        collection = db[collection_name]
+
+        message_doc = {
+        'chat_hash': chat_hash,
+        'sender_hash': sender_hash,
+        'recipient_hash': recipient_hash,
+        'message': message,
+        'timestamp': datetime.now()
+        }
+
+        if collection.insert_one(message_doc):
+            print("Succesfull insertion")
+        else:
+            print("failed to insert message")
+    
+    def get_chat_messages(self,db_name,collection_name,chat_hash):
+        """
+        The function to get the messages from the database
+        """
+
+        db = mongo_client[db_name]
+        collection = db[collection_name]
+
+
+        return collection.find({'chat_hash': chat_hash}).sort('timestamp', 1)
+
+    def delete_message(self, db_name, collection_name, chat_hash):
+        """
+        The function to delete messages based on chat_hash
+        """
+        db = mongo_client[db_name]
+        collection = db[collection_name]
+
+        try:
+            # delete the data
+            delete_result = collection.delete_many({'chat_hash': chat_hash})
+
+            if delete_result.deleted_count > 0:
+                print("Chat data erased")
+            else:
+                print("No records found to delete")
+        except Exception as e:
+            print(f"Error deleting message: {e}")
+            traceback.print_exc()
     
 
 

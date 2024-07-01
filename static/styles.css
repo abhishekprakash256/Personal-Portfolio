@@ -1,8 +1,27 @@
 
+
+.flex-page {
+  flex-grow: 1; /* Ensure this row stretches to fill remaining space */
+  flex-direction:row;
+   /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+
 /* styles.css */
 .height-full {
   /* CSS properties and values */
   height: 100vh;
+}
+
+/* make the page not overflow the x axis*/
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+ 
 }
 
 .height-half {
@@ -52,11 +71,56 @@
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
-.bio-responisve-font {
-  font-size: clamp(1.5rem, 2vw, 4rem);
 
-
+/* Base font size for all screens */
+.bio-responsive-font {
+  font-size: 14px; /* Base font size */
 }
+
+/* Media query for very small screens (phones) */
+@media screen and (max-width: 500px) {
+  .bio-responsive-font {
+    font-size: 16px; /* Font size for very small screens */
+  }
+}
+
+/* Media query for small phones */
+@media screen and (min-width: 501px) and (max-width: 767px) {
+  .bio-responsive-font {
+    font-size: 16px; /* Font size for small phones */
+  }
+}
+
+/* Media query for tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .bio-responsive-font {
+    font-size: 13.5px; /* Font size for tablets */
+  }
+}
+
+/* Media query for larger tablets */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  .bio-responsive-font {
+    font-size: 18px; /* Font size for larger tablets */
+  }
+}
+
+/* Media query for laptops (including 1280x800) */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+  .bio-responsive-font {
+    font-size: 22px; /* Font size for laptops */
+  }
+}
+
+/* Media query for desktops */
+@media screen and (min-width: 1440px) {
+  .bio-responsive-font {
+    font-size: 22px; /* Font size for desktops */
+  }
+}
+
+
+
 
 
 .bio-font {

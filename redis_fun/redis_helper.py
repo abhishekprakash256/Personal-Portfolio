@@ -5,6 +5,7 @@ The redis helper function to add the connection and methods to add the data
 #imports 
 import redis
 import os 
+import json
 
 
 def check_redis_status():
@@ -186,5 +187,50 @@ class Helper_fun():
         print("Fields and values in Redis hash ")
         for field, value in hash_fields.items():
             hash_map[field] = value
+
+
+
+    #------added the values to the redis hash --------------
+     
+    #the method to store the hash value in the list foramt
+
+    def store_list_hash_val(self,key,value):
+        """
+        The function to store the key and value (list) in hash set
+        """
+
+        uers_json = json.dumps(value)
+        redis_client.hset(self.hash_name,key,uers_json)   
+
+
+
+    #the method to show the values from the chat hash 
+    def get_users_value_from_hash(self,key):
+
+        # Retrieve and deserialize the list from JSON string
+        retrieved_data_str = redis_client.hget(self.hash_name, key)
+
+        if retrieved_data_str:
+            # Deserialize the JSON string to a Python list
+            retrieved_data_list = json.loads(retrieved_data_str)
+            return retrieved_data_list
         
+        return "None"
+
+
+
+
+    def delete_hash_val(self,key):
+        """
+        The method to delete the hash value from the redis hash
+        """
+
+        res = redis_client.hdel(self.hash_name,key)
+
+        if res:
+            return "deleted succesfully"
+        else:
+            return "data not found"
+
+
 

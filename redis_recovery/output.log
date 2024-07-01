@@ -1,1 +1,8 @@
-PONG
+Could not connect to Redis at 127.0.0.1:6379: Connection refused
+Redis is not installed or not running.
+Traceback (most recent call last):
+  File "/home/ubuntu/Personal-Portfolio/redis_recovery/redis_recovery_func.py", line 31, in <module>
+    helper_fun.store_hash_val(hash_mapper)
+  File "/home/ubuntu/Personal-Portfolio/redis_fun/redis_helper.py", line 185, in store_hash_val
+    hash_fields = redis_client.hgetall(self.hash_name)
+AttributeError: 'str' object has no attribute 'hgetall'

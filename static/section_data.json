@@ -48,6 +48,7 @@
     "card_one_texts": [
         "Patching and Unpatching are a set of tools that are used for image processing. The patching ..",
         "TinyURL is a URL shortening service, which provides a short alias for long URLs. This service is particularly useful for making links more manageable and easier to share, especially on platforms with character limits, such as Twitter.",
+        "This chat application is a web-based platform allowing users to engage in real-time text communication within chat rooms. Built with Flask,",
         "Federated Learning is paradigm that covers the decentralized learning of the model on the ..",
         "The neural style transfer is implemented as per paper that came in 2015 title A Neural Style ..",
         "Static Academic website made to showcase the profile and works, made using HTML, CSS, Media Query ...",
@@ -61,6 +62,7 @@
     "image_urls_card_one": [
         "..\\static\\images\\projects\\patching-unpatching\\patching.png",
         "..\\static\\images\\projects\\tiny-url\\www.png",
+        "..\\static\\images\\projects\\chat-app\\chat-app-icon.png",
          "..\\static\\images\\projects\\federated-learning\\federated-learning-flow.png",
           "..\\static\\images\\projects\\neural-transfer\\image_1.png",
            "..\\static\\images\\projects\\academic-website\\main_page.png",
@@ -74,6 +76,7 @@
             "card_first_urls": [
         "/projects/patching-unpatching",
         "/projects/tiny-url",
+        "/projects/chat-app",
          "/projects/federated-learning",
           "/projects/neural-transfer",
            "/projects/academic-website",

@@ -1,0 +1,94 @@
+-- Use a small Language model to summarize the webiste 
+-- Make a webcrawler to get the data from the website 
+-- fetch the data in the model and then summarize it through the model 
+
+
+-- small language model like phi-3 
+-- google bert 
+-- Use Python libraries like requests for fetching web pages and BeautifulSoup or lxml for parsing HTML content.
+   These libraries help you extract text and other relevant information from web pages.
+
+-- testing will be crucial phase as the 
+
+
+Tips for Effective Testing:
+     - Diverse Inputs: Test with diverse texts to ensure your model generalizes well across different domains and writing styles.
+
+     - Edge Cases: Include edge cases such as very short or very long texts to check how well your model handles them.
+
+     - Validation Set: Reserve a subset of your data as a validation set during model development to monitor performance and avoid overfitting.
+
+
+
+
+the models best for summarization -- 
+
+In conclusion, for summarization tasks, models like BERT-based variants, 
+GPT-Neo, BART, and PEGASUS are well-regarded and have been successfully 
+applied in various research and commercial applications. 
+The choice should align with your specific needs regarding summarization quality, 
+computational efficiency, and ease of integration.
+
+
+
+
+
+
+
+
+
+
+The implemenattion 
+
+The scrambing ideas for the the machine learning addition to the website as the hosting machine will be very expensive for the full machine
+-- use two instance , one for hsoting the instance , one for the GPU support in aws -- G4, G5, P4 instance
+-- these machine have GPU with choosing the ubuntu cuda installed images
+
+
+
+
+-- I can use SSH to work on the machine
+-- the other machine can talk to the GPU machine GRPC web client for bidiretional communication
+-- aws lambda can be used for machine sleeping and waking up calls
+
+
+-- For the code as insfrastructure I can use combination of terraform and ansible to deploy the code and run the production machine
+-- grpc protocals can be use to fetch the data from one machine to other machine
+
+
+
+reqs --
+
+-- pip install transformers
+
+for the LLM and ML tasks
+
+-- the hugging face models can be a starting point to deep dive
+-- LLM caching for faster responses
+-- using langchain to build the models
+-- using the SLM
+
+
+
+
+
+
+small models list --
+
+distilBert
+gpt-neo
+Tiny-bert
+mobile-bert
+phi-3, phi-2
+orca 2
+
+
+
+links --
+
+
+https://huggingface.co/collections/open-llm-leaderboard/llm-leaderboard-best-models-652d6c7965a4619fb5c27a03
+https://www.salesforce.com/blog/small-language-models/
+https://medium.com/@nageshmashette32/small-language-models-slms-305597c9edf2
+https://deepgram.com/ai-glossary/distilbert
+https://www.datacamp.com/tutorial/phi-3-tutorial
