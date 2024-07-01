@@ -63,6 +63,20 @@ print(injest_data.stdout)
 #change the dir again
 os.chdir(original_directory)
 
+
+redis_recovery_process = subprocess.run('ps aux | grep redis_recovery_func.py', shell=True, capture_output=True, text=True)
+
+#get the pid
+print(redis_recovery_process.stdout)
+
+redis_recovery_process_pid = redis_recovery_process.stdout[11:16]
+
+print(redis_recovery_process_pid)
+
+#kill the recovery process process
+kill_redis_recovery_process = subprocess.run(['kill', redis_recovery_process_pid], capture_output=True, text=True)
+
+
 #run the redis recovery system 
 redis_recovery = subprocess.run(['cd redis_recovery && nohup python3 redis_recovery_func.py > output.log 2>&1 &'], shell=True, capture_output=True, text=True, check=True)
 
