@@ -37,19 +37,19 @@ print('stdout:', git_pull.stdout)
 
 
 #kill the flask server 
-flask_process = subprocess.run('ps aux | grep flask', shell=True, capture_output=True, text=True)
+gunicorn_process = subprocess.run('ps aux | grep gunicorn', shell=True, capture_output=True, text=True)
 
 
-flask_pid = flask_process.stdout[10:16]
+gunicorn_process_pid = gunicorn_process.stdout[10:16]
 
-print(flask_pid)
+print(gunicorn_process_pid)
 
 #store the originonal directory 
 original_directory = os.getcwd()
 
 
 #kill the flask process
-kill_flask_process = subprocess.run(['kill', flask_pid], capture_output=True, text=True)
+kill_gunicorn_process = subprocess.run(['kill', gunicorn_process_pid], capture_output=True, text=True)
 
 #print(kill_flask_process.returncode)
 
