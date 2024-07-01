@@ -1,0 +1,29 @@
+make the dark-theme
+
+color coding scheme - 
+
+all the theme matches to this color - 
+
+light-theme - 
+
+    main-body - #ffffff
+    continer/heading-boxes - #ffffff
+    footer-header-color - #e9ecef 
+    main-continer-color - #19A7CE
+    blue-font-color - #146C94
+    button-color - #19A7CE
+
+
+
+dark - theme - 
+    - the backgrond changes to black 
+    - 
+
+    - white text to black  
+
+
+
+
+  
+
+
