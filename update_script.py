@@ -66,7 +66,7 @@ os.chdir(original_directory)
 
 redis_recovery_process = subprocess.run('ps aux | grep redis_recovery_func.py', shell=True, capture_output=True, text=True)
 
-redis_recovery_process_pid = redis_recovery_process.stdout[11:16]
+redis_recovery_process_pid = redis_recovery_process.stdout[10:16]
 
 print(redis_recovery_process_pid)
 
