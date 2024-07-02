@@ -96,6 +96,11 @@
   transform: translateX(24px);
 }
 
+body.dark {background-color: #1e1e1e;} /* #9b59b6 */
+
+.footer-header-color.dark { background-color: #343a40;}
+
+body.dark h1, body.dark .support a  .footer-header-color.dark {color: #1e1e1e;}
 
 
   </style>
@@ -158,24 +163,10 @@
   </nav>
 
   <script>
-    // Smooth scrolling behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const target = document.querySelector(this.getAttribute('href'));
-            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
-
-            const scrollOptions = {
-                top: offsetTop,
-                behavior: 'smooth',
-                duration: 600, // Adjust the duration in milliseconds as needed
-                easing: 'easeInOutCubic' // Adjust the easing function as needed
-            };
-
-            window.scrollTo(scrollOptions);
-        });
-    });
+    const checkbox = document.getElementById("checkbox")
+    checkbox.addEventListener("change", () => {
+    document.body.classList.toggle("dark")
+    })
 </script>
 
 
