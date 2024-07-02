@@ -16,11 +16,23 @@ light-theme -
 
 
 dark - theme - 
-    - the backgrond changes to black (main-body)
-    - continer/heading-boxes to black 
-    - footer-header-color - 
+    - the backgrond changes to black (main-body) - #1e1e1e
+    - continer/heading-boxes to black - #1e1e1e
+    - footer-header-color - #343a40
+    - white text to black - #00000
+    - blue-font-color - #19A7CE
+    - button-color - #19A7CE
 
-    - white text to black  
+
+
+suggestion -- 
+
+Main Body: #121212 (a very dark grey)
+Container/Heading Boxes: #1e1e1e (a slightly lighter dark grey)
+Footer Header Color: #343a40 (a dark grey)
+
+
+
 
 
 
