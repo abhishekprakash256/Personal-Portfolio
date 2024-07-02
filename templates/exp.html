@@ -2,75 +2,185 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Grid Example</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .main-body-light {
-            background-color: #ffffff; /* Default color, you can change it */
-        }
-        .container-box-light {
-            background-color: #ffffff; /* Default color, you can change it */
-        }
-        .footer-header-light {
-            background-color: #e9ecef; /* Default color, you can change it */
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
-        .container-box-dark {
-            background-color: #1e1e1e; /* Default color, you can change it */
-        }
-        .footer-header-dark {
-            background-color: #343a40; /* Default color, you can change it */
-        }
+<body>
 
-        .font-color 
-        {
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+  
+  
+  
+  <!--the nav bar-->
+
+  <style>
+    .bold {
+      font-weight: 600;
+   
+    }
+
+        .navbar-brand.bold {
+        color: #146C94 !important; /* Red color as an example */
+        font-size: 140%;
+    }
+
+        .button-custom-color {
+            background-color: #19A7CE;
+            border-color: #19A7CE;
             color: #ffffff;
         }
 
-        .font-blue-color {
-            color: #19A7CE;
+        .button-custom-color:hover {
+            background-color: #0D87B0;
+            border-color: #0D87B0;
+            color: #fefefe; /* Font color on hover */
         }
 
-    </style>
-</head>
-<body class="main-body-light">
+    .submit-error-message {
+    color:#FA7070;}
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-4 container-box-light">
-            <p>Column 1, Row 1</p>
-        </div>
-        <div class="col-md-4 container-box-light">
-            <p>Column 2, Row 1</p>
-        </div>
-        <div class="col-md-4 container-box-light">
-            <p>Column 3, Row 1</p>
-        </div>
+.dark-switch
+{
+    margin-top: 7px;
+    margin-right: 7px;
+}
+
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+  
+}
+
+.checkbox-label {
+  background-color: #ffffff;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #343a40;}
+
+.fa-sun {color: #e9ecef ;}
+
+.checkbox-label .ball {
+  background-color: #19A7CE;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+
+
+  </style>
+
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top footer-header-color shadow-sm" >
+
+    
+    <div class="dark-switch">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
+
+
+    <a class="navbar-brand bold " href="{{ url_for('home') }}">Abhi</a>
+
+    
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      
+      
+      <ul class="navbar-nav "> 
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('about') }}">About<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/tech">Tech<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/project">Projects<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/life">Life<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+     
+      <form class="form-inline ml-auto" action="/search" method="POST">
+
+        
+
+        <input class="form-control mr-sm-2 rounded" type="search" name="search_query" placeholder="Search" aria-label="Search">
+        <button class="btn btn button-custom-color rounded" type="submit">Search</button>
+    </form>
+    
+
     </div>
-    <div class="row mt-3">
-        <div class="col-md-4 container-box-dark">
-            <p class = "font-color">Column 1, Row 2</p>
-        </div>
-        <div class="col-md-4 container-box-dark">
-            <p class = "font-blue-color">Column 2, Row 2</p>
-        </div>
-        <div class="col-md-4 container-box-light">
-            <p >Column 3, Row 2</p>
-        </div>
-    </div>
-</div>
 
-<footer class="footer-header-light mt-5 p-3">
-    <p>Footer Content</p>
-</footer>
+    
+  </nav>
 
-<footer class="footer-header-dark mt-5 p-3">
-    <p class = "font-color">Footer Content</p>
-</footer>
+  <script>
+    // Smooth scrolling behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            const target = document.querySelector(this.getAttribute('href'));
+            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+
+            const scrollOptions = {
+                top: offsetTop,
+                behavior: 'smooth',
+                duration: 600, // Adjust the duration in milliseconds as needed
+                easing: 'easeInOutCubic' // Adjust the easing function as needed
+            };
+
+            window.scrollTo(scrollOptions);
+        });
+    });
+</script>
+
+
+  <!--- the nav bar ends-->
+
+
 </body>
 </html>

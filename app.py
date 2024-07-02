@@ -100,6 +100,14 @@ def exp():
     return render_template('exp.html')
 
 
+#tesing page
+@app.route('/exp-theme')
+def exp_theme():
+    return render_template('exp-theme.html')
+
+
+
+
 
 
 #section page
