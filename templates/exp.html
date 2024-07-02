@@ -8,33 +8,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
-<body>
-
-    {% block content %}
-    {% endblock %}
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
-
-  
-  
-  
-  <!--the nav bar-->
-
-  <style>
-    .bold {
-      font-weight: 600;
-   
-    }
+    
+    <style>
+        .bold {
+            font-weight: 600;
+        }
 
         .navbar-brand.bold {
-        color: #146C94 !important; /* Red color as an example */
-        font-size: 140%;
-    }
+            color: #146C94 !important; /* Red color as an example */
+            font-size: 140%;
+        }
 
         .button-custom-color {
             background-color: #19A7CE;
@@ -48,130 +31,127 @@
             color: #fefefe; /* Font color on hover */
         }
 
-    .submit-error-message {
-    color:#FA7070;}
+        .submit-error-message {
+            color: #FA7070;
+        }
 
-.dark-switch
-{
-    margin-top: 7px;
-    margin-right: 20px;
-}
+        .dark-switch {
+            margin-top: 7px;
+            margin-right: 20px;
+        }
 
+        .checkbox {
+            opacity: 0;
+            position: absolute;
+        }
 
-.checkbox {
-  opacity: 0;
-  position: absolute;
-  
-}
+        .checkbox-label {
+            background-color: #ffffff;
+            width: 50px;
+            height: 26px;
+            border-radius: 50px;
+            position: relative;
+            padding: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.checkbox-label {
-  background-color: #ffffff;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
-  position: relative;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        .fa-moon { color: #343a40; }
 
-.fa-moon {color: #343a40;}
+        .fa-sun { color: #e9ecef; }
 
-.fa-sun {color: #e9ecef ;}
+        .checkbox-label .ball {
+            background-color: #19A7CE;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            border-radius: 50%;
+            transition: transform 0.2s linear;
+        }
 
-.checkbox-label .ball {
-  background-color: #19A7CE;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-}
+        .checkbox:checked + .checkbox-label .ball {
+            transform: translateX(24px);
+        }
 
-.checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
-}
+        body.dark {
+            background-color: #1e1e1e; /* #9b59b6 */
+        }
 
-body.dark {background-color: #1e1e1e;} /* #9b59b6 */
+        .footer-header-color.dark {
+            background-color: #343a40;
+        }
 
-.footer-header-color.dark { background-color: #343a40;}
+        body.dark .navbar-brand.bold {
+            color: #19A7CE !important; /* White color in dark mode */
+        }
 
-body.dark h1, body.dark .support a  .footer-header-color.dark {color: #1e1e1e;}
+        body.dark .ul.dark {
+            color: #fefefe !important; /* White color in dark mode */
+        }
 
+        body.dark h1, body.dark .support a, .footer-header-color.dark {
+            color: #1e1e1e;
+        }
+    </style>
+</head>
 
-  </style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top footer-header-color shadow-sm">
+        <div class="dark-switch">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="checkbox-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+            </label>
+        </div>
+        <a class="navbar-brand bold" href="{{ url_for('home') }}">Abhi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('about') }}">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/tech">Tech<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/project">Projects<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/life">Life<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline ml-auto" action="/search" method="POST">
+                <input class="form-control mr-sm-2 rounded" type="search" name="search_query" placeholder="Search" aria-label="Search">
+                <button class="btn btn button-custom-color rounded" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top footer-header-color shadow-sm" >
+    {% block content %}
+    {% endblock %}
 
-    
-    <div class="dark-switch">
-        <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="checkbox-label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <span class="ball"></span>
-        </label>
-      </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
 
-
-    <a class="navbar-brand bold " href="{{ url_for('home') }}">Abhi</a>
-
-    
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      
-      
-      <ul class="navbar-nav "> 
-
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('about') }}">About<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/tech">Tech<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/project">Projects<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/life">Life<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-     
-      <form class="form-inline ml-auto" action="/search" method="POST">
-
-        
-
-        <input class="form-control mr-sm-2 rounded" type="search" name="search_query" placeholder="Search" aria-label="Search">
-        <button class="btn btn button-custom-color rounded" type="submit">Search</button>
-    </form>
-    
-
-    </div>
-
-    
-  </nav>
-
-  <script>
-    const checkbox = document.getElementById("checkbox")
-    checkbox.addEventListener("change", () => {
-    document.body.classList.toggle("dark")
-    })
-</script>
-
-
-  <!--- the nav bar ends-->
-
-
+    <script>
+        const checkbox = document.getElementById("checkbox");
+        checkbox.addEventListener("change", () => {
+            document.body.classList.toggle("dark");
+            document.querySelector(".footer-header-color").classList.toggle("dark");
+        });
+    </script>
 </body>
 </html>
