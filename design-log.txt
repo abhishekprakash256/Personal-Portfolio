@@ -16,8 +16,9 @@ light-theme -
 
 
 dark - theme - 
-    - the backgrond changes to black 
-    - 
+    - the backgrond changes to black (main-body)
+    - continer/heading-boxes to black 
+    - footer-header-color - 
 
     - white text to black  
 
