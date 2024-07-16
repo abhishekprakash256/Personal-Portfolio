@@ -18,6 +18,9 @@
             --footer-background-color: #e9ecef;
             --footer-text-color: #000000;
             --navbar-brand-color: #146C94;
+            --form-background-color: #ffffff;
+            --button-text-color: #ffffff;
+
 
         } 
 
@@ -28,6 +31,8 @@
             --footer-background-color: #343a40;
             --footer-text-color: #fefefe;
             --navbar-brand-color: #19A7CE;
+            --form-background-color: #1e1e1e;
+            --button-text-color: #000000;
         }
 
 
@@ -43,7 +48,7 @@
         .button-custom-color {
             background-color: #19A7CE;
             border-color: #19A7CE;
-            color: #ffffff;
+            color: var(--button-text-color)
         }
 
         .button-custom-color:hover {
@@ -116,6 +121,14 @@
         .navbar-nav .nav-item .nav-link {
             color: var(--nav-link-color) !important;
         }
+
+        .form-control{
+            background-color : var(--form-background-color);
+        }
+
+
+
+
 
 
 

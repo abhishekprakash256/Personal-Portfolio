@@ -32,6 +32,12 @@ Container/Heading Boxes: #1e1e1e (a slightly lighter dark grey)
 Footer Header Color: #343a40 (a dark grey)
 
 
+Problems -
+
+hover color needs to match whever using the hover effect 
+form color needs to match as well 
+
+
 
 
 
