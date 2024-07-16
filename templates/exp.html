@@ -10,12 +10,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --nav-link-color: #000000;
+            --footer-background-color: #e9ecef;
+            --footer-text-color: #000000;
+            --navbar-brand-color: #146C94;
+
+        } 
+
+        body.dark {
+            --background-color: #1e1e1e; /* #9b59b6 */
+            --text-color: #fefefe;
+            --nav-link-color: #ffffff;
+            --footer-background-color: #343a40;
+            --footer-text-color: #fefefe;
+            --navbar-brand-color: #19A7CE;
+        }
+
+
         .bold {
             font-weight: 600;
         }
 
         .navbar-brand.bold {
-            color: #146C94 !important; /* Red color as an example */
+            
             font-size: 140%;
         }
 
@@ -77,25 +98,29 @@
             transform: translateX(24px);
         }
 
-        body.dark {
-            background-color: #1e1e1e; /* #9b59b6 */
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
-        .footer-header-color.dark {
-            background-color: #343a40;
+        .footer-header-color {
+            background-color: var(--footer-background-color);
+            color: var(--footer-text-color);
         }
 
-        body.dark .navbar-brand.bold {
-            color: #19A7CE !important; /* White color in dark mode */
+        .navbar-brand.bold {
+            color: var(--navbar-brand-color);
+            
         }
 
-        body.dark .ul.dark {
-            color: #fefefe !important; /* White color in dark mode */
+        .navbar-nav .nav-item .nav-link {
+            color: var(--nav-link-color) !important;
         }
 
-        body.dark h1, body.dark .support a, .footer-header-color.dark {
-            color: #1e1e1e;
-        }
+
+
+
+
     </style>
 </head>
 
