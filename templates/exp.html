@@ -20,6 +20,11 @@
             --navbar-brand-color: #146C94;
             --form-background-color: #ffffff;
             --button-text-color: #ffffff;
+            --nav-brand-hover-color: #19A7CE;
+            --button-text-hover-color: #fefefe;
+            --input-focus-background-color: #fefefe;
+            --input-focus-text-color: #fefefe;
+
 
 
         } 
@@ -33,6 +38,11 @@
             --navbar-brand-color: #19A7CE;
             --form-background-color: #1e1e1e;
             --button-text-color: #000000;
+            --nav-brand-hover-color: #19A7CE;
+            --button-text-hover-color: #000;
+            --input-focus-background-color: #1e1e1e;
+            --input-focus-text-color: #fefefe;
+
         }
 
 
@@ -54,7 +64,7 @@
         .button-custom-color:hover {
             background-color: #0D87B0;
             border-color: #0D87B0;
-            color: #fefefe; /* Font color on hover */
+            color: var(--button-text-hover-color); /* Font color on hover */
         }
 
         .submit-error-message {
@@ -118,18 +128,26 @@
             
         }
 
+        .navbar-brand.bold:hover
+        {
+            color: var(--nav-brand-hover-color) ;
+        }
+
+
+
         .navbar-nav .nav-item .nav-link {
             color: var(--nav-link-color) !important;
         }
 
         .form-control{
+            
             background-color : var(--form-background-color);
         }
 
-
-
-
-
+        .form-control:focus {
+            background-color: var(--input-focus-background-color);
+            color: var(--input-focus-text-color);
+        }     
 
 
 
