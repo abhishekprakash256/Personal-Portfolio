@@ -1,93 +1,212 @@
-  <!--the nav bar-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
 
-  <style>
-    .bold {
-      font-weight: 600;
-   
-    }
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --nav-link-color: #000000;
+            --footer-background-color: #e9ecef;
+            --footer-text-color: #000000;
+            --navbar-brand-color: #146C94;
+            --form-background-color: #ffffff;
+            --button-text-color: #ffffff;
+            --nav-brand-hover-color: #19A7CE;
+            --button-text-hover-color: #fefefe;
+            --input-focus-background-color: #fefefe;
+            --input-focus-text-color: #fefefe;
 
-    .navbar-brand.bold {
-    color: #146C94 !important; /* Red color as an example */
-    font-size: 140%;
-}
 
-.button-custom-color {
+
+        } 
+
+        body.dark {
+            --background-color: #1e1e1e; /* #9b59b6 */
+            --text-color: #fefefe;
+            --nav-link-color: #ffffff;
+            --footer-background-color: #343a40;
+            --footer-text-color: #fefefe;
+            --navbar-brand-color: #19A7CE;
+            --form-background-color: #1e1e1e;
+            --button-text-color: #000000;
+            --nav-brand-hover-color: #19A7CE;
+            --button-text-hover-color: #000;
+            --input-focus-background-color: #1e1e1e;
+            --input-focus-text-color: #fefefe;
+
+        }
+
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .navbar-brand.bold {
+            
+            font-size: 140%;
+        }
+
+        .button-custom-color {
             background-color: #19A7CE;
             border-color: #19A7CE;
-            color: #ffffff;
+            color: var(--button-text-color)
         }
 
         .button-custom-color:hover {
             background-color: #0D87B0;
             border-color: #0D87B0;
-            color: #fefefe; /* Font color on hover */
+            color: var(--button-text-hover-color); /* Font color on hover */
         }
 
-    .submit-error-message {
-    color:#FA7070;}
+        .submit-error-message {
+            color: #FA7070;
+        }
+
+        .dark-switch {
+            margin-top: 7px;
+            margin-right: 20px;
+        }
+
+        .checkbox {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .checkbox-label {
+            background-color: #ffffff;
+            width: 50px;
+            height: 26px;
+            border-radius: 50px;
+            position: relative;
+            padding: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fa-moon { color: #343a40; }
+
+        .fa-sun { color: #e9ecef; }
+
+        .checkbox-label .ball {
+            background-color: #19A7CE;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            border-radius: 50%;
+            transition: transform 0.2s linear;
+        }
+
+        .checkbox:checked + .checkbox-label .ball {
+            transform: translateX(24px);
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .footer-header-color {
+            background-color: var(--footer-background-color);
+            color: var(--footer-text-color);
+        }
+
+        .navbar-brand.bold {
+            color: var(--navbar-brand-color);
+            
+        }
+
+        .navbar-brand.bold:hover
+        {
+            color: var(--nav-brand-hover-color) ;
+        }
 
 
-  </style>
 
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top footer-header-color shadow-sm" >
-    <a class="navbar-brand bold " href="{{ url_for('home') }}">Abhi</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-  
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        .navbar-nav .nav-item .nav-link {
+            color: var(--nav-link-color) !important;
+        }
+
+        .form-control{
+            
+            background-color : var(--form-background-color);
+        }
+
+        .form-control:focus {
+            background-color: var(--input-focus-background-color);
+            color: var(--input-focus-text-color);
+        }     
 
 
-      
-      
-      <ul class="navbar-nav "> 
 
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('about') }}">About<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/tech">Tech<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/project">Projects<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/life">Life<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-      <form class="form-inline ml-auto" action="/search" method="POST">
-        <input class="form-control mr-sm-2 rounded" type="search" name="search_query" placeholder="Search" aria-label="Search">
-        <button class="btn btn button-custom-color rounded" type="submit">Search</button>
-    </form>
-    
+    </style>
+</head>
 
-    </div>
-  </nav>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top footer-header-color shadow-sm">
+        <div class="dark-switch">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="checkbox-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+            </label>
+        </div>
+        <a class="navbar-brand bold" href="{{ url_for('home') }}">Abhi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('about') }}">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/tech">Tech<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/project">Projects<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/life">Life<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#contact">Contact<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline ml-auto" action="/search" method="POST">
+                <input class="form-control mr-sm-2 rounded" type="search" name="search_query" placeholder="Search" aria-label="Search">
+                <button class="btn btn button-custom-color rounded" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 
-  <script>
-    // Smooth scrolling behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    {% block content %}
+    {% endblock %}
 
-            const target = document.querySelector(this.getAttribute('href'));
-            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
 
-            const scrollOptions = {
-                top: offsetTop,
-                behavior: 'smooth',
-                duration: 600, // Adjust the duration in milliseconds as needed
-                easing: 'easeInOutCubic' // Adjust the easing function as needed
-            };
-
-            window.scrollTo(scrollOptions);
+    <script>
+        const checkbox = document.getElementById("checkbox");
+        checkbox.addEventListener("change", () => {
+            document.body.classList.toggle("dark");
+            document.querySelector(".footer-header-color").classList.toggle("dark");
         });
-    });
-</script>
-
-
-  <!--- the nav bar ends-->
+    </script>
+</body>
+</html>
