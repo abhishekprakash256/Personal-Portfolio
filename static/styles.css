@@ -13,6 +13,7 @@
   --button-text-hover-color: #fefefe;
   --input-focus-background-color: #fefefe;
   --input-focus-text-color: #fefefe;
+  --blue-text-color: #146C94;
 
 
 
@@ -31,6 +32,7 @@ body.dark {
   --button-text-hover-color: #000;
   --input-focus-background-color: #1e1e1e;
   --input-focus-text-color: #fefefe;
+  --blue-text-color: #19A7CE;
 
 }
 
@@ -97,7 +99,7 @@ html, body {
 }
 
 .font-color-class {
-  color: #146C94; /* Replace #0000ff with the color of your choice */
+  color: var(--blue-text-color); /* Replace #0000ff with the color of your choice */
 }
 
 .heading-responsive-font {
