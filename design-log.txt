@@ -38,6 +38,11 @@ hover color needs to match whever using the hover effect
 form color needs to match as well 
 
 
+add color to chat bubble 
+fix the about me page - hover on cards
+testing all dark theme
+
+
 
 
 
