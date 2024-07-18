@@ -107,6 +107,13 @@ html, body {
 }
 
 
+
+.list-group-item 
+{
+  background-color: var(--background-color) !important;
+}
+
+
 /* Base font size for all screens */
 .bio-responsive-font {
   font-size: 14px; /* Base font size */
