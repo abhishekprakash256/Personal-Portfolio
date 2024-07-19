@@ -34,34 +34,9 @@ Footer Header Color: #343a40 (a dark grey)
 
 Problems -
 
-hover color needs to match whever using the hover effect 
-form color needs to match as well 
+merge branch 
+release in live server
 
-
-add color to chat bubble 
-
-testing all dark theme
-
-
-light -- 
-send
-message buble - #e9ecef
-text - #146C94
-
-recv 
-messaage buble -- #19A7CE
-text -- #ffffff
-
-
-
-dark -- 
-send
-message buble - #343a40
-text - #19A7CE
-
-recv 
-messaage buble -- #19A7CE
-text -- #000000
 
 
 
