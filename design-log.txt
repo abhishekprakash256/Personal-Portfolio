@@ -34,8 +34,10 @@ Footer Header Color: #343a40 (a dark grey)
 
 Problems -
 
-the small screen navbar collapse not working
-merge branch 
+logo animation Problems
+the dynamic programming page text goes black 
+merge branch
+
 release in live server
 
 
