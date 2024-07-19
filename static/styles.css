@@ -37,10 +37,10 @@ body.dark {
   --input-focus-background-color: #1e1e1e;
   --input-focus-text-color: #fefefe;
   --blue-text-color: #19A7CE;
-  --message-bubble-color-send: #e9ecef;
+  --message-bubble-color-send: #343a40;
   --message-bubble-color-recv:#19A7CE;
-  --message-text-color-send: #146C94;
-  --message-text-color-recv: #ffffff;
+  --message-text-color-send: #19A7CE;
+  --message-text-color-recv: #000000;
 
 }
 
