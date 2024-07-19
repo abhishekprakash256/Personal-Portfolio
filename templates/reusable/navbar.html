@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -118,9 +114,9 @@
 
 
     </style>
-</head>
 
-<body>
+
+
     <nav class="navbar navbar-expand-lg navbar-light sticky-top footer-header-color shadow-sm">
         <div class="dark-switch">
             <input type="checkbox" class="checkbox" id="checkbox">
@@ -130,10 +126,12 @@
                 <span class="ball"></span>
             </label>
         </div>
+
         <a class="navbar-brand bold" href="{{ url_for('home') }}">Abhi</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item active">
@@ -159,8 +157,7 @@
         </div>
     </nav>
 
-    {% block content %}
-    {% endblock %}
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
@@ -168,41 +165,59 @@
     <script type="module" src="https://md-block.verou.me/md-block.js"></script>
 
     <script>
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark');
-                document.querySelector('.footer-header-color').classList.add('dark');
-            } else {
-                document.body.classList.remove('dark');
-                document.querySelector('.footer-header-color').classList.remove('dark');
-            }
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark');
+            document.querySelector('.footer-header-color').classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+            document.querySelector('.footer-header-color').classList.remove('dark');
         }
+    }
 
-        document.getElementById('checkbox').addEventListener('change', function() {
-            const theme = this.checked ? 'dark' : 'light';
-            applyTheme(theme);
-            localStorage.setItem('theme', theme);
-        });
+    document.getElementById('checkbox').addEventListener('change', function() {
+        const theme = this.checked ? 'dark' : 'light';
+        applyTheme(theme);
+        localStorage.setItem('theme', theme);
+    });
 
-        function detectSystemTheme() {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                return 'dark';
-            } else {
-                return 'light';
-            }
+    function detectSystemTheme() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        } else {
+            return 'light';
         }
+    }
 
-        // Apply the theme on initial load
-        const savedTheme = localStorage.getItem('theme') || detectSystemTheme();
-        applyTheme(savedTheme);
-        document.getElementById('checkbox').checked = savedTheme === 'dark';
+    // Apply the theme on initial load
+    const savedTheme = localStorage.getItem('theme') || detectSystemTheme();
+    applyTheme(savedTheme);
+    document.getElementById('checkbox').checked = savedTheme === 'dark';
 
-        // Update theme when system preference changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (!localStorage.getItem('theme')) { // Only apply system theme if no user preference is set
-                applyTheme(e.matches ? 'dark' : 'light');
-            }
+    // Update theme when system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) { // Only apply system theme if no user preference is set
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // Smooth scrolling behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+
+            const scrollOptions = {
+                top: offsetTop,
+                behavior: 'smooth',
+                duration: 900, // Adjust the duration in milliseconds as needed
+                easing: 'easeInOutCubic' // Adjust the easing function as needed
+            };
+
+            window.scrollTo(scrollOptions);
         });
+    });
     </script>
-</body>
-</html>
+
