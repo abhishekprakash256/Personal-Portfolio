@@ -14,7 +14,10 @@
   --input-focus-background-color: #fefefe;
   --input-focus-text-color: #fefefe;
   --blue-text-color: #146C94;
-  --message-bubble-color: #19A7CE;
+  --message-bubble-color-send: #e9ecef;
+  --message-bubble-color-recv:#19A7CE;
+  --message-text-color-send: #146C94;
+  --message-text-color-recv: #ffffff;
 
 
 
@@ -34,7 +37,10 @@ body.dark {
   --input-focus-background-color: #1e1e1e;
   --input-focus-text-color: #fefefe;
   --blue-text-color: #19A7CE;
-  --message-bubble-color: #343a40;
+  --message-bubble-color-send: #e9ecef;
+  --message-bubble-color-recv:#19A7CE;
+  --message-text-color-send: #146C94;
+  --message-text-color-recv: #ffffff;
 
 }
 
