@@ -1,1 +1,17 @@
-nohup: failed to run command 'gunicorn': No such file or directory
+[2024-07-20 14:21:05 -0400] [5993] [INFO] Starting gunicorn 22.0.0
+[2024-07-20 14:21:05 -0400] [5993] [INFO] Listening at: http://0.0.0.0:5000 (5993)
+[2024-07-20 14:21:05 -0400] [5993] [INFO] Using worker: eventlet
+[2024-07-20 14:21:05 -0400] [5996] [INFO] Booting worker with pid: 5996
+PONG
+[2024-07-20 14:22:12 -0400] [5993] [INFO] Handling signal: term
+[2024-07-20 14:22:13 -0400] [5996] [INFO] Worker exiting (pid: 5996)
+MongoDB is installed and running.
+MongoDB client created successfully.
+MongoDB is installed and running.
+MongoDB client created successfully.
+Redis is installed and running.
+Redis client created successfully.
+Existing databases before creating 'test-chat-data': ['admin', 'articles', 'config', 'local', 'section', 'test-chat-data']
+Database 'test-chat-data' already exist.
+Existing databases after creating 'test-chat-data': ['admin', 'articles', 'config', 'local', 'section', 'test-chat-data']
+[2024-07-20 14:22:13 -0400] [5993] [INFO] Shutting down: Master

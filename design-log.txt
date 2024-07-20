@@ -36,6 +36,7 @@ Problems -
 
 logo animation Problems
 the dynamic programming page text goes black 
+all the tech and projects page have red card hover 
 merge branch
 
 release in live server

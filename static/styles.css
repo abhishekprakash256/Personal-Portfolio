@@ -44,6 +44,17 @@ body.dark {
 
 }
 
+/*the markdown */
+
+
+.md-block.markdown-color code {
+  color: #d6336c !important; /* Text color for inline code */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+}
+
+
+
+
 .flex-page {
   flex-grow: 1; /* Ensure this row stretches to fill remaining space */
   flex-direction:row;
