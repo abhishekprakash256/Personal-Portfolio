@@ -18,6 +18,7 @@
   --message-bubble-color-recv:#19A7CE;
   --message-text-color-send: #146C94;
   --message-text-color-recv: #ffffff;
+  --md-code-color: #000000;
 
 
 
@@ -41,16 +42,15 @@ body.dark {
   --message-bubble-color-recv:#19A7CE;
   --message-text-color-send: #19A7CE;
   --message-text-color-recv: #000000;
+  --md-code-color: #fefefe;
 
 }
 
-/*the markdown */
 
-
-.md-block.markdown-color code {
-  color: #d6336c !important; /* Text color for inline code */
-  font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
-}
+    /* Override md-block styles with specific CSS */
+    md-block code {
+      color: var(--md-code-color) !important; /* Change text color to blue */
+  }
 
 
 
