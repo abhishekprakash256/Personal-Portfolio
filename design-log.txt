@@ -36,15 +36,4 @@ Problems -
 
 
 
-all the tech and projects page have red card hover 
-merge branch
-
-release in live server
-
-
-
-
-
-  
-
 
