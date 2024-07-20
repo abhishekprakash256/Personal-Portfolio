@@ -34,8 +34,8 @@ Footer Header Color: #343a40 (a dark grey)
 
 Problems -
 
-logo animation Problems
-the dynamic programming page text goes black 
+
+
 all the tech and projects page have red card hover 
 merge branch
 
