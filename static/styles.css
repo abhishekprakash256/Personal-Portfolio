@@ -62,6 +62,16 @@ body.dark {
   color: var(--form-input-color) !important; /* Change to your desired text color */
 }
 
+.more-color 
+{
+  color: var(--form-input-color);
+}
+
+.more-color:hover
+{
+  color: var(--form-input-color);
+}
+
 
 
 .flex-page {
