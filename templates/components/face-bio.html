@@ -9,6 +9,8 @@
       -webkit-line-clamp: 8; /* Number of lines to show */
       -webkit-box-orient: vertical;
   }
+
+
 </style>
       <!-- the container is the start of the container  that has boxes inside it -->
     
@@ -35,7 +37,7 @@
             </div>
           </div>
     
-          <h1 class="bio-responsive-font mb-2 mt-0 bio-desc font-color-class" >{{ bio_text | safe }}</h1>
+          <h1 class="bio-responsive-font mb-2 mt-0 bio-desc font-color-class justified" >{{ bio_text | safe }}</h1>
           
           {% set more_link = "about" %}
           {% include 'reusable/more.html' %}

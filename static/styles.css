@@ -83,6 +83,10 @@ body.dark {
 
 }
 
+.justified {
+  text-align: justify;
+}
+
 
 /* styles.css */
 .height-full {
