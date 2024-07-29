@@ -102,6 +102,18 @@
             background-color: var(--input-focus-background-color);
             color: var(--input-focus-text-color);
         }  
+    
+    .custom-border {
+        border: 0px solid transparent; /* Initial border color set to transparent */
+    }
+
+    /* Remove border and outline on focus */
+    /* Remove border and outline on focus */
+    .custom-border:focus {
+        border: none; /* No border when focused */
+        outline: none; /* Remove default outline */
+        box-shadow: none; /* Remove any shadow effects that may appear */
+    }
         
 
 
@@ -143,7 +155,7 @@
                 </li>
             </ul>
             <form class="form-inline ml-auto" action="/search" method="POST">
-                <input class="form-control mr-sm-2 rounded" type="search" name="search_query" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2 rounded custom-border" type="search" name="search_query" placeholder="Search" aria-label="Search">
                 <button class="btn btn button-custom-color rounded" type="submit">Search</button>
             </form>
         </div>

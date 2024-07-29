@@ -60,6 +60,11 @@ body.dark {
   /* Change the text color inside input fields */
 .form-control {
   color: var(--form-input-color) !important; /* Change to your desired text color */
+  
+}
+
+.custom-border {
+  border: 2px solid #ff0000; /* Change #ff0000 to your desired color */
 }
 
 .more-color 
