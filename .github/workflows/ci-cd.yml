@@ -1,29 +1,17 @@
 name: CI/CD Pipeline
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+stages: 
+  - build
+  - provision
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+build:
+  stage: build
+  image: python:3.11-slim
+  before_script:
+    - apt-get update
+    - apt install ansible -y
+    - pip install botocore boto3
+    - python3 -m pip install --upgrade --user ansible 
+  script:
+    - echo "builing machine"
 
-    steps:
-    - name: Check out the code
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-        
-
-    - name: Deploy
-      run: |
-        echo "Deploying to production"
-        # Add your deployment commands here
-        # For example, you might use rsync, scp, or a specific deployment script.
