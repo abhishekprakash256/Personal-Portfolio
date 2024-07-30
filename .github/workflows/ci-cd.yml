@@ -22,7 +22,7 @@ jobs:
         node-version: '16'
     
     - name: Test the command
-      run : apt-get update
+      run : sudo apt-get update
         
 
     - name: Deploy
