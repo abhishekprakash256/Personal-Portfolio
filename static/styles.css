@@ -60,8 +60,20 @@ body.dark {
   /* Change the text color inside input fields */
 .form-control {
   color: var(--form-input-color) !important; /* Change to your desired text color */
+  
 }
 
+.custom-border {
+  border: none; /* Initial border color set to transparent */
+}
+
+
+.custom-border:focus {
+  border: none; /* No border when focused */
+  outline: none; /* Remove default outline */
+  box-shadow: none; /* Remove any shadow effects that may appear */
+}
+  
 .more-color 
 {
   color: var(--form-input-color);
