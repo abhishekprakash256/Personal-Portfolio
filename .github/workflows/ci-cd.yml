@@ -3,10 +3,10 @@ name: Periodic Check For Website
 on:
   push:
     branches:
-      - periodic-changes
+      - periodic-testing
   pull_request:
     branches:
-      - periodic-changes
+      - periodic-testing
 
 jobs:
   service-checks:
