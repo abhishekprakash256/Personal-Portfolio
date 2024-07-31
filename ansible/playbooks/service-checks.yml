@@ -7,5 +7,5 @@
       command: ping -c 4 localhost
       register: ping_result
     
-    - name: make a folder
+    - name: make a folder for testing
       command: "mkdir ansible-test"
