@@ -1,0 +1,8 @@
+- name: Service Checks
+  hosts: ec2
+  become: yes
+
+  tasks:
+    - name: Check server is up by pinging localhost
+      command: ping -c 4 localhost
+      register: ping_result
