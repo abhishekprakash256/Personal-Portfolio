@@ -9,7 +9,7 @@ on:
       - periodic-testing
 
 jobs:
-  service-checks:
+  service-checks:  
     runs-on: ubuntu-latest
 
     steps:  
