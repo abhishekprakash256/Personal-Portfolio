@@ -9,7 +9,7 @@
 
     
     - name: Check the redis is running 
-      shell: systemctl is-active redis-server.service || true
+      shell: systemctl is-active redis-server.serv || true
 
 
     
