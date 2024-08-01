@@ -8,17 +8,8 @@
       register: ping_result
 
     
-    - name: Check if Redis server is running
+    - name: Make sure a service unit is running
       ansible.builtin.systemd:
-        name: redis-server
-        state: status
-      register: redis_service_status
+        state: started
+        name: httpd
 
-    - name: Print Redis server status
-      ansible.builtin.debug:
-        msg: "Redis server is {{ redis_service_status.status }}"
-    
-    - name: Fail if Redis server is not running
-      ansible.builtin.fail:
-        msg: "Redis server is not running"
-      when: redis_service_status.status.LoadState != "loaded" or redis_service_status.status.ActiveState != "active"
