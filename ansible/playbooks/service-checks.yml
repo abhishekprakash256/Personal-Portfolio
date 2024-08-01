@@ -6,6 +6,10 @@
     - name: Check server is up by pinging localhost
       command: ping -c 4 localhost
       register: ping_result
+
     
-    - name: make a folder for testing
-      command: "mkdir ansible-test"
+    - name: Check the redis is running 
+      shell: systemctl is-active redis-server.service || true
+
+
+    
