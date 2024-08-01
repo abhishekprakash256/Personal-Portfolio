@@ -10,6 +10,6 @@
     
     - name: Testing the Redis Server
       ansible.builtin.systemd:
-        state: started
+        state: started 
         name: redis-server
 
