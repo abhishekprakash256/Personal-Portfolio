@@ -8,8 +8,8 @@
       register: ping_result
 
     
-    - name: Make sure a service unit is running
+    - name: Testing the Redis Server
       ansible.builtin.systemd:
         state: started
-        name: httpd
+        name: redis-server
 
