@@ -7,17 +7,13 @@
       command: ping -c 4 localhost
       register: ping_result
 
-    - name: Check Redis server status
+    - name: Ensure Redis is running
       ansible.builtin.systemd:
         name: redis-server
-        state: status
-      register: redis_service_status
+        state: started
+      register: redis_status
+      failed_when: redis_status.status.ActiveState != 'active'
 
-    - name: Print Redis server status
+    - name: Display Redis status
       ansible.builtin.debug:
-        msg: "Redis server status: LoadState={{ redis_service_status.status.LoadState }}, ActiveState={{ redis_service_status.status.ActiveState }}"
-
-    - name: Fail if Redis server is not running
-      ansible.builtin.fail:
-        msg: "Redis server is not running"
-      when: redis_service_status.status.LoadState != "loaded" or redis_service_status.status.ActiveState != "active"
+        msg: "Redis is {{ redis_status.status.ActiveState }}"
