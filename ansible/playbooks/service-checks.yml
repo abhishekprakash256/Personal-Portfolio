@@ -55,4 +55,19 @@
       when: gunicorn_process_check.stdout == ""
 
 
+    - name: Get current Git branch
+      ansible.builtin.command:
+        cmd: git rev-parse --abbrev-ref HEAD
+        chdir: /home/ubuntu/Personal-Portfolio
+      register: git_branch
+      ignore_errors: yes
+
+    - name: Print current Git branch
+      ansible.builtin.debug:
+        msg: "Current Git branch is: {{ git_branch.stdout }}"
+
+    - name: Fail if not on the expected branch
+      ansible.builtin.fail:
+        msg: "Not on the expected branch! Current branch is {{ git_branch.stdout }}"
+      when: git_branch.stdout != "main"
    
