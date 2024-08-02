@@ -10,7 +10,7 @@
 
     - name: Check service status with systemctl
       shell: systemctl is-active redis-server || true
-      register: redis_service_status_systemctl
+      register: redis_service_status_systemctl  
       ignore_errors: yes
 
     - name: Print Redis service status
