@@ -20,4 +20,4 @@
     - name: Fail if Redis is inactive
       ansible.builtin.fail:
         msg: "Redis service is inactive!"
-      when: redis_service_status_systemctl.stdout == "inactive"
+      when: redis_service_status_systemctl.stdout == "inactive"  
