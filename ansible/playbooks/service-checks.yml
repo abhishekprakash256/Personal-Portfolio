@@ -14,7 +14,7 @@
       ignore_errors: yes
 
     - name: Print Redis service status
-      ansible.builtin.debug:
+      ansible.builtin.debug:  
         msg: "Redis service status is: {{ redis_service_status_systemctl.stdout }}"
   
     - name: Fail if Redis is inactive
