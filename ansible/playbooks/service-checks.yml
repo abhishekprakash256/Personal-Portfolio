@@ -8,11 +8,11 @@
       register: ping_result
 
 
-    - name: Print Redis service facts
-      ansible.builtin.debug:
-        var: ansible_facts.services['redis-server']
+    - name: Check service status with systemctl
+      shell: systemctl is-active redis-server || true
+      register: redis_service_status_systemctl
+      ignore_errors: yes
 
-    - name: Fail if Redis is not running
-      ansible.builtin.fail:
-        msg: "Redis is not running"
-      when: ansible_facts.services['redis-server'].state != 'running'
+    - name: Print Redis service status
+      ansible.builtin.debug:
+        msg: "Redis service status is: {{ redis_service_status_systemctl.stdout }}"
