@@ -40,4 +40,19 @@
       when: nginx_service_status_systemctl.stdout == "inactive"   
 
 
+    - name: Check Gunicorn process
+      shell: "ps aux | grep '[g]unicorn' | grep -v grep"
+      register: gunicorn_process_check
+      ignore_errors: yes
+
+    - name: Print Gunicorn process status
+      ansible.builtin.debug:
+        msg: "Gunicorn process status: {{ gunicorn_process_check.stdout }}"
+
+    - name: Fail if Gunicorn is not running
+      ansible.builtin.fail:
+        msg: "Gunicorn process is not running!"
+      when: gunicorn_process_check.stdout == ""
+
+
    
