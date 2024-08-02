@@ -16,3 +16,8 @@
     - name: Print Redis service status
       ansible.builtin.debug:
         msg: "Redis service status is: {{ redis_service_status_systemctl.stdout }}"
+  
+    - name: Fail if Redis is inactive
+      ansible.builtin.fail:
+        msg: "Redis service is inactive!"
+      when: redis_service_status_systemctl.stdout == "inactive"
