@@ -7,17 +7,36 @@
       command: ping -c 4 localhost
       register: ping_result
 
-
-    - name: Check service status with systemctl
+    - name: Check redis service status with systemctl
       shell: systemctl is-active redis-server || true
       register: redis_service_status_systemctl  
       ignore_errors: yes
-
-    - name: Print Redis service status
-      ansible.builtin.debug:  
-        msg: "Redis service status is: {{ redis_service_status_systemctl.stdout }}"
   
     - name: Fail if Redis is inactive
       ansible.builtin.fail:
         msg: "Redis service is inactive!"
-      when: redis_service_status_systemctl.stdout == "inactive"  
+      when: redis_service_status_systemctl.stdout == "inactive"
+
+
+    - name: Check mongo service status with systemctl
+      shell: systemctl is-active mongod || true
+      register: mongo_service_status_systemctl  
+      ignore_errors: yes
+  
+    - name: Fail if mongo is inactive
+      ansible.builtin.fail:
+        msg: "Mongo service is inactive!"
+      when: mongo_service_status_systemctl.stdout == "inactive"
+
+
+    - name: Check nginx service status with systemctl
+      shell: systemctl is-active nginx || true
+      register: nginx_service_status_systemctl  
+      ignore_errors: yes
+  
+    - name: Fail if nginx is inactive
+      ansible.builtin.fail:
+        msg: "Nginx service is inactive!"
+      when: nginx_service_status_systemctl.stdout == "inactive"
+
+
