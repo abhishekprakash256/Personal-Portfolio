@@ -37,7 +37,7 @@
     - name: Fail if nginx is inactive
       ansible.builtin.fail:
         msg: "Nginx service is inactive!"
-      when: nginx_service_status_systemctl.stdout == "inactive" 
+      when: nginx_service_status_systemctl.stdout == "inactive"   
 
 
    
