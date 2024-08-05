@@ -70,4 +70,6 @@
       ansible.builtin.fail:
         msg: "Not on the expected branch! Current branch is {{ git_branch.stdout }}"
       when: git_branch.stdout != "main"
+    
+    
    

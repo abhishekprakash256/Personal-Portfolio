@@ -8,6 +8,10 @@ on:
     branches:
       - periodic-testing
 
+  schedule: ## Schedule the job to run at 12.am daily.
+    - cron: '0 0 * * *'
+
+
 jobs:
   service-checks:
     runs-on: ubuntu-latest
