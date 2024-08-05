@@ -108,12 +108,20 @@ sudo systemctl reload nginx
 
 ```
 mongosh 
+show dbs
 use your_database_name
 show collections
 db.dropDatabase()  #delete the dropDatabase
 db.<collection_name>.drop()  #drop the 
 db.my_collection.find() #show all the data in collection
 ```
+
+### The Redis Commands
+```
+redis-cli
+redis-cli
+```
+
 
 ### cert bot commands 
 
