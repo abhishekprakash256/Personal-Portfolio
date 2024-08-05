@@ -62,7 +62,7 @@
 
     - name: Print Redis Recovery process status
       ansible.builtin.debug:
-        msg: "Gunicorn process status: {{ redis_recovery_process_check.stdout }}"
+        msg: "Redis Recovery status: {{ redis_recovery_process_check.stdout }}"
 
     - name: Fail if Redis Recovery is not running
       ansible.builtin.fail:
