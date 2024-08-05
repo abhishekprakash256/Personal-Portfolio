@@ -2,7 +2,7 @@
   hosts: ec2
   become: yes
 
-  tasks:  
+  tasks:
     - name: Check server is up by pinging localhost
       command: ping -c 4 localhost
       register: ping_result
@@ -85,8 +85,3 @@
       ansible.builtin.fail:
         msg: "Not on the expected branch! Current branch is {{ git_branch.stdout }}"
       when: git_branch.stdout != "main"
-
-
-    
-    
-   
