@@ -55,6 +55,21 @@
       when: gunicorn_process_check.stdout == ""
 
 
+    - name: Check Redis Recovery process
+      shell: "ps aux | grep 'redis_recovery_func.py' | grep -v grep"
+      register: redis_recovery_process_check
+      ignore_errors: yes
+
+    - name: Print Redis Recovery process status
+      ansible.builtin.debug:
+        msg: "Gunicorn process status: {{ redis_recovery_process_check.stdout }}"
+
+    - name: Fail if Redis Recovery is not running
+      ansible.builtin.fail:
+        msg: "Redis Recovery process is not running!"
+      when: redis_recovery_process_check.stdout == ""
+
+
     - name: Get current Git branch
       ansible.builtin.command:
         cmd: git rev-parse --abbrev-ref HEAD
@@ -70,6 +85,8 @@
       ansible.builtin.fail:
         msg: "Not on the expected branch! Current branch is {{ git_branch.stdout }}"
       when: git_branch.stdout != "main"
+
+
     
     
    

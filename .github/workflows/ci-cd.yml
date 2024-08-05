@@ -46,3 +46,5 @@ jobs:
     - name: Run Ansible Playbook
       run: |
         ansible-playbook -i inventory.ini ansible/playbooks/service-checks.yml
+
+    
