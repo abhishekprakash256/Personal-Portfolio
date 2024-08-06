@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import subprocess
 from datetime import datetime
 import traceback
+import os
 
 #const values
 collection_lst = ["projects","tech","life"]
@@ -37,9 +38,15 @@ def create_mongo_client():
     if mongo_status:
         try:
 
-            # Attempt to create a MongoClient
-            client = MongoClient('localhost', 27017)
-            print("MongoDB client created successfully.")
+            #new code ----
+            mongo_host = os.getenv('MONGO_HOST', 'localhost')  # Use 'localhost' or the Docker host IP
+            mongo_port = int(os.getenv('MONGO_PORT', 27017))
+            client = MongoClient(mongo_host, mongo_port)
+
+
+            # Attempt to create a MongoClient -- old code
+            #client = MongoClient('localhost', 27017)
+            #print("MongoDB client created successfully.")
             return client
 
         except ImportError:
