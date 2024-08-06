@@ -1,4 +1,4 @@
-version: '1.0'
+version: '3.8'
 
 services:
   web:
@@ -8,7 +8,27 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGO_URI=mongodb://localhost:27017/articles
-      - MONGO_URI_2=mongodb://localhost:27017/section
-      - REDIS_HOST=localhost
+      - MONGO_URI=mongodb://mongo:27017/articles
+      - MONGO_URI_2=mongodb://mongo:27017/section
+      - REDIS_HOST=redis
       - REDIS_PORT=6379
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:

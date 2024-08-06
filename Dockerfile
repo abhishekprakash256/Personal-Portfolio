@@ -20,5 +20,9 @@ ENV FLASK_RUN_HOST=0.0.0.0
 # Expose port 5000 for the Flask app
 EXPOSE 5000
 
-# Run the application
-CMD ["python","app.py"]
+# Copy entrypoint script to start all services
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+# Run the entrypoint script
+CMD ["/usr/src/app/entrypoint.sh"]
