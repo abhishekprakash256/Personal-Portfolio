@@ -449,6 +449,15 @@ Reqs  -
     - the chat.js in static is the main file for two side chatting only
     - chat.html is the main html file 
 
+
+### The Docker Files and Commands
+
+
+### The commands
+
+
+
+
 ### Links 
 
 ```
