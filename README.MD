@@ -470,12 +470,14 @@ the modified client interacts with the docker images and insert the data
 
 docker-compose up --build   (to build up)
 
-docker-compose down  (to remove and take down)
+docker-compose down  (to remove and take)
 
  
 
 docker system prune -a   (remove all)
 
+
+docker rm $(docker ps -a -q)  (stop all)
 ```
 
 
