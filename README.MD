@@ -455,6 +455,19 @@ Reqs  -
 
 ### The commands
 
+```
+The docker commands to run the continer step by step
+pull the redis and mongo container 
+docker pull mongo
+docker pull redis
+run these to start the conatainer 
+docker run -d --name mongo -p 27017:27017 mongo:latest
+docker run -d --name redis -p 6379:6379 redis:latest
+
+the modified client interacts with the docker images and insert the data 
+
+```
+
 
 
 

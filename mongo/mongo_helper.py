@@ -17,7 +17,7 @@ def check_mongo_status():
         
         # Check if the command was successful
         if result.returncode == 0:
-            print("MongoDB is installed and running.")
+            print("MongoDB is installed")
             return True
         else:
             print("MongoDB is not installed or not running.")
@@ -47,6 +47,7 @@ def create_mongo_client():
             # Attempt to create a MongoClient -- old code
             #client = MongoClient('localhost', 27017)
             #print("MongoDB client created successfully.")
+            print("client is created")
             return client
 
         except ImportError:
