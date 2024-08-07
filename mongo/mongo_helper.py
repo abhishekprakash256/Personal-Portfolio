@@ -47,7 +47,7 @@ def create_mongo_client():
             # Attempt to create a MongoClient -- old code
             client = MongoClient('localhost', 27017)
             print("MongoDB client created successfully.")
-            print("client is created")
+            #print("client is created")
             return client
 
         except ImportError:
