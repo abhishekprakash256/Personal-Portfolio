@@ -1,10 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
-# Start MongoDB
-mongod --fork --logpath /var/log/mongodb.log --dbpath /var/lib/mongodb
+# Wait for MongoDB to be ready
+while ! nc -z mongo 27017; do
+  echo "Waiting for MongoDB..."
+  sleep 2
+done
 
-# Start Redis
-redis-server --daemonize yes
+# Wait for Redis to be ready
+while ! nc -z redis 6379; do
+  echo "Waiting for Redis..."
+  sleep 2
+done
 
-# Start Flask application
-exec python app.py
+# Start the Flask app
+exec flask run

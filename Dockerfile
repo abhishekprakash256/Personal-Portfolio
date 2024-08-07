@@ -4,6 +4,9 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
+# Install netcat for health checks
+#RUN apt-get update && apt-get install -y netcat
+
 # Copy the requirements file into the container
 COPY requirements.txt ./
 
@@ -25,4 +28,4 @@ COPY entrypoint.sh /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
 
 # Run the entrypoint script
-CMD ["/usr/src/app/entrypoint.sh"]
+CMD ["python","app.py"]

@@ -39,14 +39,14 @@ def create_mongo_client():
         try:
 
             #new code ----
-            mongo_host = os.getenv('MONGO_HOST', 'localhost')  # Use 'localhost' or the Docker host IP
-            mongo_port = int(os.getenv('MONGO_PORT', 27017))
-            client = MongoClient(mongo_host, mongo_port)
+            #mongo_host = os.getenv('MONGO_HOST', 'localhost')  # Use 'localhost' or the Docker host IP
+            #mongo_port = int(os.getenv('MONGO_PORT', 27017))
+            #client = MongoClient(mongo_host, mongo_port)
 
 
             # Attempt to create a MongoClient -- old code
-            #client = MongoClient('localhost', 27017)
-            #print("MongoDB client created successfully.")
+            client = MongoClient('localhost', 27017)
+            print("MongoDB client created successfully.")
             print("client is created")
             return client
 

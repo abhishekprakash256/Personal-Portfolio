@@ -37,7 +37,12 @@ def create_redis_client():
     if redis_status:
         try:
 
-            # Attempt to create a MongoClient
+            #new code ---
+            #redis_host = os.getenv('REDIS_HOST', 'localhost',port=6379, db=0, decode_responses=True)  # Use 'localhost' or the Docker host IP
+            #redis_port = int(os.getenv('REDIS_PORT', 6379))
+            #client = redis.Redis(host=redis_host, port=redis_port)
+
+            # Attempt to create a Redis client
             client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
             print("Redis client created successfully.")
             return client
