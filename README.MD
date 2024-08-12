@@ -479,6 +479,7 @@ docker system prune -a   (remove all)
 
 
 docker rm $(docker ps -a -q)  (stop all)
+
 ```
 
 
