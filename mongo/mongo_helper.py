@@ -45,7 +45,9 @@ def create_mongo_client():
 
 
             # Attempt to create a MongoClient -- old code
-            client = MongoClient('localhost', 27017)
+            client = MongoClient('mongo', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout  # new code
+            #client = MongoClient('localhost', 27017)
+            client.server_info()  # This forces a connection attempt.
             print("MongoDB client created successfully.")
             #print("client is created")
             return client

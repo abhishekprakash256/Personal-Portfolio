@@ -2,7 +2,7 @@ docker build -t flask-hello-world .
 
 docker run -p 5000:5000 flask-hello-world
 
-
+docker run --name flask-hello-world-2 --network my_network -p 5000:5000 flask-hello-world-2
 
 mac commands 
 brew services info mongodb-community
@@ -43,6 +43,7 @@ steps-
 
 
 
+docker build -t personal-website .
 
 
 

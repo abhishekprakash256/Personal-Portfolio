@@ -43,7 +43,9 @@ def create_redis_client():
             #client = redis.Redis(host=redis_host, port=redis_port)
 
             # Attempt to create a Redis client
-            client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+            client = redis.Redis(host='redis', port=6379, db=0, decode_responses=True)   #new code
+            #client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+            client.ping()  # Pinging the server to ensure it's up.
             print("Redis client created successfully.")
             return client
 
