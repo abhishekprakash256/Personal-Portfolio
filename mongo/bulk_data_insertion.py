@@ -5,10 +5,11 @@ The file has the calling of the methods to
 
 #imports 
 #the helper funciton to help the mongo db data insertion 
-from mongo_helper import * 
+from mongo_helper import Helper_fun, create_mongo_client
 
 #the read data from the json files
 from read_data_json import *
+from pymongo import MongoClient
 
 
 #const files
@@ -34,14 +35,24 @@ collection_section = ["section_data"]
 
 
 
-helper = Helper_fun()
+def create_alternative_mongo_client():
+    try:
+        # Connect to MongoDB using localhost instead of Docker's internal network
+        client = MongoClient('localhost', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
+        client.server_info()  # This forces a connection attempt.
+        print("Alternative MongoDB client created successfully.")
+        return client
+    except Exception as e:
+        print("Alternative MongoDB client not working:", e)
+        return None
 
-#helper.delete_db(db_name[1])
+# Step 2: Override the `mongo_client` variable using the new function
+mongo_client = create_alternative_mongo_client()
 
 
 if __name__ == "__main__":
     #read the data from the json file 
-    helper = Helper_fun()
+    helper = Helper_fun(mongo_client)
 
     #delete the database 
     for db_val in db_name:

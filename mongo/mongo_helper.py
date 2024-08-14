@@ -85,7 +85,7 @@ def create_mongo_client():
 
 
 #make the mongo client 
-mongo_client = create_mongo_client()
+mongo_client_docker = create_mongo_client()
 
 
 
@@ -93,17 +93,20 @@ mongo_client = create_mongo_client()
 # Helper class for MongoDB functions
 class Helper_fun():
 
+    def __init__(self,client = mongo_client_docker):
+        self.mongo_client = client
+
     def make_database_and_collection(self, db_name, db_collection):
         """
         Make the database and collection if they don't exist
         """
         # Print the list of existing databases before attempting to create the database
-        print("Existing databases before creating '{}':".format(db_name), mongo_client.list_database_names())
+        print("Existing databases before creating '{}':".format(db_name), self.mongo_client.list_database_names())
 
         # Make the database if it doesn't exist
-        if db_name not in mongo_client.list_database_names():
+        if db_name not in self.mongo_client.list_database_names():
             # Create the database
-            db = mongo_client[db_name]
+            db = self.mongo_client[db_name]
 
             # Create the collection
             collection = db[db_collection]
@@ -115,18 +118,18 @@ class Helper_fun():
             print("Database '{}' and collection '{}' created.".format(db_name, db_collection))
         else:
             # If the database exists, select it
-            db = mongo_client[db_name]
+            db = self.mongo_client[db_name]
             collection = db[db_collection]
             print("Database '{}' already exist.".format(db_name, db_collection))
         
         # Print the list of existing databases after attempting to create the database
-        print("Existing databases after creating '{}':".format(db_name), mongo_client.list_database_names())
+        print("Existing databases after creating '{}':".format(db_name), self.mongo_client.list_database_names())
 
     def make_collections(self,db_name,collection_name):
         """
         The function to make the collection in the database
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
 
 
         if collection_name not in db.list_collection_names():
@@ -142,7 +145,7 @@ class Helper_fun():
         """
         show the collections
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
 
         collections = db.list_collection_names()
 
@@ -155,7 +158,7 @@ class Helper_fun():
         """
         Show the data in the collection
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
 
@@ -174,7 +177,7 @@ class Helper_fun():
         Find the specific data from the collection
         """
 
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
         if collection is not None:
@@ -189,7 +192,7 @@ class Helper_fun():
         """
         Insert the data into the database and collection
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
         #if the data is None 
@@ -226,7 +229,7 @@ class Helper_fun():
         if data is None:
             return "data is Null"
         
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
         # Check if any documents match the criteria
@@ -249,7 +252,7 @@ class Helper_fun():
         if new_data is None:
             return "data is Null"
     
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
     
         #update the data in collection
@@ -263,10 +266,10 @@ class Helper_fun():
         """
         The function to delete the database
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         
         #drop the database
-        mongo_client.drop_database(db_name)
+        self.mongo_client.drop_database(db_name)
 
         print("The database has been deleted")
     
@@ -285,7 +288,7 @@ class Helper_fun():
         """
         The funciton to insert the message in the database and collection
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
         message_doc = {
@@ -306,7 +309,7 @@ class Helper_fun():
         The function to get the messages from the database
         """
 
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
 
@@ -316,7 +319,7 @@ class Helper_fun():
         """
         The function to delete messages based on chat_hash
         """
-        db = mongo_client[db_name]
+        db = self.mongo_client[db_name]
         collection = db[collection_name]
 
         try:
