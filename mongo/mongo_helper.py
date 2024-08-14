@@ -5,11 +5,12 @@ from datetime import datetime
 import traceback
 import os
 
+
 #const values
 collection_lst = ["projects","tech","life"]
 
 
-
+"""
 def check_mongo_status():
     try:
         # Execute the command to check MongoDB server status
@@ -64,6 +65,23 @@ def create_mongo_client():
     
     else:
         return "Mongo Missing"
+
+"""
+#new code
+def create_mongo_client():
+    try:
+        # Connect to MongoDB using the container name
+        #client = MongoClient('localhost', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
+        client = MongoClient('mongo', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
+        client.server_info()  # This forces a connection attempt.
+        print("MongoDB client created successfully.")
+        return client
+    except Exception as e:
+        print("MongoDB client not working:", e)
+
+
+
+
 
 
 #make the mongo client 

@@ -1,6 +1,6 @@
 #imports 
 from pymongo import MongoClient
-from mongo.mongo_helper import check_mongo_status, create_mongo_client
+from mongo.mongo_helper import create_mongo_client
 import subprocess
 
 

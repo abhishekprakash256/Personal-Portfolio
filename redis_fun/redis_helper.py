@@ -7,7 +7,7 @@ import redis
 import os 
 import json
 
-
+"""
 def check_redis_status():
     try:
         # Execute the command to check MongoDB server status
@@ -62,9 +62,27 @@ def create_redis_client():
     else:
         return "Redis Missing"
 
+        
+"""
+
+#new code
+def create_redis_client():
+    try:
+        # Connect to Redis using the container name
+        #client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+        client = redis.Redis(host='redis', port=6379, db=0, decode_responses=True)
+        client.ping()  # Pinging the server to ensure it's up.
+        print("Redis client created successfully.")
+        return client
+    except Exception as e:
+        print("Redis client is not working:", e)
+
+
+
 
 
 redis_client = create_redis_client()
+
 
 class Helper_fun():
 

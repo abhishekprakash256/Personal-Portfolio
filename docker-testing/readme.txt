@@ -46,5 +46,8 @@ steps-
 docker build -t personal-website .
 
 
+logs -- 
 
-#port binding was the problem 
+- the mongo and redis work but with own name as host , like - host ='mongo' , host='redis'
+- the bulk data insertion needs to use localhost still for data insertion in the 
+
