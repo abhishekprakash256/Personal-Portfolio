@@ -18,7 +18,7 @@ docker run -d --name flask-app --network my_network -p 5000:5000 flask-app
 
 
 
-steps- 
+steps-   
 
 1. Change the clinet to --
     - client = MongoClient('mongo', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
