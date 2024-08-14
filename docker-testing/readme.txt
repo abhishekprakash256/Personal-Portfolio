@@ -47,7 +47,9 @@ docker build -t personal-website .
 
 
 logs -- 
+-- test in production
+-- push the docker images
+-- make docker compose
 
-- the mongo and redis work but with own name as host , like - host ='mongo' , host='redis'
-- the bulk data insertion needs to use localhost still for data insertion in the 
+
 
