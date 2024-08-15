@@ -64,4 +64,9 @@ docker run --name personal-website --network my_network -p 5000:5000 abhishekpra
 need to build for linux
 
 
+docker build -t custom-nginx .
+
+
 docker run --name my-nginx -p 80:80 custom-nginx
+
+docker run --name my-nginx --network mynetwork -p 80:80 custom-nginx
