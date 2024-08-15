@@ -62,3 +62,6 @@ docker pull the latest image
 docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website
 
 need to build for linux
+
+
+docker run --name my-nginx -p 80:80 custom-nginx
