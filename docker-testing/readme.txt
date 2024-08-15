@@ -48,8 +48,17 @@ docker build -t personal-website .
 
 logs -- 
 -- test in production
--- push the docker images
--- make docker compose
+-- test certbot
+-- test nginx 
 
 
 
+docker user id - abhishekprakash256
+push the latest machine that is made
+docker login in machine 
+docker pull the latest image
+
+
+docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website
+
+need to build for linux
