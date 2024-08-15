@@ -126,7 +126,7 @@ redis-cli
 ### cert bot commands 
 
 ```
-sudo yum install certbot python3-certbot-nginx
+
 sudo certbot --nginx -d meabhi.me -d www.meabhi.me
 sudo certbot --nginx -d meabhi.me
 ```
