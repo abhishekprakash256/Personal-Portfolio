@@ -61,6 +61,13 @@ docker pull the latest image
 
 docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website
 
+use proxy_pass http://personal-website:5000;  # Use the Flask container name for the nginx.conf
+
+name of the docker-container
+
+265dcb7bc620   abhishekprakash256/personal-website-linux   "python app.py"          4 hours ago      Up 4 hours      0.0.0.0:5000->5000/tcp, :::5000->5000/tcp       personal-website
+
+
 need to build for linux
 
 
