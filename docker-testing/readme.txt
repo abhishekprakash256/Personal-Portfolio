@@ -47,7 +47,6 @@ docker build -t personal-website .
 
 
 logs -- 
--- test in production
 -- test certbot
 -- test nginx 
 
@@ -75,4 +74,10 @@ need to build for linux
 docker build -t local-nginx .
 
 
+
+steps to run 
+
+docker run -d --name mongo --network my_network -p 27017:27017 mongo:latest
+docker run -d --name redis --network my_network -p 6379:6379 redis:latest
+docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website-linux
 docker run --name my-nginx --network my_network -p 80:80 local-nginx

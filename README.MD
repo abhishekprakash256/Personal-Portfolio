@@ -129,6 +129,15 @@ redis-cli
 
 sudo certbot --nginx -d meabhi.me -d www.meabhi.me
 sudo certbot --nginx -d meabhi.me
+
+#test these commands
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d meabhi.me
+sudo certbot install --cert-name meabhi.me-0001
+sudo certbot install --cert-name meabhi.me
+sudo certbot --nginx -d meabhi.me
+sudo certbot install --cert-name meabhi.me
+
 ```
 
 ### The Flask commands 
@@ -321,7 +330,7 @@ sudo chmod -R 755 /home/ubuntu/Personal-Portfolio
 - Assign the ip address in godaddy dns management pannel
 - The certbot certifiction is made for https 
 - Add the nginx config file that has the DNS and certification link 
-- The config file is in this link /etc/nginx/nginx.conf
+- The config file is in this link /etc/nginx/sites-available
 
 
 ## Some common logic for website 
