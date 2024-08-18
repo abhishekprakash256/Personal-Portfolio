@@ -52,6 +52,7 @@ logs --
 -- test nginx 
 
 
+http://meabhi.me/
 
 docker user id - abhishekprakash256
 push the latest machine that is made
@@ -59,7 +60,7 @@ docker login in machine
 docker pull the latest image
 
 
-docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website
+docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website-linux
 
 use proxy_pass http://personal-website:5000;  # Use the Flask container name for the nginx.conf
 
