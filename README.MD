@@ -131,12 +131,20 @@ sudo certbot --nginx -d meabhi.me -d www.meabhi.me
 sudo certbot --nginx -d meabhi.me
 
 #test these commands
+
+#install the certbot
 sudo apt install certbot python3-certbot-nginx
+
+#give the certification
 sudo certbot --nginx -d meabhi.me
-sudo certbot install --cert-name meabhi.me-0001
+
+#the full command
+RUN certbot certonly --non-interactive --nginx --agree-tos --email abhishekprakash47@gmail.com -d meabhi.me
+
+#renew the certificate
 sudo certbot install --cert-name meabhi.me
-sudo certbot --nginx -d meabhi.me
-sudo certbot install --cert-name meabhi.me
+
+
 
 ```
 
