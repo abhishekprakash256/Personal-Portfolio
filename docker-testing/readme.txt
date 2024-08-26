@@ -80,4 +80,5 @@ steps to run
 docker run -d --name mongo --network my_network -p 27017:27017 mongo:latest
 docker run -d --name redis --network my_network -p 6379:6379 redis:latest
 docker run --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website-linux
-docker run --name my-nginx --network my_network -p 80:80 local-nginx
+docker run --name my-nginx --network my_network -p 80:80 local-nginx  #for local testing 
+docker run -d --name nginx-container --network my_network -p 80:80 -p 443:443 -v /etc/letsencrypt:/etc/letsencrypt custom-nginx  #for production
