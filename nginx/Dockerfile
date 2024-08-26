@@ -1,8 +1,12 @@
 # Use the official NGINX image as a base
 FROM nginx:1.24-alpine
 
-# Install Certbot and dependencies
-RUN apk add --no-cache certbot python3-certbot-nginx openssl bash
+# Install Certbot dependencies and tools
+RUN apk add --no-cache certbot python3 py3-pip openssl bash
+
+# Install Certbot and the NGINX plugin via pip
+RUN pip install certbot-nginx
+
 # Copy the custom NGINX configuration file to /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 
