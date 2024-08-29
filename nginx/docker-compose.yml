@@ -14,7 +14,3 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/lib/letsencrypt:/var/lib/letsencrypt
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --nginx; sleep 12h & wait $${!}; done;'"
-
-volumes:
-  # Define named volumes if needed, for persistent data
-  # Example: certbot_data:
