@@ -139,7 +139,7 @@ sudo apt install certbot python3-certbot-nginx
 sudo certbot --nginx -d meabhi.me
 
 #the full command
-RUN sudo certbot certonly --non-interactive --nginx --agree-tos --email abhishekprakash47@gmail.com -d meabhi.me
+ sudo certbot certonly --non-interactive --nginx --agree-tos --email abhishekprakash47@gmail.com -d meabhi.me
 
 #renew the certificate
 sudo certbot install --cert-name meabhi.me
