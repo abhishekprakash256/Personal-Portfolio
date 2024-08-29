@@ -38,7 +38,8 @@ collection_section = ["section_data"]
 def create_alternative_mongo_client():
     try:
         # Connect to MongoDB using localhost instead of Docker's internal network
-        client = MongoClient('localhost', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
+        #client = MongoClient('localhost', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
+        client = MongoClient('mongo', 27017, serverSelectionTimeoutMS=2000)  # 2-second timeout
         client.server_info()  # This forces a connection attempt.
         print("Alternative MongoDB client created successfully.")
         return client
