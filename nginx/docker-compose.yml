@@ -6,6 +6,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      - my_network
     depends_on:
       - certbot
 
@@ -14,4 +16,10 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/lib/letsencrypt:/var/lib/letsencrypt
+    networks:
+      - my_network
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --nginx; sleep 12h & wait $${!}; done;'"
+
+networks:
+  my_network:
+    external: true
