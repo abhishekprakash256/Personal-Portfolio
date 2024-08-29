@@ -73,6 +73,8 @@ need to build for linux
 
 docker build -t local-nginx .
 
+docker system prune -a --volumes
+
 
 
 steps to run 

@@ -8,6 +8,9 @@ services:
       - "443:443"
     networks:
       - my_network
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/letsencrypt:/var/lib/letsencrypt
     depends_on:
       - certbot
 
