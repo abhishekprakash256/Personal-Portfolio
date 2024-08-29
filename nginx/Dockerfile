@@ -5,7 +5,7 @@ FROM nginx:alpine
 RUN apk add --no-cache certbot certbot-nginx bash
 
 # Copy your NGINX configuration file
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 
 # Expose ports
