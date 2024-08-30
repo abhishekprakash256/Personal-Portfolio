@@ -1,0 +1,24 @@
+- deployment is easy 
+
+- problems 
+    - redis recovery service 
+    - mongo revovery service 
+    - bulk data insertion system for mongo 
+        - store the bulk data somewhere else
+        - make a small client file that can be run outside just one repo
+        - run it to insert the data 
+    - sending the connect message on the site and make a recovery for it
+    - wesite testing has to be updated
+
+
+- deploymnet and making the image
+    - deploy the image and push to the docker repo
+        - make the image making and pushing pocess auotmated and push to the repo
+        - the machine pull the latest image and apply the new one
+    - Clean the repo and put the codes in differrent repo for development of different parts
+        - mongo code in mongo
+        - testing in diffeent repo
+        - dockerization in different repo
+
+
+

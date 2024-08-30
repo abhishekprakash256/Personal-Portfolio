@@ -1,21 +1,45 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    networks:
+      - my_network
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    networks:
+      - my_network
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  personal-website:
+    image: abhishekprakash256/personal-website:latest
+    container_name: personal-website
+    networks:
+      - my_network
     ports:
       - "5000:5000"
     depends_on:
       - mongo
       - redis
 
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
+networks:
+  my_network:
+    external: true
 
-  redis:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-
+volumes:
+  mongo-data:
+    driver: local
+  redis-data:
+    driver: local
+  website-data:
+    driver: local

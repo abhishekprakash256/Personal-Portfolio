@@ -43,6 +43,8 @@ sudo apt-get update
 
 -- run the docker conatiners
 
+    - docker compose up -d (can save the steps)
+
     -docker run -d --name mongo --network my_network -p 27017:27017 mongo:latest
      docker run -d --name redis --network my_network -p 6379:6379 redis:latest
      docker run -d --name personal-website --network my_network -p 5000:5000 abhishekprakash256/personal-website-linux
