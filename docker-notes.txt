@@ -22,3 +22,7 @@
 
 
 
+- for deploymnet
+    - pull the image of webiste
+    - run the docker compose 
+    - push the data in mongo

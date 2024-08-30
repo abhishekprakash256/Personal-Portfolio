@@ -44,6 +44,7 @@ sudo apt-get update
 -- run the docker conatiners
 
     - docker compose up -d (can save the steps)
+    - docker compose down (to remove all)
 
     -docker run -d --name mongo --network my_network -p 27017:27017 mongo:latest
      docker run -d --name redis --network my_network -p 6379:6379 redis:latest
