@@ -61,7 +61,12 @@ store all the backups in S3 later
     - docker cp ./redis-backups/dump.rdb redis:/data/dump.rdb
 
 
+steps --
 
+- make the script for making the auto backup of redis and mongo
+- make the bulk data insertion script 
+- make the data restoration script as well 
+- 
 
 
 
