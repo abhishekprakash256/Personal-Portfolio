@@ -40,10 +40,26 @@
 -- the backup appoach 
     - docker compose down
     - docker compose up -d
--- make the dirs /home/ubuntu/redis-backups , /home/ubuntu/mongo-backups
-    - docker cp redis:/data/dump.rdb ./redis-backups/dump.rdb
-    - docker cp mongo:/data/db ./mongo-backups/db-backup
 
-        - docker exec redis redis-cli BGSAVE  #to save the data
-        - 
+#mongo
+-- creting backups
+    - docker exec mongo mongodump --out /backup/db-backup
+- to restore data
+    - docker exec mongo mongorestore --drop /backup/db-backup
+#redis
+- creting backups
+    - docker exec redis redis-cli BGSAVE
+
+- copy the file from container to host
+    - docker cp redis:/data/dump.rdb ./redis-backups/dump.rdb
+- restoring the data
+    - docker cp ./redis-backups/dump.rdb redis:/data/dump.rdb
+
+
+
+
+
+
+
+
 
