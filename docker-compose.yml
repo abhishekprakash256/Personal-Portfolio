@@ -10,7 +10,8 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
-      - ./mongo-backups:/backup
+     # - ./mongo-backups:/backup
+      - ./mongo-backups/db-backup:/backup
 
   redis:
     image: redis:latest
