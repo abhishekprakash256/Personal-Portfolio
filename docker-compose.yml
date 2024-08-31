@@ -10,6 +10,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+      - ./mongo-backups/db-backup:/data/db
 
   redis:
     image: redis:latest
@@ -20,6 +21,7 @@ services:
       - "6379:6379"
     volumes:
       - redis-data:/data
+      - ./redis-backups/dump.rdb:/data/dump.rdb
 
   personal-website:
     image: abhishekprakash256/personal-website:latest

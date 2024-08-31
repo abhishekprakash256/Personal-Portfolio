@@ -10,6 +10,13 @@
     - sending the connect message on the site and make a recovery for it
     - wesite testing has to be updated
 
+    - for the backup 
+        - put them in s3 bucket 
+        - dumb the backup file to s3 bucket
+        - mount the recovery data from s3 bucket to redis and mongo container
+        - put the bulk data insertion as well
+
+
 
 - deploymnet and making the image
     - deploy the image and push to the docker repo
@@ -25,4 +32,18 @@
 - for deploymnet
     - pull the image of webiste
     - run the docker compose 
-    - push the data in mongo
+    - get the redis backup data
+    - get the mongo backup data
+    - attach the data and run the database containers
+
+
+-- the backup appoach 
+    - docker compose down
+    - docker compose up -d
+-- make the dirs /home/ubuntu/redis-backups , /home/ubuntu/mongo-backups
+    - docker cp redis:/data/dump.rdb ./redis-backups/dump.rdb
+    - docker cp mongo:/data/db ./mongo-backups/db-backup
+
+        - docker exec redis redis-cli BGSAVE  #to save the data
+        - 
+
