@@ -24,7 +24,8 @@ services:
       - ./redis-backups:/backup
 
   personal-website:
-    image: abhishekprakash256/personal-website:latest
+   #image: abhishekprakash256/personal-website:latest
+    image: personal-website-test:latest
     container_name: personal-website
     networks:
       - my_network
