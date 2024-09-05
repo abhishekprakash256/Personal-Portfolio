@@ -241,6 +241,20 @@ def tiny_url_render():
     return render_template('demo/tiny-url/tiny_url.html')
 
 
+#----------------search functionlity------------------------------
+
+
+#article page can be tech
+@app.route('/search>')
+def search_data(article_name):
+
+    article_name = 'projects'
+    #page_data = {"articles_json": articles_json}
+
+    data = get_article_data(db_name[0],collections[1],{'article_name': article_name}) 
+    page_data2 = {"articles_json": data}
+
+    return render_template('projects/article.html', **page_data2)
 
 
 #-------------------- the chatting system  ---------------------
