@@ -4,14 +4,20 @@
 
 Check the requirements.txt file for the specific versions - 
 ```
-python3 
-Flask 
-mongodb 
-nginx 
-pymongo 
-aws ec2 (static ip)
-redis
-flask socket IO
+eventlet==0.36.1
+Flask==3.0.3
+Flask_SocketIO==5.3.6
+itsdangerous==2.1.2
+pymongo==4.6.2
+redis==5.0.4
+Werkzeug==3.0.3
+certbot==1.21.0
+certbot-nginx==1.21.0
+Flask-SocketIO==5.3.6
+gunicorn==22.0.0
+httplib2==0.20.2
+Jinja2==3.1.2
+python3
 ```
 
 ### File structure : - 
@@ -116,11 +122,6 @@ db.<collection_name>.drop()  #drop the
 db.my_collection.find() #show all the data in collection
 ```
 
-### The Redis Commands
-```
-redis-cli
-redis-cli
-```
 
 
 ### cert bot commands 
@@ -134,9 +135,6 @@ sudo certbot --nginx -d meabhi.me
 
 #install the certbot
 sudo apt install certbot python3-certbot-nginx
-
-#give the certification
-sudo certbot --nginx -d meabhi.me
 
 #the full command
  sudo certbot certonly --non-interactive --nginx --agree-tos --email abhishekprakash47@gmail.com -d meabhi.me
@@ -194,127 +192,6 @@ sudo systemctl reload nginx
 
 ```
 
-
-### The default nginx file 
-
-```
-
-server {
-    listen 80;
-    server_name www.meabhi.me;
-
-    # Redirect HTTP to HTTPS
-    location / {
-        return 301 https://$host$request_uri;
-    }
-}
-
-server {
-    listen 443 ssl;
-    server_name www.meabhi.me;
-
-    ssl_certificate /etc/letsencrypt/live/meabhi.me/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/meabhi.me/privkey.pem;
-
-    # Other SSL configuration directives (e.g., SSL protocols, ciphers, etc.)
-
-    location / {
-        proxy_pass http://localhost:5000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-}
-
-```
-
-
-### The new Nginx config for socket connection support 
-
-```
-server {
-    listen 80;
-    server_name www.meabhi.me;
-
-    # Redirect HTTP to HTTPS
-    location / {
-        return 301 https://$host$request_uri;
-    }
-}
-
-server {
-    listen 443 ssl;
-    server_name www.meabhi.me;
-
-    ssl_certificate /etc/letsencrypt/live/meabhi.me/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/meabhi.me/privkey.pem;
-
-    # Other SSL configuration directives (e.g., SSL protocols, ciphers, etc.)
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_prefer_server_ciphers on;
-
-    location / {
-        proxy_pass http://localhost:5000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-
-}
-```
-
-
-
-### The config file that has robots.txt file permission 
-```
-server {
-    listen 80;
-    server_name www.meabhi.me;
-
-    # Redirect HTTP to HTTPS
-    location / {
-        return 301 https://$host$request_uri;
-    }
-}
-
-server {
-    listen 443 ssl;
-    server_name www.meabhi.me;
-
-    ssl_certificate /etc/letsencrypt/live/meabhi.me/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/meabhi.me/privkey.pem;
-
-    # Other SSL configuration directives (e.g., SSL protocols, ciphers, etc.)
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_prefer_server_ciphers on;
-
-    # Serve static files directly
-  
-
-    # Serve robots.txt directly
-    location = /robots.txt {
-        root /home/ubuntu/Personal-Portfolio;
-        allow all;
-    }
-
-    location / {
-        proxy_pass http://localhost:5000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-
-  
-}
 
 
 ```
@@ -465,40 +342,6 @@ Reqs  -
 ### The files 
     - the chat.js in static is the main file for two side chatting only
     - chat.html is the main html file 
-
-
-### The Docker Files and Commands
-
-
-### The commands
-
-```
-The docker commands to run the continer step by step
-pull the redis and mongo container 
-docker pull mongo
-docker pull redis
-run these to start the conatainer 
-docker run -d --name mongo -p 27017:27017 mongo:latest
-docker run -d --name redis -p 6379:6379 redis:latest
-docker run -d --name personal-website --network my_network -p 5000:5000 personal-website
-
-docker build -t website-app:latest .    (build the docker image)
-
-
-the modified client interacts with the docker images and insert the data 
-
-docker-compose up --build   (to build up)
-
-docker-compose down  (to remove and take)
-
- 
-
-docker system prune -a   (remove all)
-
-
-docker rm $(docker ps -a -q)  (stop all)
-
-```
 
 
 

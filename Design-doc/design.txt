@@ -578,10 +578,80 @@ sudo apt-get update
 
 -- run the conatainer or before
 -- injest the data 
+  cd mongo && python3 bulk_data_insertion.py
 
 -- docker making the images -
 
 - docker build -t <name-latest>:latest .
+
+- to push to the docker repo
+- use 
+- docker tag personal-website:latest your-dockerhub-username/personal-website:latest
+- docker login
+- docker push your-dockerhub-username/personal-website:latest
+
+
+
+---------------------------------------------------------------------------------------------
+
+problems to tackle -- 
+
+make git ignore for database files
+  (Personal - website) 
+- for files ingestion 
+- for recovery volumes as well 
+
+  (website deployment)
+
+- make branch for test and main 
+- make git ignore for volumes 
+- the test should have docker-compose different 
+
+
+
+-------------------------------------------------------------------
+
+whole deployment process --
+
+make an ec2 instance with the given IP 
+install ansible 
+pymongo 
+get the keys from email for repo 
+
+
+git clone the website deployment repo 
+(make the volumes in the repo if not there (for message saving))
+
+docker compose up -d (to start the container)
+
+docker compose down (to kill the containers)
+
+
+--------------------------------------------------------------------
+
+The development process 
+
+branches -- 
+ - main (fully support docker)
+ - docker-main (the connection are made with client using the Redis and mongo name)
+ - dev (can run the database code locally using the docker container as database) (The clinet are modified)
+ - periodic-testing (run the test periodally for the website)
+ - chore/cleanup (the clean up branch) 
+ - feature/<feature_name>  (any feature name)
+
+- Run the database in docker , ingest the data
+- Run python3 app.py (to start the server)
+
+- if running out the container use localhost as client
+
+- if running the main app in the container use mongo and Redis as client 
+
+
+
+
+
+
+
 
 
 
