@@ -18,3 +18,8 @@ __pycache__/
 #Ignore the redis_hash 
 /static/redis_hash.json
 
+#Ignore the backup files
+/redis-backups
+/mongo-backups
+/message-data
+
