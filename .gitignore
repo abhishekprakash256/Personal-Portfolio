@@ -22,6 +22,6 @@ __pycache__/
 /redis-backups
 /mongo-backups
 /message-data
-gunincorn.log
+gunicorn.log
 output.log
 
