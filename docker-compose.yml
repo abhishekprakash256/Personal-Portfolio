@@ -21,7 +21,7 @@ services:
       - "6379:6379"
     volumes:
       - redis-data:/data
-      - ./redis-backups:/backup
+      - ./redis-backups:/backup 
 
   personal-website:
     image: abhishekprakash256/personal-website:latest
