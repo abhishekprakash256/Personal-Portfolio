@@ -639,6 +639,11 @@ branches --
  - chore/cleanup (the clean up branch) 
  - feature/<feature_name>  (any feature name)
 
+ - merge the branch into main 
+    - git checkout <branch-name>
+    - git merge main
+    - git push
+
 - Run the database in docker , ingest the data
 - Run python3 app.py (to start the server)
 
