@@ -65,20 +65,21 @@ def create_redis_client():
         
 """
 
-#new code
 def create_redis_client():
-    try:
-        # Connect to Redis using the container name
-        #client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
-        client = redis.Redis(host='redis', port=6379, db=0, decode_responses=True)
-        client.ping()  # Pinging the server to ensure it's up.
-        print("Redis client created successfully.")
-        return client
-    except Exception as e:
-        print("Redis client is not working:", e)
-
-
-
+    hosts = ['localhost', 'redis']  # List of hosts to try
+    for host in hosts:
+        try:
+            # Try connecting to MongoDB using the current host
+            client = redis.Redis(host, port=6379, db=0, decode_responses=True)  # 2-second timeout
+            client.ping()  # This forces a connection attempt.
+            print(f"Redis client created successfully using host: {host}")
+            return client
+        except Exception as e:
+            print(f"Failed to connect to Redis using host {host}: {e}")
+    
+    # If neither host works, raise an exception or return None
+    print("Failed to create Redis client with all host options.")
+    return None
 
 
 redis_client = create_redis_client()
