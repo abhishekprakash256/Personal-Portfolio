@@ -12,7 +12,7 @@ services:
       - mongo-data:/data/db
       - ./mongo-backups/db-backup:/backup
 
-  redis:
+  redis: 
     image: redis:latest
     container_name: redis
     networks:
