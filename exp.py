@@ -15,12 +15,12 @@ print(client)
 
 
 # Define the databases and collections you want to search through
-search_targets = {
+databases_and_collections = {
     'articles': ["projects","tech","life"],
     'section': ['section_data'],
     # Add more databases and collections as needed
 }
-
+"""
 def search_mongodb(query):
     all_results = []
     # Regular expression to search for the query
@@ -63,4 +63,59 @@ if __name__ == '__main__':
             print(result)
     else:
         print(f"No results found for query '{query}'.")
+"""
+
+#this has to be run to create the index during bulk insertion
+def create_indexes():
+    for db_name, collections in databases_and_collections.items():
+        db = client[db_name]
+        for collection_name in collections:
+            collection = db[collection_name]
+            # Create a text index on multiple fields
+            collection.create_index([
+                ('article_name', 'text'),
+                ('aticle_data.title', 'text'),
+                ('aticle_data.article_para', 'text'),
+                ('aticle_data.markdown_data', 'text'),
+                ('card_one_text', 'text'),
+                ('card_two_text', 'text'),
+                ('card_three_text', 'text')
+            ])
+
+# Run index creation
+#create_indexes()
+
+def search_mongodb(query):
+    all_results = []
+    regex_query = {"$regex": query, "$options": "i"}  # For regex search, if text search is not used
+
+    for db_name, collections in databases_and_collections.items():
+        db = client[db_name]
+        for collection_name in collections:
+            collection = db[collection_name]
+            # Perform text search using the $text operator
+            results = collection.find({
+                "$text": {"$search": query}
+            })
+            
+            # Process and append the results
+            for result in results:
+                result['_id'] = str(result['_id'])  # Convert ObjectId to string
+                all_results.append(result)
+    
+    return all_results
+
+# Example usage
+if __name__ == '__main__':
+    query = input("Enter search query: ")
+    results = search_mongodb(query)
+    
+    # Print the results
+    if results:
+        print(f"Found {len(results)} result(s) for query '{query}':")
+        for result in results:
+            print(result)
+    else:
+        print(f"No results found for query '{query}'.")
+
 
