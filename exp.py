@@ -84,6 +84,7 @@ def create_indexes():
 
 # Run index creation
 #create_indexes()
+#page usinng is search result
 
 def search_mongodb(query):
     all_results = []
