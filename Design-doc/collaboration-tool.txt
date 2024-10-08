@@ -1,0 +1,49 @@
+#--------------------------colloboration tool -----------------------------------------
+
+features -- 
+
+
+- custom link to share 
+    - need a rate limiter for too many requests
+    - create a link and share 
+    - name login can use ( previous services )
+
+- video call one on one like zoom or meet 
+    - voice 
+    - video
+    - realtime 
+    - video bitrate adjust as per network 
+
+- drawing board 
+    - drawing board 
+    - one two one colloboration 
+    - typing support as well 
+    - shapes as well (later)
+
+- code editor
+    - write code in real time 
+    - both party can write code and edit at the same time
+    - run with the compilor if needed (later)
+
+- chat feature
+    - send one to one message 
+
+- Auto adjust of the ui 
+    - Adjust the video if drawing is open 
+    - Adjust the video if text is open 
+
+- can't support for the mobile right now (too small screen) 
+    - need to have a limiter for screen size
+
+- tabbing support for the window
+    - resize the tab on addition 
+    - video resize
+    
+- meeting end support 
+    - relogin using cookie
+    - cancel the meeting 
+    - kill the link (like kill chat)
+
+
+
+

@@ -652,15 +652,3 @@ branches --
 
 - if running the main app in the container use mongo and Redis as client 
 
-
-#--------------------------colloboration tool -----
-
-
-
-
-
-
-
-
-
-
