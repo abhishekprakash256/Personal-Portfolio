@@ -1,4 +1,4 @@
-#--------------------------colloboration tool -----------------------------------------
+#--------------------------collaboration tool -----------------------------------------
 
 features -- 
 
@@ -11,24 +11,26 @@ features --
 - video call one on one like zoom or meet 
     - voice 
     - video
-    - realtime 
+    - real-time 
     - video bitrate adjust as per network 
 
 - drawing board 
     - drawing board 
-    - one two one colloboration 
+    - one two one collaboration 
     - typing support as well 
     - shapes as well (later)
+    - mulipage suppport
+    - this as inspiration - https://webwhiteboard.com/
 
 - code editor
     - write code in real time 
     - both party can write code and edit at the same time
-    - run with the compilor if needed (later)
+    - run with the compiler if needed (later)
 
 - chat feature
     - send one to one message 
 
-- Auto adjust of the ui 
+- Auto adjust of the UI 
     - Adjust the video if drawing is open 
     - Adjust the video if text is open 
 
@@ -40,7 +42,7 @@ features --
     - video resize
     
 - meeting end support 
-    - relogin using cookie
+    - re-login using cookie
     - cancel the meeting 
     - kill the link (like kill chat)
 
@@ -301,4 +303,37 @@ Monitoring and Logging
         The signaling server (via WebSocket) facilitates connection negotiation between users.
         Media streams are exchanged directly between peers via WebRTC.
 
-This architecture ensures modularity, scalability, and real-time capabilities while leveraging Flask for the backend and modern front-end technologies for a rich, interactive user experience. Let me know if you need more details on any specific part!
+This architecture ensures modularity, scalability, and real-time capabilities while leveraging Flask for the backend and 
+modern front-end technologies for a rich, interactive user experience. Let me know if you need more details on any specific 
+part!
+
+
+Personal Notes -- 
+
+- Auth system ?? 
+    - Auth0 
+    - can replace the login system and can be impmented if needed
+
+- The 3 types of video demand apps 
+    - one to many (streeaming ) 
+    - one to one (video call apps)
+    - many to many ( group calls app )
+
+WebRTC protocol is used for video conferencing apps like Zoom and Google Meet, and there are three network organization types for group calls in video conferencing systems,
+which determine the quality and functionality of group calls.
+Basically, WebRTC is a set of functions, available in most browsers, that allow computers to communicate directly,
+feeding information in realtime without the need of a middleman. Great, this seems to be the solution to the video chat application! 
+
+
+- The HTML5 canvas api 
+    - for the canvas and drawing shapes and stuff 
+    - how to track the mouse now ? 
+        - https://www.geeksforgeeks.org/how-to-draw-with-mouse-in-html-5-canvas/   (this helps to draw and keep track)
+
+
+
+
+
+Links - 
+https://hackernoon.com/developing-a-video-conference-call-app-protocols-architecture-and-considerations
+https://medium.com/@leonardo.daher/how-do-video-chat-applications-work-5d3fcd4155a1
