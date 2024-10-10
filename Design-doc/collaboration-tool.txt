@@ -49,6 +49,8 @@ features --
 
 
 
+
+
 Technologies needed -- 
 
 Building an online collaboration tool with features like video/audio meetings, real-time text editing, a jam board, and a chat system is a complex yet highly feasible project. Since you already have a backend running on Flask, I’ll focus on integrating technologies that complement Flask while delivering real-time features. Below are the tools and technologies to help you build this system:

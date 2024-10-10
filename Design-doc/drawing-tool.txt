@@ -1,0 +1,68 @@
+--------------------- The drawing tool that has colloboration support ---------------------------------------
+
+
+Overview features -
+- drawing board 
+- one two one collaboration (two people)
+- typing support as well 
+- shapes as well (later)
+- Eraser support
+- multipage suppport (or zoom in zoom out (prefered) )
+- this as inspiration - https://webwhiteboard.com/
+
+
+
+Feature details - 
+    - Undo (may need data struture)
+    - Format (erase all the canvas)
+    - Pen 
+        - Pick color (preset)
+        - increase or decrease thickness 
+    - Eraser 
+        - Pick increase the size
+    - Board 
+        - Small Dotted
+        - Make new board Limited to 10 or some number (how to save data from the previous board) 
+    - Show the joined people
+        - Option to cut the call
+
+
+
+Technology ---
+
+Front-end - 
+
+    - Library 
+        - Node js
+        - 
+    
+
+Back-end - 
+    - Flask
+    - SocketIO
+
+
+
+
+
+Database -
+    - Which database to use 
+        - Redis
+
+    
+
+
+
+
+
+Api - 
+    - front end to backend 
+
+
+Links - 
+( how to implement the eraser )
+https://www.youtube.com/watch?v=VHIEhgLS7uE&ab_channel=WebDevNinja
+( make the canvas with eraser with pen )
+https://medium.com/@mottammal1993/day-1-build-a-simple-drawing-app-with-an-eraser-in-javascript-f17dfc43f4fa
+
+
