@@ -19,8 +19,8 @@ Technology -
     - Backend: 
         - Use Flask-SocketIO to synchronize content changes between users in real time.
     - Use ShareDB or Yjs for OT or CRDT. These libraries can handle collaborative text editing with real-time synchronization.
-    - judge0 for the code execution to run code runner 
-    - rapid API 
+    - judge0 for the code execution to run code runner ( self hosting has to be done )
+    - rapid API ( if hosting on that )
 
 
 
@@ -45,6 +45,7 @@ https://www.youtube.com/watch?v=NKGTsxvQK9g
 https://www.pubnub.com/blog/how-to-build-a-reactjs-collaborative-text-editor-with-crdts/#h-5
 https://judge0.com/#products
 https://rapidapi.com/
+https://pusher.com/tutorials/collaborative-text-editor-javascript/
 
 
 

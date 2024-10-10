@@ -1,0 +1,27 @@
+--------------------- The video tool that has colloboration support ---------------------------------------
+
+
+Overview features -
+    - Voice call
+    - Video call
+    - Mic ( mute and ummute)
+    - Video ( hide and show video )
+    - Join and rejoin
+
+
+Technology ---
+
+WebRTC
+
+Front-end - 
+
+    - Library 
+        - React Js
+        - 
+    
+Back-end - 
+    - Flask
+    - SocketIO
+
+
+
