@@ -1,0 +1,45 @@
+The online editor - 
+
+features - 
+	- work like a code editor 
+	- proper indentation 
+	- proper line number 
+	- dark and light theme both available 
+	- minimize and maximize button 
+	- inspiration - https://www.online-ide.com/
+	- Two people edit at the same time as well
+    - https://collabedit.com/ ( this is example )
+
+
+
+Technology -
+	- Frontend: 
+        - Use a rich-text editor like Quill or CodeMirror. Using React Js 
+        - Keep the color same for both
+    - Backend: 
+        - Use Flask-SocketIO to synchronize content changes between users in real time.
+    - Use ShareDB or Yjs for OT or CRDT. These libraries can handle collaborative text editing with real-time synchronization.
+    - 
+
+
+
+- Ui 
+    - A side bar ui can be used like - https://webwhiteboard.com/
+    - With the tools stored one the side bar 
+    - Store all the data like and fetch it after login
+        - both sides
+
+Implement CRDT -
+Conflict-Free Replicated Data Type (CRDT) is a data structure which allows multiple replicas to be updated independently and 
+concurrently without the need for synchronization.
+
+
+
+Links -
+https://www.freecodecamp.org/news/how-to-build-react-based-code-editor/
+https://www.youtube.com/watch?v=lVMUzkTiRO8
+https://www.youtube.com/watch?v=tupa5BRHK4Q
+https://medium.com/@david.roegiers/building-a-real-time-collaborative-text-editor-for-the-web-draftjs-sharedb-1dd8e8826295
+https://www.youtube.com/watch?v=NKGTsxvQK9g
+
+

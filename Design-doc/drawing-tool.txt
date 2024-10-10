@@ -33,8 +33,8 @@ Technology ---
 Front-end - 
 
     - Library 
-        - Node js
-        - 
+        - React Js
+        - html canvas
     
 
 Back-end - 
