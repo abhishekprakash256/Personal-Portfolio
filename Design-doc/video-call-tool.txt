@@ -33,3 +33,6 @@ https://hackernoon.com/developing-a-video-conference-call-app-protocols-architec
 https://medium.com/@leonardo.daher/how-do-video-chat-applications-work-5d3fcd4155a1
 https://medium.com/geekculture/how-to-make-your-own-video-chat-platforms-a-detailed-guide-e851f0d80024
 https://www.youtube.com/watch?v=DvlyzDZDEq4
+https://dev.to/metered-video/webrtc-with-python-and-react-building-a-video-chat-application-mbp
+https://www.100ms.live/blog/webrtc-python-react
+
