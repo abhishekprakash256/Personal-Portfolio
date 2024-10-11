@@ -27,7 +27,9 @@ Back-end -
 
 
 
+
 Links -
 https://hackernoon.com/developing-a-video-conference-call-app-protocols-architecture-and-considerations
 https://medium.com/@leonardo.daher/how-do-video-chat-applications-work-5d3fcd4155a1
 https://medium.com/geekculture/how-to-make-your-own-video-chat-platforms-a-detailed-guide-e851f0d80024
+https://www.youtube.com/watch?v=DvlyzDZDEq4
