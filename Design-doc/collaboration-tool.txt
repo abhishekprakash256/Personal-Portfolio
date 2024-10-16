@@ -340,7 +340,17 @@ feeding information in realtime without the need of a middleman. Great, this see
     - input two names 
     - get a link
 
-- 
+- Join the page 
+    - login the page 
+        - input name 
+    - option to join video and audio to start WebRTC
+    - side bar for tab minimization and maximization
+    - tab option for the board 
+    - tab option for the code editor
+    - tab option for the audio and video call 
+        - option to close video 
+        - option to close audio
+        - option to join and rejoin audio
 
 
 
