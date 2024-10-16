@@ -334,6 +334,17 @@ feeding information in realtime without the need of a middleman. Great, this see
 
 
 
+---- Flow of the design and design essentials that are needed --------------
+
+- Same page as the chat app 
+    - input two names 
+    - get a link
+
+- 
+
+
+
+
 
 
 Links - 
