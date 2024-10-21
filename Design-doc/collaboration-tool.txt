@@ -376,7 +376,9 @@ Edge case --
 challenges -- 
 
 - how to intergrate react in the build system ? 
-- 
+- use the approach bulild the react app and copy the files
+    - give levarage of the new techs and support 
+    - 
 
 
 
