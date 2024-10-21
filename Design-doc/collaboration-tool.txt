@@ -339,6 +339,7 @@ feeding information in realtime without the need of a middleman. Great, this see
 - Same page as the chat app 
     - input two names 
     - get a link
+    - get the qr code 
 
 
 - Join the page 
@@ -352,6 +353,41 @@ feeding information in realtime without the need of a middleman. Great, this see
         - option to close video 
         - option to close audio
         - option to join and rejoin audio
+
+
+Edge case -- 
+
+- what if the user goes offline for sending message and all other services 
+    - 1. 
+        - just disconnect the user completely and not allow the sync functions 
+    - 2.
+        - the sending message can be put in the queue for procesing and send one by one 
+        - the audio and video will be cut off 
+        - the drawing cursor will be stopped as well 
+            - what id they draw on their side (synching issues)
+        - A hybrid approach could work best:
+
+            Queue Changes While Offline: Allow the offline user to continue making changes, but queue them for later synchronization when they come back online. This improves the user experience without major disruption.
+            Show Online Status: Indicate in the UI when one user goes offline, so the online user knows that changes from their collaborator will be delayed.
+            Conflict Resolution System: Use OT or CRDTs to manage conflicts, ensuring that changes are merged consistently when the offline user reconnects.
+
+
+
+challenges -- 
+
+- how to intergrate react in the build system ? 
+- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
