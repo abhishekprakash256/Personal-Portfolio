@@ -75,6 +75,12 @@ Here’s an updated directory structure that includes shared components for both
         ├── requirements.txt
         ├── Dockerfile
         └── .dockerignore
+│
+└── nginx
+│
+└── redis (as a service)
+└── mongo (as a service)
+
 ```
 
 ### How to Share Frontend Components
@@ -268,4 +274,72 @@ services:
 
 With this architecture, you maintain a clear separation of concerns while maximizing code reuse and keeping your project organized.
 
+
+--- the backend architecture -- 
+
+/my-project
+│
+├── docker-compose.yml
+│
+├── frontend
+│   ├── main-website
+│   │   ├── ...
+│   │   ├── Dockerfile
+│   │   └── .dockerignore
+│   │
+│   ├── chat-app
+│   │   ├── ...
+│   │   ├── Dockerfile
+│   │   └── .dockerignore
+│   │
+│   ├── tinyurl
+│   │   ├── ...
+│   │   ├── Dockerfile
+│   │   └── .dockerignore
+│   │
+│   └── static-website
+│       ├── ...
+│       ├── Dockerfile
+│       └── .dockerignore
+│
+└── backend
+    ├── main-backend
+    │   ├── app.py (Flask or another framework)
+    │   ├── requirements.txt
+    │   ├── Dockerfile
+    │   └── .dockerignore
+    │
+    ├── chat-app
+    │   ├── app.py
+    │   ├── requirements.txt
+    │   ├── Dockerfile
+    │   └── .dockerignore
+    │
+    ├── tinyurl
+    │   ├── app.py
+    │   ├── requirements.txt
+    │   ├── Dockerfile
+    │   └── .dockerignore
+    │
+    └── static-website
+        ├── app.py
+        ├── requirements.txt
+        ├── Dockerfile
+        └── .dockerignore
+│
+└── nginx
+│
+└── redis (as a service)
+└── mongo (as a service)
+
+- implemnt a logging system as well 
+    - Prometheus can be used 
+
+
+- the share folder will be in the root directory and can access the files to the docker container and that can be mounted 
+- to the docker container 
+- make the share code as library 
+    - python using the pip 
+    - make the js library for sharing the code
+    
 
