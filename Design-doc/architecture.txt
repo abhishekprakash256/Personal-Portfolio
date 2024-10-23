@@ -358,6 +358,8 @@ With this architecture, you maintain a clear separation of concerns while maximi
 
 
 - frontend resusable components 
+    - base 
+    - css components
     - navbar
     - footer 
     - card
