@@ -343,3 +343,34 @@ With this architecture, you maintain a clear separation of concerns while maximi
     - make the js library for sharing the code
     
 
+
+- start with services backend 
+
+- mongo connection
+    - mong CRUD operation
+    - bulk_data_insertion
+    - readjson
+- hash generation 
+    - making hashes
+- redis connection 
+    - redis CRUD operation
+    - read_data_mongo
+
+
+- frontend resusable components 
+    - navbar
+    - footer 
+    - card
+    - card display
+    - heading 
+    - article desc 
+    - markdown block 
+    - more 
+    - social-media
+
+
+
+
+
+
+
