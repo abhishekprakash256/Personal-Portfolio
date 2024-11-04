@@ -331,6 +331,7 @@ With this architecture, you maintain a clear separation of concerns while maximi
 │
 └── redis (as a service)
 └── mongo (as a service)
+└── hashmaker (as a service)
 
 - implemnt a logging system as well 
     - Prometheus can be used 
