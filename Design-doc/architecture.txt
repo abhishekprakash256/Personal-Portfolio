@@ -373,6 +373,104 @@ With this architecture, you maintain a clear separation of concerns while maximi
 
 
 
+/my-project
+│
+├── docker-compose.yml
+│
+├── shared
+│   ├── frontend
+│   │   ├── components
+│   │   ├── hooks
+│   │   ├── utils
+│   │   └── package.json
+│   │
+│   └── backend
+│       ├── hash-utils
+|		└── redis-helper-kit 
+|		└── nongo-helper-kit 
+│		└── requirements.txt
+|
+├── frontend
+│   ├── main-website
+│   │   ├── public
+│   │   ├── src
+│   │   ├── package.json
+│   │   ├── Dockerfile
+│   │   └── .dockerignore
+│   │
+│   ├── chat-app
+│   │   ├── public
+│   │   ├── src
+│   │   ├── package.json
+│   │   ├── Dockerfile
+│   │   └── .dockerignore
+│   │
+│   ├── tinyurl
+│   │   ├── public
+│   │   ├── src
+│   │   ├── package.json
+│   │   ├── Dockerfile
+│   │   └── .dockerignore
+│   │
+│   └── static-website
+│       ├── public
+│       ├── src
+│       ├── package.json
+│       ├── Dockerfile
+│       └── .dockerignore
+│
+└── backend
+    ├── main-website
+    │   ├── app.py
+    │   ├── requirements.txt
+    │   ├── Dockerfile
+    │   └── .dockerignore
+    │
+    ├── chat-app
+    │   ├── app.py
+    │   ├── requirements.txt
+    │   ├── Dockerfile
+    │   └── .dockerignore
+    │
+    ├── tinyurl
+    │   ├── app.py
+    │   ├── requirements.txt
+    │   ├── Dockerfile
+    │   └── .dockerignore
+    │
+    └── static-website
+        ├── app.py
+        ├── requirements.txt
+        ├── Dockerfile
+        └── .dockerignore
+│
+└── redis ( docker container )
+└── mongo ( docker conatiner )
+│
+└── nginx
+│
+└── certbot-certifcate
 
+
+
+
+the package scrapping --- 
+- deployment - 
+	- bulk data insertion
+	- mongo-helper-kit
+	- read-data-json
+- data handling have to look 
+- shared-utils
+	- make_hashes (low,high)
+	- generate_unique_hash(set_name,hash_name)
+		- will check the unique hash everytime 
+		- add to the global set with unique hash value 
+	- read_data_json (file_path)
+	- 
+
+
+- mongo-helper-kit
+- redis-helper-kit
+	- 
 
 
