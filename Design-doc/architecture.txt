@@ -378,12 +378,17 @@ the package scrapping ---
 
 
 
+Considerations -- 
+
+- flask app api redirections
+- 
+
 
 -----------------------------------------------
 the front-end scrapping 
 
 - front-end shared components
-  - body container
+  - base 
   - header bar 
   - button 
   - heading bar
@@ -398,6 +403,7 @@ the front-end scrapping
   - article desc
   - footer
   - social media container
+
 
 
 
