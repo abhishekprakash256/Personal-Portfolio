@@ -260,6 +260,20 @@ services:
       - "80:80"
 ```
 
+
+- frontend resusable components 
+    - base 
+    - css components
+    - navbar
+    - footer 
+    - card
+    - card display
+    - heading 
+    - article desc 
+    - markdown block 
+    - more 
+    - social-media
+
 ### Summary of Shared Resources
 
 1. **Code Reuse**: By having a `shared` directory, you can avoid duplicating code across your projects. This promotes maintainability and consistency.
@@ -275,36 +289,56 @@ services:
 With this architecture, you maintain a clear separation of concerns while maximizing code reuse and keeping your project organized.
 
 
---- the backend architecture -- 
 
 /my-project
 │
 ├── docker-compose.yml
 │
+├── shared ( package format that can be installed in docker conmatiner as per need , it can be a python or js package has react components )
+│   ├── frontend
+│   │   ├── components
+│   │   ├── hooks
+│   │   ├── utils
+│   │   └── package.json
+│   │
+│   └── backend ( all are python packages can be installed using pip )
+│       ├── hash-utils
+|       └── redis-helper-kit
+|       └── nongo-helper-kit
+│       └── requirements.txt
+|
 ├── frontend
 │   ├── main-website
-│   │   ├── ...
+│   │   ├── public
+│   │   ├── src
+│   │   ├── package.json
 │   │   ├── Dockerfile
 │   │   └── .dockerignore
 │   │
 │   ├── chat-app
-│   │   ├── ...
+│   │   ├── public
+│   │   ├── src
+│   │   ├── package.json
 │   │   ├── Dockerfile
 │   │   └── .dockerignore
 │   │
 │   ├── tinyurl
-│   │   ├── ...
+│   │   ├── public
+│   │   ├── src
+│   │   ├── package.json
 │   │   ├── Dockerfile
 │   │   └── .dockerignore
 │   │
 │   └── static-website
-│       ├── ...
+│       ├── public
+│       ├── src
+│       ├── package.json
 │       ├── Dockerfile
 │       └── .dockerignore
 │
 └── backend
-    ├── main-backend
-    │   ├── app.py (Flask or another framework)
+    ├── main-website
+    │   ├── app.py
     │   ├── requirements.txt
     │   ├── Dockerfile
     │   └── .dockerignore
@@ -326,49 +360,63 @@ With this architecture, you maintain a clear separation of concerns while maximi
         ├── requirements.txt
         ├── Dockerfile
         └── .dockerignore
-│
-└── nginx
-│
-└── redis (as a service)
-└── mongo (as a service)
-
-- implemnt a logging system as well 
-    - Prometheus can be used 
-
-
-- the share folder will be in the root directory and can access the files to the docker container and that can be mounted 
-- to the docker container 
-- make the share code as library 
-    - python using the pip 
-    - make the js library for sharing the code
-    
+|
+└── redis ( docker container )
+└── mongo ( docker conatiner )
+└── nginx (running bare metal)
+└── certbot-certifcate 
+└── mongo-data-insertion
+└── data-files (json format)
 
 
-- start with services backend 
-
-- mongo connection
-    - mong CRUD operation
-    - bulk_data_insertion
-    - readjson
-- hash generation 
-    - making hashes
-- redis connection 
-    - redis CRUD operation
-    - read_data_mongo
 
 
-- frontend resusable components 
-    - base 
-    - css components
-    - navbar
-    - footer 
-    - card
-    - card display
-    - heading 
-    - article desc 
-    - markdown block 
-    - more 
-    - social-media
+the package scrapping ---
+- deployment -
+  - bulk data insertion
+  - read-data-json
+
+
+
+Considerations -- 
+
+- flask app api redirections
+- 
+
+
+-----------------------------------------------
+the front-end scrapping 
+
+- front-end shared components
+  - base 
+  - header bar 
+  - button 
+  - heading bar
+  - contact form 
+  - card 
+  - more
+  - markdown container
+  - input field
+  - qr code generater
+  - copy url
+  - image container
+  - article desc
+  - footer
+  - social media container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
