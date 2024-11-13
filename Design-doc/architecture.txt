@@ -88,12 +88,7 @@ the package scrapping ---
 
 
 
-
-
-
-
-
------------------------------------------------
+--------------------------------------------------------------------
 the front-end scrapping 
 
 - front-end shared components
@@ -112,6 +107,125 @@ the front-end scrapping
   - article desc
   - footer
   - social media container
+
+
+
+
+--------------------------------------------------------------------------
+
+Database design 
+
+database - 
+
+mongodb - 
+  - article (db)
+    - project (collection)
+    - tech (collection)
+    - life (collection)
+  
+  - message-data (db)
+    - messages (collection)
+
+
+
+
+
+
+
+artcile storage format - 
+
+  {
+  article-id (unique comes from redis helper)
+  article-title  (card)
+  article-card-Image (card)
+  article-short-description (card)
+  explore-page-link (card)
+  article-data [
+  heading, img_url, description
+  heading, img_url, descriptionn 
+  heading , img_url ,description
+  ]
+  demo-link 
+
+  }
+
+
+
+
+### Imp
+
+ - if a card is not there make the space for card (exact space ) , so rendering is unique
+ - make the logic for displaying only 9 cards per page and the next goes other page
+ - The unique hash comes from unique hash maker always 
+ - unique-hash-stored  = unique-hash-dict (in redis hash map) for the used hashes 
+ - unique-hash-generated = unique-has-set ( in redis hash set) to not generate duplicate hashses 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
