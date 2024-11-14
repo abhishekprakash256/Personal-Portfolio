@@ -92,21 +92,20 @@ the package scrapping ---
 the front-end scrapping 
 
 - front-end shared components
-  - base 
-  - header bar 
-  - button 
-  - heading bar
+  - base  (done)
+  - header bar  (done )
+  - button  (done)
   - contact form 
-  - card 
-  - more
+  - card  (done)
+  - more (done)
   - markdown container
-  - input field
   - qr code generater
-  - copy url
+  - copy url 
   - image container
   - article desc
   - footer
   - social media container
+  - more page number
 
 
 
@@ -135,17 +134,23 @@ mongodb -
 artcile storage format - 
 
   {
-  article-id (unique comes from redis helper)
-  article-title  (card)
-  article-card-Image (card)
-  article-short-description (card)
-  explore-page-link (card)
-  article-data [
-  heading, img_url, description
-  heading, img_url, descriptionn 
-  heading , img_url ,description
+  article_id (unique comes from redis helper)
+  article_title  (card)
+  article_card_Image (card)
+  article_short_description (card)
+  explore_page_link (card)
+  article_data [
+  heading, img_url, description , markdown_data
+  heading, img_url, descriptionn , markdown_data
+  heading , img_url ,description , markdown_data
   ]
-  demo-link 
+  social_link {
+    github_link 
+    gitlab_link 
+    medium_link
+
+  }
+  demo-link  
 
   }
 
@@ -162,9 +167,78 @@ artcile storage format -
 
 
 
+--------------------------------------------------------------------------------------------
+
+changes as per data fetching and react app 
+
+pass the data from bakend as a api call /data 
+
+ - how the mutiple database and collections can be handled 
+ - 
 
 
 
+in data all the data can be access by loops and keys
+- start the flask and the react sevre on 5000 and 3000 port 
+- example 
+
+    in flask code -- 
+    from flask import Flask, jsonify
+    from flask_cors import CORS
+
+    app = Flask(__name__)
+    CORS(app)  # This will allow cross-origin requests from any domain
+
+      @app.route("/exp")
+      def experience():
+          data = {
+              "message": "Welcome to the experience page!",
+              "number": 42
+          }
+          return jsonify(data)
+        
+      
+    in front end code -- 
+
+    function Experience() {
+      const [data, setData] = useState(null); // State to store fetched data
+      const [loading, setLoading] = useState(true); // State to show loading status
+
+      useEffect(() => {
+        // Fetch data from the Flask API
+        fetch("http://localhost:5000/exp") // Adjust URL if necessary
+          .then((response) => response.json())
+          .then((data) => {
+            setData(data); // Store the data in the state
+            setLoading(false); // Set loading to false after data is fetched
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      }, []);
+
+      if (loading) return <p>Loading...</p>;
+
+      return (
+        <div>
+          <h1>Message: {data.message}</h1>
+          <p>Number: {data.number}</p>
+        </div>
+      );
+    }
+
+    export default Experience;
+          
+  
+
+
+
+
+flask render will not be used now 
+flask will only retun the json data and process it 
+state Management in react will be used to manipute the dom 
+- The card component can hold max of 9 crads and then next page 
+- the card componet should can also display 3 comoponnets from one section then different card componete with different section 
+- collection can be passed as parameter in card and then loop can be run as per times to display the data 
+- 
 
 
 
